@@ -53,7 +53,7 @@ export default function Partners() {
         
         {/* Title */}
         <div className="text-center space-y-3 mb-12">
-          <span className="text-xs font-semibold tracking-widest text-[#C9A84C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             Global Network
           </span>
           <h2 className="text-2xl md:text-3xl font-bold font-heading text-white">
@@ -72,7 +72,7 @@ export default function Partners() {
               onClick={() => setActiveRegion(region)}
               className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all border cursor-pointer ${
                 activeRegion === region
-                  ? "bg-gold-light border-gold text-[#C9A84C]"
+                  ? "bg-orange-light border-orange text-[#EA580C]"
                   : "bg-white/5 border-transparent text-gray-300 hover:bg-white/10"
               }`}
             >
@@ -91,14 +91,14 @@ export default function Partners() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="glass p-5 rounded-xl border border-white/5 flex flex-col justify-between hover:border-[#C9A84C]/35 hover:-translate-y-1 group transition-all duration-300 grayscale hover:grayscale-0 hover:glow-gold"
+                className="glass p-5 rounded-xl border border-white/5 flex flex-col justify-between hover:border-[#EA580C]/35 hover:-translate-y-1 group transition-all duration-300 grayscale hover:grayscale-0 hover:glow-orange"
               >
                 <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-white/5 group-hover:bg-[#C9A84C]/10 flex items-center justify-center text-gray-400 group-hover:text-gold transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-white/5 group-hover:bg-[#EA580C]/10 flex items-center justify-center text-gray-400 group-hover:text-orange transition-colors">
                     <Landmark className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold text-white group-hover:text-gold transition-colors truncate">
+                    <h3 className="text-xs font-bold text-white group-hover:text-orange transition-colors truncate">
                       {uni.name}
                     </h3>
                     <p className="text-[10px] text-gray-400 mt-1">{uni.location}</p>

@@ -24,12 +24,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <GraduationCap className="w-5 h-5 text-gold" />,
+        icon: <GraduationCap className="w-5 h-5 text-orange" />,
         title: "F-1 Academic Route",
         desc: "Highest acceptance rates at major universities. Full interview coaching included.",
       },
       {
-        icon: <Briefcase className="w-5 h-5 text-gold" />,
+        icon: <Briefcase className="w-5 h-5 text-orange" />,
         title: "H-1B Cap Registration",
         desc: "Specialty occupation work visa petitions backed by labor verification auditing.",
       },
@@ -46,12 +46,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <Landmark className="w-5 h-5 text-gold" />,
+        icon: <Landmark className="w-5 h-5 text-orange" />,
         title: "Express Entry PR Draw",
         desc: "Federal Points System optimization for quick ITAs.",
       },
       {
-        icon: <Briefcase className="w-5 h-5 text-gold" />,
+        icon: <Briefcase className="w-5 h-5 text-orange" />,
         title: "Provincial Nominations",
         desc: "Targeted PNP streams for candidates with scores below 500.",
       },
@@ -68,12 +68,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <Briefcase className="w-5 h-5 text-gold" />,
+        icon: <Briefcase className="w-5 h-5 text-orange" />,
         title: "Skilled Worker sponsorship",
         desc: "Requires license audits and SOC code/salary matching.",
       },
       {
-        icon: <GraduationCap className="w-5 h-5 text-gold" />,
+        icon: <GraduationCap className="w-5 h-5 text-orange" />,
         title: "UK Graduate Route",
         desc: "Switch from Tier 4 student visa to 2-year work permit seamlessly.",
       },
@@ -90,12 +90,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <Landmark className="w-5 h-5 text-gold" />,
+        icon: <Landmark className="w-5 h-5 text-orange" />,
         title: "Subclass 189 / 190 PR",
         desc: "Skilled migration channels backed by Skills Assessments.",
       },
       {
-        icon: <Briefcase className="w-5 h-5 text-gold" />,
+        icon: <Briefcase className="w-5 h-5 text-orange" />,
         title: "Regional Subclass 491",
         desc: "5-year visa allowing living/working in regional Australia with PR pathways.",
       },
@@ -112,12 +112,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <Briefcase className="w-5 h-5 text-gold" />,
+        icon: <Briefcase className="w-5 h-5 text-orange" />,
         title: "Opportunity Card (Chancenkarte)",
         desc: "Enter Germany on a points checklist to find employment.",
       },
       {
-        icon: <Landmark className="w-5 h-5 text-gold" />,
+        icon: <Landmark className="w-5 h-5 text-orange" />,
         title: "EU Blue Card",
         desc: "Fast-track permanent residency for high-earning professionals.",
       },
@@ -137,7 +137,7 @@ export default function Destinations() {
         
         {/* Title */}
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-[#C9A84C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             Global Horizons
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
@@ -156,7 +156,7 @@ export default function Destinations() {
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-3 rounded-full text-xs md:text-sm font-semibold whitespace-nowrap transition-all border cursor-pointer ${
                 activeTab === tab
-                  ? "bg-gold-light border-gold text-[#C9A84C] glow-gold"
+                  ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
                   : "bg-white/5 border-transparent text-gray-300 hover:bg-white/10"
               }`}
             >
@@ -166,7 +166,7 @@ export default function Destinations() {
         </div>
 
         {/* Content Box */}
-        <div className="glass-premium rounded-2xl p-6 md:p-10 border border-gold/10 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
+        <div className="glass-premium rounded-2xl p-6 md:p-10 border border-orange/10 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -196,7 +196,7 @@ export default function Destinations() {
                     {data.pathways.map((path, index) => (
                       <div
                         key={index}
-                        className="glass p-4 rounded-xl border border-white/5 space-y-2 hover:border-[#C9A84C]/20 transition-colors"
+                        className="glass p-4 rounded-xl border border-white/5 space-y-2 hover:border-[#EA580C]/20 transition-colors"
                       >
                         <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
                           {path.icon}
@@ -230,7 +230,7 @@ export default function Destinations() {
                   <span className="text-[10px] text-gray-300 uppercase font-semibold">Ready to choose?</span>
                   <a
                     href={`/services/${data.slug}`}
-                    className="bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] text-xs font-bold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 hover:scale-105"
+                    className="bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] text-xs font-bold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 hover:scale-105"
                   >
                     <span>View Portal</span>
                     <ArrowRight className="w-3.5 h-3.5" />

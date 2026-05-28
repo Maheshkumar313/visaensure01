@@ -70,13 +70,13 @@ export default function SuccessStories() {
 
   return (
     <section className="py-20 bg-[#050b14] border-t border-white/5 relative">
-      <div className="absolute top-[40%] left-[20%] w-[350px] h-[350px] rounded-full bg-[#C9A84C]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[40%] left-[20%] w-[350px] h-[350px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 md:px-8 text-center space-y-10">
         
         {/* Title */}
         <div className="space-y-3">
-          <span className="text-xs font-semibold tracking-widest text-[#C9A84C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             Testimonials
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
@@ -85,8 +85,8 @@ export default function SuccessStories() {
         </div>
 
         {/* Carousel Window */}
-        <div className="glass-premium rounded-3xl p-8 md:p-12 border border-gold/10 relative overflow-hidden min-h-[300px] flex flex-col justify-between items-center">
-          <div className="absolute top-6 left-6 text-gold/10">
+        <div className="glass-premium rounded-3xl p-8 md:p-12 border border-orange/10 relative overflow-hidden min-h-[300px] flex flex-col justify-between items-center">
+          <div className="absolute top-6 left-6 text-orange/10">
             <Quote className="w-20 h-20 rotate-180" />
           </div>
 
@@ -110,7 +110,7 @@ export default function SuccessStories() {
                 
                 <div className={`w-full space-y-6 ${current.image ? 'md:w-2/3' : 'text-center'}`}>
                   {/* Stars */}
-                  <div className={`flex gap-1 text-[#C9A84C] ${current.image ? 'justify-start' : 'justify-center'}`}>
+                  <div className={`flex gap-1 text-[#EA580C] ${current.image ? 'justify-start' : 'justify-center'}`}>
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
@@ -123,12 +123,12 @@ export default function SuccessStories() {
 
                   {/* Profile */}
                   <div className={`flex items-center gap-3 ${current.image ? 'justify-start' : 'justify-center'}`}>
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C9A84C] to-[#0A1628] flex items-center justify-center font-bold text-[#0A1628] text-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#EA580C] to-[#0A1628] flex items-center justify-center font-bold text-[#0A1628] text-sm">
                       {current.avatar}
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-white">{current.name}</h4>
-                      <span className="text-[10px] text-gold font-semibold tracking-wide uppercase">
+                      <span className="text-[10px] text-orange font-semibold tracking-wide uppercase">
                         {current.visaType}
                       </span>
                     </div>
@@ -142,14 +142,14 @@ export default function SuccessStories() {
           <div className="flex gap-4 mt-8 relative z-20">
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-gold/30 text-gray-300 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-orange/30 text-gray-300 hover:text-white flex items-center justify-center transition-all cursor-pointer"
               aria-label="Previous Testimonial"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-gold/30 text-gray-300 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-orange/30 text-gray-300 hover:text-white flex items-center justify-center transition-all cursor-pointer"
               aria-label="Next Testimonial"
             >
               <ArrowRight className="w-4 h-4" />

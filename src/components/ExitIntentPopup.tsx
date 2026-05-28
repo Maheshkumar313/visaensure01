@@ -43,7 +43,7 @@ export default function ExitIntentPopup() {
       />
 
       {/* Container */}
-      <div className="relative w-full max-w-md bg-[#0A1628] border border-gold/30 rounded-2xl p-6 md:p-8 shadow-2xl z-10 transition-all text-center space-y-5 animate-in fade-in zoom-in-95">
+      <div className="relative w-full max-w-md bg-[#0A1628] border border-orange/30 rounded-2xl p-6 md:p-8 shadow-2xl z-10 transition-all text-center space-y-5 animate-in fade-in zoom-in-95">
         {/* Close */}
         <button
           onClick={() => setIsOpen(false)}
@@ -55,7 +55,7 @@ export default function ExitIntentPopup() {
         {!isSubmitted ? (
           <>
             {/* Icon */}
-            <div className="w-16 h-16 bg-[#C9A84C]/10 border border-[#C9A84C]/25 rounded-full flex items-center justify-center mx-auto text-gold animate-bounce">
+            <div className="w-16 h-16 bg-[#EA580C]/10 border border-[#EA580C]/25 rounded-full flex items-center justify-center mx-auto text-orange animate-bounce">
               <Gift className="w-8 h-8" />
             </div>
 
@@ -77,7 +77,7 @@ export default function ExitIntentPopup() {
                 placeholder="Your Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold"
+                className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange"
               />
               <input
                 type="email"
@@ -85,11 +85,11 @@ export default function ExitIntentPopup() {
                 placeholder="Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold"
+                className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange"
               />
               <button
                 type="submit"
-                className="w-full py-3 bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] font-bold rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02]"
+                className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-bold rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02]"
               >
                 <span>Send Me The Free Guide</span>
                 <Send className="w-4 h-4" />

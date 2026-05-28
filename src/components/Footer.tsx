@@ -25,7 +25,7 @@ export default function Footer() {
           viewBox="0 0 400 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="stroke-[#C9A84C]"
+          className="stroke-[#EA580C]"
         >
           <path
             d="M10 80 Q 150 10, 300 90 T 390 20"
@@ -34,7 +34,7 @@ export default function Footer() {
             className="path-anim"
           />
           {/* Animated plane node */}
-          <circle r="4" fill="#C9A84C">
+          <circle r="4" fill="#EA580C">
             <animateMotion dur="10s" repeatCount="indefinite" path="M10 80 Q 150 10, 300 90 T 390 20" />
           </circle>
         </svg>
@@ -58,7 +58,7 @@ export default function Footer() {
               />
               <div className="flex flex-col">
                 <span className="text-base font-heading tracking-widest font-bold text-white">
-                  VISA<span className="text-[#C9A84C]">ENSURE</span>
+                  VISA<span className="text-[#EA580C]">ENSURE</span>
                 </span>
                 <span className="text-[8px] tracking-wider text-gray-500 uppercase mt-0.5">
                   Your Trusted Visa Companion
@@ -73,13 +73,28 @@ export default function Footer() {
 
           <div className="space-y-2 text-[10px]">
             <div className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-gold" />
+              <MapPin className="w-3.5 h-3.5 text-[#EA580C]" />
               <span>Domalguda Main Road, Liberty Circle, Hyderabad</span>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-gold" />
-              <a href="mailto:apply@visaensure.com" className="hover:text-gold transition-colors">apply@visaensure.com</a>
+              <Mail className="w-3.5 h-3.5 text-[#EA580C]" />
+              <a href="mailto:apply@visaensure.com" className="hover:text-[#EA580C] transition-colors">apply@visaensure.com</a>
             </div>
+          </div>
+          
+          <div className="flex items-center gap-4 pt-4">
+            <a href="https://facebook.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#EA580C] transition-colors" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://instagram.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#EA580C] transition-colors" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://linkedin.com/company/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#EA580C] transition-colors" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://x.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#EA580C] transition-colors" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
           </div>
         </div>
 
@@ -88,27 +103,27 @@ export default function Footer() {
           <h4 className="text-white text-xs font-bold uppercase tracking-wider">Services</h4>
           <ul className="space-y-2 text-[11px]">
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-gold transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
                 Student Visa (F-1/Study Permits)
               </a>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-gold transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
                 Work Visas & Opportunity Cards
               </a>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-gold transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
                 PR & Skilled Migration (EE/PNP)
               </a>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-gold transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
                 Tourist & Short-Term Visitor Visas
               </a>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-gold transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
                 English Exam Coaching (IELTS/PTE)
               </a>
             </li>
@@ -120,19 +135,19 @@ export default function Footer() {
           <h4 className="text-white text-xs font-bold uppercase tracking-wider">Destinations</h4>
           <ul className="space-y-2 text-[11px]">
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-gold transition-colors">United States</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">United States</a>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-gold transition-colors">Canada</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">Canada</a>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-gold transition-colors">United Kingdom</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">United Kingdom</a>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-gold transition-colors">Australia</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">Australia</a>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-gold transition-colors">Germany</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">Germany</a>
             </li>
           </ul>
         </div>
@@ -148,11 +163,11 @@ export default function Footer() {
               type="email"
               required
               placeholder="E.g. rajesh@gmail.com"
-              className="flex-1 bg-[#122540] border border-white/10 rounded px-2.5 py-1.5 text-[10px] text-white focus:outline-none focus:border-gold"
+              className="flex-1 bg-[#122540] border border-white/10 rounded px-2.5 py-1.5 text-[10px] text-white focus:outline-none focus:border-[#EA580C]"
             />
             <button
               type="submit"
-              className="bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] px-2.5 rounded flex items-center justify-center transition-colors cursor-pointer"
+              className="bg-[#EA580C] hover:bg-[#C2410C] text-[#0A1628] px-2.5 rounded flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Subscribe"
             >
               <Send className="w-3.5 h-3.5" />

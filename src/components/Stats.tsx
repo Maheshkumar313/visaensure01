@@ -27,7 +27,7 @@ function Counter({ end, suffix = "", duration = 2 }: { end: number; suffix?: str
   }, [isInView, end, duration]);
 
   return (
-    <span ref={ref} className="font-heading font-bold text-[#C9A84C]">
+    <span ref={ref} className="font-heading font-bold text-[#EA580C]">
       {count.toLocaleString()}
       {suffix}
     </span>
@@ -38,7 +38,7 @@ export default function Stats() {
   return (
     <section className="py-20 bg-[#0A1628] border-t border-white/5 relative overflow-hidden">
       {/* Background abstract shape */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.03)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234, 88, 12,0.03)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">

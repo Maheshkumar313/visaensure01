@@ -28,22 +28,22 @@ export default function Globe3D() {
         .backgroundColor('rgba(0,0,0,0)')
         .showGlobe(true)
         .showAtmosphere(true)
-        .atmosphereColor('#C9A84C')
+        .atmosphereColor('#EA580C')
         .atmosphereAltitude(0.15)
         .polygonsData(geoJsonData.current.features)
         .polygonAltitude(0.01)
-        .polygonCapColor(() => 'rgba(201,168,76, 0.25)') // Base gold color for continents
-        .polygonSideColor(() => 'rgba(201,168,76, 0.0)')
-        .polygonStrokeColor(() => 'rgba(201,168,76, 0.8)')
+        .polygonCapColor(() => 'rgba(234, 88, 12, 0.25)') // Base gold color for continents
+        .polygonSideColor(() => 'rgba(234, 88, 12, 0.0)')
+        .polygonStrokeColor(() => 'rgba(234, 88, 12, 0.8)')
         .polygonLabel((d: any) => `
-          <div style="background: rgba(10,22,40,0.95); padding: 8px 12px; border-radius: 8px; color: white; border: 1px solid #C9A84C; font-family: inherit; font-size: 13px; font-weight: 500; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
-            <strong style="color: #C9A84C; display: block; margin-bottom: 2px;">${d.properties.ADMIN}</strong>
+          <div style="background: rgba(10,22,40,0.95); padding: 8px 12px; border-radius: 8px; color: white; border: 1px solid #EA580C; font-family: inherit; font-size: 13px; font-weight: 500; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+            <strong style="color: #EA580C; display: block; margin-bottom: 2px;">${d.properties.ADMIN}</strong>
             <span style="font-size: 11px; color: #a0aec0;">ISO: ${d.properties.ISO_A2} | Pop: ${(d.properties.POP_EST / 1000000).toFixed(1)}M</span>
           </div>
         `)
         .onPolygonHover((hoverD: any) => globe
           .polygonAltitude((d: any) => d === hoverD ? 0.08 : 0.01)
-          .polygonCapColor((d: any) => d === hoverD ? 'rgba(201,168,76, 0.9)' : 'rgba(201,168,76, 0.25)')
+          .polygonCapColor((d: any) => d === hoverD ? 'rgba(234, 88, 12, 0.9)' : 'rgba(234, 88, 12, 0.25)')
         )
         .polygonsTransitionDuration(300);
 
@@ -81,22 +81,22 @@ export default function Globe3D() {
       {/* Load globe.gl via unpkg */}
       <Script 
         src="https://unpkg.com/globe.gl" 
-        strategy="lazyOnload" 
+        strategy="afterInteractive" 
         onLoad={() => setGlobeReady(true)}
       />
       
       {/* Background radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.12)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234, 88, 12,0.12)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Globe Container */}
       <div ref={containerRef} className="w-full h-full relative z-10 cursor-crosshair" />
 
       {/* Floating visa status cards */}
-      <div className="absolute top-[10%] right-[10%] glass border-gold/20 p-3 rounded-lg text-xs flex items-center gap-2 animate-float shadow-lg z-20 pointer-events-none">
+      <div className="absolute top-[10%] right-[10%] glass border-orange/20 p-3 rounded-lg text-xs flex items-center gap-2 animate-float shadow-lg z-20 pointer-events-none">
         <span className="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
-        <span className="font-semibold text-gold">VE-2026: USA F-1 Approved</span>
+        <span className="font-semibold text-orange">VE-2026: USA F-1 Approved</span>
       </div>
-      <div className="absolute bottom-[20%] left-[5%] glass border-gold/20 p-3 rounded-lg text-xs flex items-center gap-2 animate-float shadow-lg z-20 pointer-events-none" style={{ animationDelay: "1.5s" }}>
+      <div className="absolute bottom-[20%] left-[5%] glass border-orange/20 p-3 rounded-lg text-xs flex items-center gap-2 animate-float shadow-lg z-20 pointer-events-none" style={{ animationDelay: "1.5s" }}>
         <span className="w-2 h-2 rounded-full bg-blue-400"></span>
         <span className="font-semibold text-white">Canada Express Entry CRS: 512</span>
       </div>

@@ -68,7 +68,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-xl bg-[#0A1628] border border-gold/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
+      <div className="relative w-full max-w-xl bg-[#0A1628] border border-orange/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-gradient-to-r from-[#050b14] to-[#0A1628]">
           <div>
@@ -100,7 +100,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="E.g. Rajesh Kumar"
-                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold/50"
+                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange/50"
                   />
                 </div>
                 <div>
@@ -113,7 +113,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="E.g. rajesh@gmail.com"
-                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold/50"
+                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange/50"
                   />
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="E.g. +91 9876543210"
-                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold/50"
+                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange/50"
                   />
                 </div>
                 <div>
@@ -139,7 +139,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   <select
                     value={formData.visaType}
                     onChange={(e) => setFormData({ ...formData, visaType: e.target.value })}
-                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold/50"
+                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange/50"
                   >
                     {visaOptions.map((opt) => (
                       <option key={opt} value={opt} className="bg-[#0A1628]">
@@ -162,7 +162,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       value={formData.date}
                       min={new Date().toISOString().split("T")[0]}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold/50"
+                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange/50"
                     />
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   <select
                     value={formData.timeSlot}
                     onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
-                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold/50"
+                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange/50"
                   >
                     {timeSlots.map((slot) => (
                       <option key={slot} value={slot} className="bg-[#0A1628]">
@@ -193,14 +193,14 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Describe your current status or questions..."
                   rows={3}
-                  className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold/50"
+                  className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange/50"
                 />
               </div>
 
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] font-bold rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-bold rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Confirm Free Consultation Slot</span>
@@ -230,13 +230,13 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     <span>{bookingRef}</span>
                     <button
                       onClick={copyToClipboard}
-                      className="text-gold hover:text-white transition-colors"
+                      className="text-orange hover:text-white transition-colors"
                       title="Copy Reference"
                     >
                       <Copy className="w-3.5 h-3.5" />
                     </button>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[#C9A84C]">
+                  <div className="flex items-center gap-1.5 text-[#EA580C]">
                     <Clock className="w-4 h-4" />
                     <span>
                       {formData.date} at {formData.timeSlot.split(" ")[0]}

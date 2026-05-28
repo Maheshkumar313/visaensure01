@@ -81,9 +81,9 @@ export default function ComparisonTool() {
   const detailB = countriesData[countryB];
 
   return (
-    <div className="w-full glass-premium rounded-2xl p-6 border border-gold/10">
+    <div className="w-full glass-premium rounded-2xl p-6 border border-orange/10">
       <div className="flex items-center gap-2 mb-6">
-        <Scale className="w-5 h-5 text-gold" />
+        <Scale className="w-5 h-5 text-orange" />
         <h3 className="text-xl font-heading text-white font-semibold">
           Country Pathway Comparison
         </h3>
@@ -98,7 +98,7 @@ export default function ComparisonTool() {
           <select
             value={countryA}
             onChange={(e) => setCountryA(e.target.value)}
-            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-gold"
+            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-orange"
           >
             {Object.keys(countriesData)
               .filter((c) => c !== countryB)
@@ -116,7 +116,7 @@ export default function ComparisonTool() {
           <select
             value={countryB}
             onChange={(e) => setCountryB(e.target.value)}
-            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-gold"
+            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-orange"
           >
             {Object.keys(countriesData)
               .filter((c) => c !== countryA)
@@ -145,8 +145,8 @@ export default function ComparisonTool() {
           <div className="col-span-1 text-gray-400 font-semibold uppercase text-[10px]">
             PR Pathway Ease
           </div>
-          <div className="col-span-2 text-gold font-medium pl-2">{detailA.prEase}</div>
-          <div className="col-span-2 text-gold font-medium pl-2">{detailB.prEase}</div>
+          <div className="col-span-2 text-orange font-medium pl-2">{detailA.prEase}</div>
+          <div className="col-span-2 text-orange font-medium pl-2">{detailB.prEase}</div>
         </div>
 
         {/* Post-Study Work */}
@@ -215,7 +215,7 @@ export default function ComparisonTool() {
           <div className="col-span-2 pl-2 space-y-1">
             {detailA.visaRoutes.map((route) => (
               <div key={route} className="flex items-center gap-1 text-white">
-                <Check className="w-3 h-3 text-gold shrink-0" />
+                <Check className="w-3 h-3 text-orange shrink-0" />
                 <span>{route}</span>
               </div>
             ))}
@@ -223,7 +223,7 @@ export default function ComparisonTool() {
           <div className="col-span-2 pl-2 space-y-1">
             {detailB.visaRoutes.map((route) => (
               <div key={route} className="flex items-center gap-1 text-white">
-                <Check className="w-3 h-3 text-gold shrink-0" />
+                <Check className="w-3 h-3 text-orange shrink-0" />
                 <span>{route}</span>
               </div>
             ))}
@@ -234,7 +234,7 @@ export default function ComparisonTool() {
       <div className="mt-5 pt-4 border-t border-white/10 text-center">
         <a
           href="#contact"
-          className="inline-flex items-center gap-1.5 text-xs text-gold hover:text-white font-bold transition-all"
+          className="inline-flex items-center gap-1.5 text-xs text-orange hover:text-white font-bold transition-all"
         >
           <span>Request Detailed Comparison Report</span>
           <ArrowRight className="w-3.5 h-3.5" />

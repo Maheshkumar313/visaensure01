@@ -70,10 +70,10 @@ export default function ChecklistGenerator() {
   };
 
   return (
-    <div className="w-full glass-premium rounded-2xl p-6 border border-gold/10">
+    <div className="w-full glass-premium rounded-2xl p-6 border border-orange/10">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <FileCheck2 className="w-5 h-5 text-gold" />
+          <FileCheck2 className="w-5 h-5 text-orange" />
           <h3 className="text-xl font-heading text-white font-semibold">
             Custom Document Checklist
           </h3>
@@ -99,7 +99,7 @@ export default function ChecklistGenerator() {
             }}
             className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all border cursor-pointer ${
               category === cat
-                ? "bg-gold-light border-gold text-[#C9A84C]"
+                ? "bg-orange-light border-orange text-[#EA580C]"
                 : "bg-white/5 border-transparent text-gray-300 hover:bg-white/10"
             }`}
           >
@@ -118,7 +118,7 @@ export default function ChecklistGenerator() {
         </div>
         <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#C9A84C] to-[#dfbf65] transition-all duration-300"
+            className="h-full bg-gradient-to-r from-[#EA580C] to-[#dfbf65] transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -134,19 +134,19 @@ export default function ChecklistGenerator() {
               onClick={() => handleToggle(item.id)}
               className={`p-3 rounded-xl border transition-all cursor-pointer flex gap-3 text-left ${
                 isChecked
-                  ? "bg-gold-light/10 border-gold/45 text-white"
+                  ? "bg-orange-light/10 border-orange/45 text-white"
                   : "bg-white/5 border-white/5 text-gray-300 hover:border-white/15"
               }`}
             >
               <div
                 className={`w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-all ${
-                  isChecked ? "bg-[#C9A84C] border-[#C9A84C] text-[#0A1628]" : "border-white/20"
+                  isChecked ? "bg-[#EA580C] border-[#EA580C] text-[#0A1628]" : "border-white/20"
                 }`}
               >
                 {isChecked && <Check className="w-3.5 h-3.5 font-bold" />}
               </div>
               <div className="space-y-0.5">
-                <h4 className={`text-xs font-bold ${isChecked ? "text-gold" : "text-white"}`}>
+                <h4 className={`text-xs font-bold ${isChecked ? "text-orange" : "text-white"}`}>
                   {item.label}
                 </h4>
                 <p className="text-[10px] text-gray-400 leading-normal">{item.desc}</p>
@@ -170,11 +170,11 @@ export default function ChecklistGenerator() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="E.g. rajesh@gmail.com"
-                className="flex-1 bg-[#122540] border border-white/10 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-gold"
+                className="flex-1 bg-[#122540] border border-white/10 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-orange"
               />
               <button
                 type="submit"
-                className="bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] font-bold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
+                className="bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-bold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Get PDF</span>

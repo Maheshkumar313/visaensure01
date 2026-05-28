@@ -25,13 +25,13 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-20 bg-[#0A1628] border-t border-white/5 relative">
-      <div className="absolute top-[40%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#C9A84C]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[40%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Title */}
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-[#C9A84C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             Get in Touch
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
@@ -60,7 +60,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Rajesh Kumar"
-                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-gold"
+                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-orange"
                     />
                   </div>
                   <div>
@@ -73,7 +73,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="rajesh@gmail.com"
-                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-gold"
+                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-orange"
                     />
                   </div>
                 </div>
@@ -89,7 +89,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 96424 42227"
-                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-gold"
+                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-orange"
                     />
                   </div>
                   <div>
@@ -99,7 +99,7 @@ export default function Contact() {
                     <select
                       value={formData.visaType}
                       onChange={(e) => setFormData({ ...formData, visaType: e.target.value })}
-                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-gold"
+                      className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-orange"
                     >
                       <option value="Student Visa">Student Visa</option>
                       <option value="Work Visa">Work Visa</option>
@@ -119,13 +119,13 @@ export default function Contact() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Briefly describe your requirements..."
                     rows={4}
-                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-gold"
+                    className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-orange"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
                 >
                   <Send className="w-4 h-4" />
                   <span>Submit Inquiry</span>
@@ -159,30 +159,27 @@ export default function Contact() {
 
               <div className="space-y-4 text-xs md:text-sm">
                 <div className="flex gap-3">
-                  <MapPin className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-orange shrink-0 mt-0.5" />
                   <span className="leading-relaxed text-gray-300">
                     #1 Floor, Vishudha 1-2-6, Domalguda Main Road, Near Saduram Eye Hospital, Liberty Circle, Hyderabad – 500029
                   </span>
                 </div>
                 <div className="flex gap-3">
-                  <Mail className="w-5 h-5 text-gold shrink-0 mt-0.5" />
-                  <a href="mailto:apply@visaensure.com" className="text-gray-300 hover:text-gold transition-colors">
+                  <Mail className="w-5 h-5 text-orange shrink-0 mt-0.5" />
+                  <a href="mailto:apply@visaensure.com" className="text-gray-300 hover:text-orange transition-colors">
                     apply@visaensure.com
                   </a>
                 </div>
                 <div className="flex gap-3">
-                  <Phone className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-orange shrink-0 mt-0.5" />
                   <div className="space-y-1">
-                    <a href="tel:+919642442227" className="block text-gray-300 hover:text-gold transition-colors">
+                    <a href="tel:+919642442227" className="block text-gray-300 hover:text-orange transition-colors">
                       +91 9642442227
-                    </a>
-                    <a href="tel:+919052727229" className="block text-gray-300 hover:text-gold transition-colors">
-                      +91 9052727229
                     </a>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <Clock className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-orange shrink-0 mt-0.5" />
                   <span className="text-gray-300">
                     Monday to Saturday — 9:00 AM to 8:00 PM
                   </span>
@@ -192,15 +189,15 @@ export default function Contact() {
 
             {/* Simple Visual Map Placeholder */}
             <div className="relative h-32 rounded-xl overflow-hidden border border-white/5 bg-[#122540] flex items-center justify-center text-center p-4">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.15)_0%,transparent_75%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234, 88, 12,0.15)_0%,transparent_75%)]" />
               <div className="relative z-10 space-y-1">
-                <span className="text-[10px] tracking-wider text-gold uppercase font-bold">MAP DIRECTIONS</span>
+                <span className="text-[10px] tracking-wider text-orange uppercase font-bold">MAP DIRECTIONS</span>
                 <p className="text-[11px] text-gray-400">Saduram Eye Hospital Circle, Domalguda Main Road</p>
                 <a
                   href="https://maps.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] text-white underline hover:text-gold block mt-1"
+                  className="text-[10px] text-white underline hover:text-orange block mt-1"
                 >
                   Open in Google Maps
                 </a>

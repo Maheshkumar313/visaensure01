@@ -85,10 +85,10 @@ export default function AIChat() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center relative group"
+          className="bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center relative group"
         >
           {/* Outer Pulse ring */}
-          <span className="absolute inset-0 rounded-full bg-[#C9A84C]/40 animate-ping group-hover:animate-none"></span>
+          <span className="absolute inset-0 rounded-full bg-[#EA580C]/40 animate-ping group-hover:animate-none"></span>
 
           <MessageSquare className="w-6 h-6" />
 
@@ -99,11 +99,11 @@ export default function AIChat() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="w-[340px] md:w-[380px] h-[480px] bg-[#0A1628] border border-gold/30 rounded-2xl overflow-hidden shadow-2xl flex flex-col transition-all duration-300 animate-in fade-in zoom-in-95">
+        <div className="w-[340px] md:w-[380px] h-[480px] bg-[#0A1628] border border-orange/30 rounded-2xl overflow-hidden shadow-2xl flex flex-col transition-all duration-300 animate-in fade-in zoom-in-95">
           {/* Chat Header */}
           <div className="bg-[#050b14] border-b border-white/10 px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-[#C9A84C] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-[#EA580C] flex items-center justify-center">
                 <Sparkles className="w-4 h-4 text-[#0A1628]" />
               </div>
               <div>
@@ -133,7 +133,7 @@ export default function AIChat() {
               >
                 <div
                   className={`w-7 h-7 rounded-full flex items-center justify-center text-xs shrink-0 ${
-                    m.sender === "user" ? "bg-[#C9A84C]/10 text-gold" : "bg-white/5 text-gray-300"
+                    m.sender === "user" ? "bg-[#EA580C]/10 text-orange" : "bg-white/5 text-gray-300"
                   }`}
                 >
                   {m.sender === "user" ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
@@ -142,7 +142,7 @@ export default function AIChat() {
                   <div
                     className={`text-xs p-3 rounded-2xl leading-relaxed ${
                       m.sender === "user"
-                        ? "bg-[#C9A84C] text-[#0A1628] rounded-tr-none font-medium"
+                        ? "bg-[#EA580C] text-[#0A1628] rounded-tr-none font-medium"
                         : "bg-white/5 text-white border border-white/5 rounded-tl-none"
                     }`}
                   >
@@ -162,7 +162,7 @@ export default function AIChat() {
                 <button
                   key={tag}
                   onClick={() => handleQuickReply(tag)}
-                  className="shrink-0 text-[10px] font-semibold text-gray-300 hover:text-gold bg-white/5 border border-white/10 hover:border-gold/30 px-3 py-1.5 rounded-full transition-all"
+                  className="shrink-0 text-[10px] font-semibold text-gray-300 hover:text-orange bg-white/5 border border-white/10 hover:border-orange/30 px-3 py-1.5 rounded-full transition-all"
                 >
                   {tag}
                 </button>
@@ -181,11 +181,11 @@ export default function AIChat() {
                 placeholder={
                   leadStage === 1 ? "Type phone / email here..." : "Ask your question here..."
                 }
-                className="flex-1 bg-[#122540] border border-white/10 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-gold"
+                className="flex-1 bg-[#122540] border border-white/10 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-orange"
               />
               <button
                 onClick={() => handleSend()}
-                className="bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] px-3.5 rounded-lg flex items-center justify-center transition-colors"
+                className="bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] px-3.5 rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Send Message"
               >
                 <Send className="w-4 h-4" />

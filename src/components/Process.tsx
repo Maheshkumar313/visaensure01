@@ -35,12 +35,12 @@ export default function Process() {
 
   return (
     <section id="process" className="py-20 bg-[#050b14] border-t border-white/5 relative">
-      <div className="absolute top-[30%] right-[10%] w-[350px] h-[350px] rounded-full bg-[#C9A84C]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[30%] right-[10%] w-[350px] h-[350px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Title */}
         <div className="text-center space-y-3 mb-20">
-          <span className="text-xs font-semibold tracking-widest text-[#C9A84C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             The Pathway
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
@@ -74,7 +74,7 @@ export default function Process() {
                   }`}
                 >
                   {/* Icon Node */}
-                  <div className="absolute left-6 sm:left-1/2 top-1.5 sm:top-1/2 w-8 h-8 rounded-full bg-[#0A1628] border border-[#C9A84C] flex items-center justify-center -translate-x-1/2 -translate-y-1/2 z-20 text-[#C9A84C] shadow-lg shadow-[#C9A84C]/10 animate-float" style={{ animationDelay: `${idx * 0.5}s` }}>
+                  <div className="absolute left-6 sm:left-1/2 top-1.5 sm:top-1/2 w-8 h-8 rounded-full bg-[#0A1628] border border-[#EA580C] flex items-center justify-center -translate-x-1/2 -translate-y-1/2 z-20 text-[#EA580C] shadow-lg shadow-[#EA580C]/10 animate-float" style={{ animationDelay: `${idx * 0.5}s` }}>
                     {st.icon}
                   </div>
 
@@ -83,8 +83,8 @@ export default function Process() {
 
                   {/* Content Box */}
                   <div className="w-full sm:w-[45%] pl-12 sm:pl-0">
-                    <div className="glass p-5 rounded-2xl border border-white/5 hover:border-gold/30 transition-all space-y-2.5">
-                      <h3 className="text-base font-bold font-heading text-white hover:text-gold transition-colors">
+                    <div className="glass p-5 rounded-2xl border border-white/5 hover:border-orange/30 transition-all space-y-2.5">
+                      <h3 className="text-base font-bold font-heading text-white hover:text-orange transition-colors">
                         {st.title}
                       </h3>
                       <p className="text-gray-400 text-xs leading-relaxed font-body">

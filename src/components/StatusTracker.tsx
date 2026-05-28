@@ -92,11 +92,11 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative w-full max-w-lg bg-[#0A1628] border border-gold/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
+      <div className="relative w-full max-w-lg bg-[#0A1628] border border-orange/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#050b14]">
           <div className="flex items-center gap-2">
-            <Compass className="w-5 h-5 text-[#C9A84C] animate-spin-slow" />
+            <Compass className="w-5 h-5 text-[#EA580C] animate-spin-slow" />
             <h3 className="text-xl font-heading text-white font-semibold">
               Visa Status Tracker
             </h3>
@@ -116,13 +116,13 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                 value={trackingId}
                 onChange={(e) => setTrackingId(e.target.value)}
                 placeholder="E.g., VE-2026-9876"
-                className="w-full bg-[#122540] border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold uppercase tracking-wider"
+                className="w-full bg-[#122540] border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-orange uppercase tracking-wider"
               />
               <Search className="absolute left-3.5 top-3 w-4.5 h-4.5 text-gray-400" />
             </div>
             <button
               type="submit"
-              className="px-5 bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] font-bold rounded-lg text-sm transition-all"
+              className="px-5 bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-bold rounded-lg text-sm transition-all"
             >
               Track
             </button>
@@ -132,7 +132,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
           {!searched && (
             <div className="mt-4 p-3 bg-white/5 border border-white/5 rounded-lg text-xs text-gray-400 space-y-1">
               <span>Try mock IDs to preview:</span>
-              <div className="flex gap-3 text-gold font-mono font-semibold">
+              <div className="flex gap-3 text-orange font-mono font-semibold">
                 <button type="button" onClick={() => setTrackingId("VE-2026-9876")} className="underline">VE-2026-9876</button>
                 <button type="button" onClick={() => setTrackingId("VE-2026-5542")} className="underline">VE-2026-5542</button>
               </div>
@@ -154,7 +154,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                 </div>
                 <div className="flex justify-between items-start text-xs text-gray-400 mt-2">
                   <div>
-                    VISA TYPE: <strong className="text-[#C9A84C] block mt-0.5">{result.visaType} ({result.country})</strong>
+                    VISA TYPE: <strong className="text-[#EA580C] block mt-0.5">{result.visaType} ({result.country})</strong>
                   </div>
                   <div className="text-right">
                     SUBMITTED: <strong className="text-white block mt-0.5">{result.submittedOn}</strong>
@@ -173,7 +173,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                           stage.status === "completed"
                             ? "bg-green-500/10 border-green-500 text-green-500"
                             : stage.status === "current"
-                            ? "bg-[#C9A84C]/10 border-[#C9A84C] text-[#C9A84C] animate-pulse"
+                            ? "bg-[#EA580C]/10 border-[#EA580C] text-[#EA580C] animate-pulse"
                             : "bg-white/5 border-white/10 text-gray-500"
                         }`}
                       >
@@ -201,7 +201,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                           stage.status === "completed"
                             ? "text-white"
                             : stage.status === "current"
-                            ? "text-[#C9A84C]"
+                            ? "text-[#EA580C]"
                             : "text-gray-500"
                         }`}
                       >
@@ -214,8 +214,8 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
               </div>
 
               {/* Action Prompt */}
-              <div className="p-3 bg-gold-light border border-gold/20 rounded-xl flex items-start gap-2.5">
-                <AlertCircle className="w-5 h-5 text-[#C9A84C] shrink-0 mt-0.5" />
+              <div className="p-3 bg-orange-light border border-orange/20 rounded-xl flex items-start gap-2.5">
+                <AlertCircle className="w-5 h-5 text-[#EA580C] shrink-0 mt-0.5" />
                 <div className="text-[11px] text-gray-300 leading-relaxed">
                   Need to update files, change bio details, or upload sponsor bank statements? Please ping your counselor directly on WhatsApp or call our Domalguda desk quoting the CASE ID.
                 </div>

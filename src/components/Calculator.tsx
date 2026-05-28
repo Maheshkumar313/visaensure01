@@ -100,9 +100,9 @@ export default function Calculator() {
   const result = calculatorData[normalizedCountry][normalizedCategory];
 
   return (
-    <div className="w-full glass-premium rounded-2xl p-6 border border-gold/10">
+    <div className="w-full glass-premium rounded-2xl p-6 border border-orange/10">
       <div className="flex items-center gap-2 mb-6">
-        <Clock className="w-5 h-5 text-gold" />
+        <Clock className="w-5 h-5 text-orange" />
         <h3 className="text-xl font-heading text-white font-semibold">
           Processing Time & Fee Calculator
         </h3>
@@ -117,7 +117,7 @@ export default function Calculator() {
           <select
             value={country}
             onChange={(e) => setCountry(e.target.value)}
-            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-gold"
+            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-orange"
           >
             <option value="USA">United States</option>
             <option value="Canada">Canada</option>
@@ -131,7 +131,7 @@ export default function Calculator() {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-gold"
+            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-orange"
           >
             <option value="Student">Student Visa</option>
             <option value="Worker">Work Visa / Permit</option>
@@ -148,9 +148,9 @@ export default function Calculator() {
             <span className="text-[10px] uppercase tracking-wider text-gray-400">
               Est. Processing Time
             </span>
-            <h4 className="text-lg font-bold font-heading text-[#C9A84C]">{result.time}</h4>
+            <h4 className="text-lg font-bold font-heading text-[#EA580C]">{result.time}</h4>
           </div>
-          <Clock className="w-8 h-8 text-gold/30" />
+          <Clock className="w-8 h-8 text-orange/30" />
         </div>
 
         <div className="p-4 bg-[#050b14] border border-white/5 rounded-xl flex items-center justify-between">
@@ -160,12 +160,12 @@ export default function Calculator() {
             </span>
             <h4 className="text-sm font-semibold text-white leading-relaxed">{result.fees}</h4>
           </div>
-          <Coins className="w-8 h-8 text-gold/30" />
+          <Coins className="w-8 h-8 text-orange/30" />
         </div>
 
         <div className="space-y-1.5 text-xs">
           <div className="flex gap-2">
-            <AlertCircle className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+            <AlertCircle className="w-4 h-4 text-orange shrink-0 mt-0.5" />
             <div>
               <strong className="text-white block font-medium">Recommended Filing Window</strong>
               <span className="text-gray-300">{result.window}</span>

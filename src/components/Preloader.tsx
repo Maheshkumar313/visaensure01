@@ -10,7 +10,7 @@ export default function Preloader() {
     // Hide the preloader after a short delay
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2200);
+    }, 20);
     return () => clearTimeout(timer);
   }, []);
 
@@ -25,7 +25,7 @@ export default function Preloader() {
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0A1628]"
         >
           {/* Subtle Background Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[#C9A84C]/5 blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
 
           {/* Logo Animation */}
           <motion.div
@@ -42,7 +42,7 @@ export default function Preloader() {
             />
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left mt-2 sm:mt-0">
               <span className="text-3xl md:text-4xl font-heading tracking-widest font-bold text-white">
-                VISA<span className="text-[#C9A84C]">ENSURE</span>
+                VISA<span className="text-[#EA580C]">ENSURE</span>
               </span>
               <span className="text-[10px] md:text-xs tracking-wider text-gray-400 font-body uppercase mt-1">
                 Your Trusted Visa Companion
@@ -56,7 +56,7 @@ export default function Preloader() {
               initial={{ x: "-100%" }}
               animate={{ x: "0%" }}
               transition={{ duration: 2, ease: "easeInOut" }}
-              className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-[#C9A84C]/50 via-[#C9A84C] to-[#C9A84C]/50 rounded-full"
+              className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-[#EA580C]/50 via-[#EA580C] to-[#EA580C]/50 rounded-full"
             />
           </div>
         </motion.div>

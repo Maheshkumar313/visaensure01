@@ -104,11 +104,11 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative w-full max-w-xl bg-[#0A1628] border border-gold/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
+      <div className="relative w-full max-w-xl bg-[#0A1628] border border-orange/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#050b14]">
           <div className="flex items-center gap-2">
-            <Calculator className="w-5 h-5 text-[#C9A84C]" />
+            <Calculator className="w-5 h-5 text-[#EA580C]" />
             <h3 className="text-xl font-heading text-white font-semibold">
               Visa Eligibility Checker
             </h3>
@@ -122,7 +122,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
         {!isCalculated && (
           <div className="w-full h-1 bg-white/5">
             <div
-              className="h-full bg-[#C9A84C] transition-all duration-300"
+              className="h-full bg-[#EA580C] transition-all duration-300"
               style={{ width: `${(step / 7) * 100}%` }}
             />
           </div>
@@ -144,7 +144,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("visaCategory", cat)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.visaCategory === cat
-                            ? "bg-gold-light border-gold text-[#C9A84C] glow-gold"
+                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
                             : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
                         }`}
                       >
@@ -167,7 +167,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("country", c)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.country === c
-                            ? "bg-gold-light border-gold text-[#C9A84C] glow-gold"
+                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
                             : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
                         }`}
                       >
@@ -190,7 +190,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("age", ageGrp)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.age === ageGrp
-                            ? "bg-gold-light border-gold text-[#C9A84C] glow-gold"
+                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
                             : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
                         }`}
                       >
@@ -213,7 +213,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("education", edu)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.education === edu
-                            ? "bg-gold-light border-gold text-[#C9A84C] glow-gold"
+                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
                             : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
                         }`}
                       >
@@ -236,7 +236,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("experience", exp)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.experience === exp
-                            ? "bg-gold-light border-gold text-[#C9A84C] glow-gold"
+                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
                             : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
                         }`}
                       >
@@ -264,7 +264,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("english", eng)}
                         className={`p-3 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.english === eng
-                            ? "bg-gold-light border-gold text-[#C9A84C] glow-gold"
+                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
                             : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
                         }`}
                       >
@@ -290,7 +290,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         value={answers.name}
                         onChange={(e) => setAnswers({ ...answers, name: e.target.value })}
                         placeholder="Rajesh Kumar"
-                        className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-gold"
+                        className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-orange"
                       />
                     </div>
                     <div>
@@ -301,7 +301,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         value={answers.email}
                         onChange={(e) => setAnswers({ ...answers, email: e.target.value })}
                         placeholder="rajesh@gmail.com"
-                        className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-gold"
+                        className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-orange"
                       />
                     </div>
                     <div>
@@ -312,7 +312,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         value={answers.phone}
                         onChange={(e) => setAnswers({ ...answers, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-gold"
+                        className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-orange"
                       />
                     </div>
                   </div>
@@ -323,7 +323,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
 
                   <button
                     type="submit"
-                    className="w-full py-3 bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 mt-4"
+                    className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 mt-4"
                   >
                     <Award className="w-5 h-5" />
                     <span>Calculate Eligibility Report</span>
@@ -350,7 +350,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="flex items-center gap-1.5 text-xs bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg text-white hover:text-[#C9A84C] transition-all"
+                    className="flex items-center gap-1.5 text-xs bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg text-white hover:text-[#EA580C] transition-all"
                   >
                     <span>Next</span>
                     <ArrowRight className="w-4 h-4" />
@@ -376,7 +376,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                     cx="48"
                     cy="48"
                     r="40"
-                    stroke="#C9A84C"
+                    stroke="#EA580C"
                     strokeWidth="8"
                     fill="transparent"
                     strokeDasharray={251.2}
@@ -392,7 +392,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
 
               <div className="space-y-2">
                 <h4 className="text-xl font-heading text-white font-bold">Eligibility Calculated</h4>
-                <p className="text-xs text-[#C9A84C] tracking-wide uppercase font-semibold">
+                <p className="text-xs text-[#EA580C] tracking-wide uppercase font-semibold">
                   {answers.visaCategory} — {answers.country}
                 </p>
                 <p className="text-sm text-gray-300 max-w-md mx-auto pt-2 px-4 italic leading-relaxed">
@@ -438,7 +438,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                 </button>
                 <button
                   onClick={onClose}
-                  className="flex-1 py-2 bg-[#C9A84C] hover:bg-[#DDBB5C] text-[#0A1628] font-bold rounded-lg text-xs transition-all"
+                  className="flex-1 py-2 bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-bold rounded-lg text-xs transition-all"
                 >
                   Done
                 </button>

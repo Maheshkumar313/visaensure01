@@ -80,11 +80,11 @@ export default function Home() {
 
         {/* Digital Visa Lounge: SaaS Interactive Tools Section */}
         <section id="visa-lounge" className="py-20 bg-[#0A1628] border-t border-white/5 relative">
-          <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#C9A84C]/5 blur-[120px] pointer-events-none" />
+          <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
           <div className="max-w-7xl mx-auto px-4 md:px-8">
             {/* Title */}
             <div className="text-center space-y-3 mb-16">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-semibold tracking-wider text-gold uppercase">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-semibold tracking-wider text-orange uppercase">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Visa Lounge</span>
               </div>

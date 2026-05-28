@@ -13,42 +13,42 @@ interface ServicesProps {
 export default function Services({ onOpenAssessment, onOpenChecklist }: ServicesProps) {
   const services = [
     {
-      icon: <GraduationCap className="w-8 h-8 text-[#C9A84C]" />,
+      icon: <GraduationCap className="w-8 h-8 text-[#EA580C]" />,
       title: "Student Visa",
       desc: "Apply to prestigious universities globally. Complete guidance on admissions, I-20, CAS, financial proof audits, and consular interviews.",
       linkId: "usa-student-visa",
       image: "/images/services_student.png",
     },
     {
-      icon: <Briefcase className="w-8 h-8 text-[#C9A84C]" />,
+      icon: <Briefcase className="w-8 h-8 text-[#EA580C]" />,
       title: "Work Visa",
       desc: "Secure Skilled Worker permits, H-1B filings, and opportunity cards. Build a long-term international career with certified sponsorship reviews.",
       linkId: "uk-work-visa",
       image: "/images/services_work.png",
     },
     {
-      icon: <Globe2 className="w-8 h-8 text-[#C9A84C]" />,
+      icon: <Globe2 className="w-8 h-8 text-[#EA580C]" />,
       title: "PR & Migration",
       desc: "Permanent residency pathways through Canada Express Entry/PNP draw and Australia General Skilled Migration (Subclass 189/190).",
       linkId: "canada-pr",
       image: "/images/services_pr.png",
     },
     {
-      icon: <Plane className="w-8 h-8 text-[#C9A84C]" />,
+      icon: <Plane className="w-8 h-8 text-[#EA580C]" />,
       title: "Tourist Visa",
       desc: "Leisure, business meetings, and family visits. Detailed customized itineraries, dummy bookings, and strong tie evaluation audits.",
       linkId: "tourist-visa",
       image: "/images/services_tourist.png",
     },
     {
-      icon: <Landmark className="w-8 h-8 text-[#C9A84C]" />,
+      icon: <Landmark className="w-8 h-8 text-[#EA580C]" />,
       title: "Business Visa",
       desc: "Investor streams, startup pathways, and trade permits. Comprehensive commercial audits for entrepreneurs seeking corporate expansions.",
       linkId: "business-visa",
       image: "/images/services_business.png",
     },
     {
-      icon: <Users className="w-8 h-8 text-[#C9A84C]" />,
+      icon: <Users className="w-8 h-8 text-[#EA580C]" />,
       title: "Dependent Visa",
       desc: "Bring your family abroad. Secure spousal open work permits and child study permissions alongside your primary visa.",
       linkId: "dependent-visa",
@@ -59,12 +59,12 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
   return (
     <section id="services" className="py-20 bg-[#0A1628] border-t border-white/5 relative">
       {/* Background decoration */}
-      <div className="absolute top-[30%] right-[5%] w-[350px] h-[350px] rounded-full bg-[#C9A84C]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[30%] right-[5%] w-[350px] h-[350px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Title */}
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-[#C9A84C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             Platform Capabilities
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
@@ -84,7 +84,7 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="glass p-5 rounded-2xl flex flex-col justify-between group hover:border-[#C9A84C]/35 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden glow-gold-hover"
+              className="glass p-5 rounded-2xl flex flex-col justify-between group hover:border-[#EA580C]/35 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden glow-orange-hover"
             >
               <div className="space-y-3">
                 {/* Image Banner wrapped in Link */}
@@ -93,19 +93,19 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={srv.image} alt={srv.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 w-10 h-10 bg-black/40 backdrop-blur-md border border-white/20 rounded-lg flex items-center justify-center group-hover:bg-[#C9A84C]/30 group-hover:border-[#C9A84C]/50 transition-all duration-300">
-                      {React.cloneElement(srv.icon as React.ReactElement<any>, { className: "w-5 h-5 text-[#C9A84C]" })}
+                    <div className="absolute bottom-3 left-3 w-10 h-10 bg-black/40 backdrop-blur-md border border-white/20 rounded-lg flex items-center justify-center group-hover:bg-[#EA580C]/30 group-hover:border-[#EA580C]/50 transition-all duration-300">
+                      {React.cloneElement(srv.icon as React.ReactElement<any>, { className: "w-5 h-5 text-[#EA580C]" })}
                     </div>
                   </Link>
                 ) : (
-                  <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-[#C9A84C]/10 group-hover:border-[#C9A84C]/30 transition-all duration-300">
+                  <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-[#EA580C]/10 group-hover:border-[#EA580C]/30 transition-all duration-300">
                     {srv.icon}
                   </div>
                 )}
                 
                 {/* Title wrapped in Link */}
                 <Link href={`/services/${srv.linkId}`}>
-                  <h3 className="text-xl font-heading text-white font-bold group-hover:text-[#C9A84C] transition-colors mt-2 cursor-pointer inline-block">
+                  <h3 className="text-xl font-heading text-white font-bold group-hover:text-[#EA580C] transition-colors mt-2 cursor-pointer inline-block">
                     {srv.title}
                   </h3>
                 </Link>
@@ -124,7 +124,7 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
                 </button>
                 <Link
                   href={`/services/${srv.linkId}`}
-                  className="text-[#C9A84C] flex items-center gap-1 hover:text-white transition-all cursor-pointer"
+                  className="text-[#EA580C] flex items-center gap-1 hover:text-white transition-all cursor-pointer"
                 >
                   <span>Learn More</span>
                   <ArrowRight className="w-3.5 h-3.5" />

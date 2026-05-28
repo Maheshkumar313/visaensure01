@@ -11,7 +11,7 @@ export default function Trust() {
         
         {/* Section Title */}
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-[#C9A84C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             Accreditation & Trust
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
@@ -31,10 +31,10 @@ export default function Trust() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass rounded-2xl p-6 flex flex-col justify-between hover:border-gold/30 transition-all"
+            className="glass rounded-2xl p-6 flex flex-col justify-between hover:border-orange/30 transition-all"
           >
             <div className="space-y-4">
-              <div className="flex gap-1.5 text-[#C9A84C]">
+              <div className="flex gap-1.5 text-[#EA580C]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-current" />
                 ))}
@@ -59,7 +59,7 @@ export default function Trust() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass rounded-2xl p-6 flex flex-col justify-between hover:border-gold/30 transition-all overflow-hidden relative group"
+            className="glass rounded-2xl p-6 flex flex-col justify-between hover:border-orange/30 transition-all overflow-hidden relative group"
           >
             {/* Visual representation of an approval */}
             <div className="space-y-4">
@@ -104,7 +104,7 @@ export default function Trust() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="glass rounded-2xl p-6 flex flex-col justify-between hover:border-gold/30 transition-all relative overflow-hidden group"
+            className="glass rounded-2xl p-6 flex flex-col justify-between hover:border-orange/30 transition-all relative overflow-hidden group"
           >
             <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
                {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -113,10 +113,10 @@ export default function Trust() {
             </div>
             
             <div className="space-y-4 relative z-10">
-              <div className="w-10 h-10 bg-[#C9A84C]/10 border border-[#C9A84C]/25 rounded-lg flex items-center justify-center text-[#C9A84C]">
+              <div className="w-10 h-10 bg-[#EA580C]/10 border border-[#EA580C]/25 rounded-lg flex items-center justify-center text-[#EA580C]">
                 <Building className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-heading text-white font-semibold group-hover:text-[#C9A84C] transition-colors">
+              <h3 className="text-xl font-heading text-white font-semibold group-hover:text-[#EA580C] transition-colors">
                 Premium Hyderabad HQ
               </h3>
               <p className="text-gray-400 text-xs leading-relaxed font-body">
@@ -124,7 +124,7 @@ export default function Trust() {
               </p>
               
               <div className="flex gap-2 text-xs text-gray-300">
-                <MapPin className="w-4 h-4 text-[#C9A84C] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#EA580C] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   #1 Floor, Domalguda Main Road, Liberty Circle, Hyderabad - 500029
                 </span>
@@ -133,7 +133,7 @@ export default function Trust() {
 
             <div className="pt-6 border-t border-white/5 mt-6 flex items-center justify-between text-xs relative z-10">
               <span className="text-gray-400">DESK CONSULTANTS</span>
-              <strong className="text-[#C9A84C] font-bold">15+ Certified Experts</strong>
+              <strong className="text-[#EA580C] font-bold">15+ Certified Experts</strong>
             </div>
           </motion.div>
 
