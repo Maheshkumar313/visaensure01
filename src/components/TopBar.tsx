@@ -5,21 +5,11 @@ import { Mail, Phone, Clock } from "lucide-react";
 
 export default function TopBar() {
   return (
-    <div className="w-full bg-[#050b14] border-b border-white/5 py-2 px-4 md:px-8 text-xs text-gray-400 font-body relative z-50">
+    <div className="w-full bg-white border-b border-gray-200 py-2 px-4 md:px-8 text-xs text-gray-800 font-body relative z-50">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
         {/* Left Side: Contact Info */}
         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-          <a
-            href="mailto:apply@visaensure.com"
-            className="flex items-center gap-2 hover:text-[#EA580C] transition-colors"
-          >
-            <Mail className="w-3.5 h-3.5 text-[#EA580C]" />
-            <span>apply@visaensure.com</span>
-          </a>
-          <div className="flex items-center gap-2">
-            <Phone className="w-3.5 h-3.5 text-[#EA580C]" />
-            <a href="tel:+919642442227" className="hover:text-[#EA580C] transition-colors">+91 9642442227</a>
-          </div>
+          {/* Email and Phone elements removed per user request */}
         </div>
 
         {/* Right Side: Working Hours & Socials */}

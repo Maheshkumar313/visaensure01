@@ -22,7 +22,7 @@ export default function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0A1628]"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white"
         >
           {/* Subtle Background Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
@@ -41,17 +41,17 @@ export default function Preloader() {
               className="h-16 md:h-20 w-auto object-contain drop-shadow-2xl" 
             />
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left mt-2 sm:mt-0">
-              <span className="text-3xl md:text-4xl font-heading tracking-widest font-bold text-white">
+              <span className="text-3xl md:text-4xl font-heading tracking-widest font-bold text-black">
                 VISA<span className="text-[#EA580C]">ENSURE</span>
               </span>
-              <span className="text-[10px] md:text-xs tracking-wider text-gray-400 font-body uppercase mt-1">
+              <span className="text-[10px] md:text-xs tracking-wider text-gray-800 font-body uppercase mt-1">
                 Your Trusted Visa Companion
               </span>
             </div>
           </motion.div>
 
           {/* Loading Bar Animation */}
-          <div className="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden relative z-10">
+          <div className="w-48 md:w-64 h-1 bg-white rounded-full overflow-hidden relative z-10">
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: "0%" }}

@@ -48,7 +48,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
       <nav
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 py-4 ${
           isScrolled
-            ? "bg-[#0A1628]/85 backdrop-blur-md border-b border-white/5 shadow-lg"
+            ? "bg-white/85 backdrop-blur-md border-b border-gray-200 shadow-lg"
             : "bg-transparent"
         }`}
         style={{ top: "37px" }} // accounting for TopBar height
@@ -67,10 +67,10 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
               className="h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300" 
             />
             <div className="flex flex-col">
-              <span className="text-xl md:text-2xl font-heading tracking-widest font-bold text-white group-hover:text-[#EA580C] transition-colors">
+              <span className="text-xl md:text-2xl font-heading tracking-widest font-bold text-black group-hover:text-[#EA580C] transition-colors">
                 VISA<span className="text-[#EA580C]">ENSURE</span>
               </span>
-              <span className="text-[10px] tracking-wider text-gray-400 font-body uppercase mt-0.5">
+              <span className="text-[10px] tracking-wider text-gray-800 font-body uppercase mt-0.5">
                 Your Trusted Visa Companion
               </span>
             </div>
@@ -84,7 +84,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-sm font-body text-gray-300 hover:text-[#EA580C] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#EA580C] hover:after:w-full after:transition-all after:duration-300"
+                  className="text-sm font-body text-gray-900 hover:text-[#EA580C] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#EA580C] hover:after:w-full after:transition-all after:duration-300"
                 >
                   {item.label}
                 </a>
@@ -95,13 +95,13 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
             <div className="flex items-center gap-4">
               <button
                 onClick={onOpenBooking}
-                className="text-xs text-white hover:text-[#EA580C] font-semibold tracking-wider uppercase transition-colors"
+                className="text-xs text-black hover:text-[#EA580C] font-semibold tracking-wider uppercase transition-colors"
               >
                 Book Consultation
               </button>
               <button
                 onClick={onOpenAssessment}
-                className="bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-body text-xs md:text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 hover:shadow-[#EA580C]/20 hover:shadow-lg"
+                className="bg-[#EA580C] hover:bg-[#F97316] text-black font-body text-xs md:text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 hover:shadow-[#EA580C]/20 hover:shadow-lg"
               >
                 <span>Free Assessment</span>
                 <ArrowRight className="w-4 h-4" />
@@ -113,13 +113,13 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
           <div className="flex items-center gap-4 lg:hidden">
             <button
               onClick={onOpenAssessment}
-              className="bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] text-xs font-bold px-3 py-1.5 rounded-full transition-all duration-300"
+              className="bg-[#EA580C] hover:bg-[#F97316] text-black text-xs font-bold px-3 py-1.5 rounded-full transition-all duration-300"
             >
               Assessment
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-[#EA580C] transition-colors focus:outline-none"
+              className="text-black hover:text-[#EA580C] transition-colors focus:outline-none"
               aria-label="Toggle Menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -129,7 +129,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden fixed top-[89px] left-0 w-full bg-[#0A1628]/95 backdrop-blur-lg border-b border-white/10 transition-all duration-500 overflow-hidden ${
+          className={`lg:hidden fixed top-[89px] left-0 w-full bg-white/95 backdrop-blur-lg border-b border-gray-200 transition-all duration-500 overflow-hidden ${
             isMobileMenuOpen ? "max-h-[500px] opacity-100 py-6" : "max-h-0 opacity-0"
           }`}
         >
@@ -139,7 +139,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-base font-body text-gray-200 hover:text-[#EA580C] transition-colors py-2 border-b border-white/5"
+                className="text-base font-body text-gray-200 hover:text-[#EA580C] transition-colors py-2 border-b border-gray-200"
               >
                 {item.label}
               </a>
@@ -149,7 +149,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                 setIsMobileMenuOpen(false);
                 onOpenTracker();
               }}
-              className="text-base font-body text-[#EA580C] text-left hover:text-white transition-colors py-2 border-b border-white/5"
+              className="text-base font-body text-[#EA580C] text-left hover:text-black transition-colors py-2 border-b border-gray-200"
             >
               Track Status
             </button>
@@ -158,7 +158,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                 setIsMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="text-base font-body text-gray-200 text-left hover:text-[#EA580C] transition-colors py-2 border-b border-white/5"
+              className="text-base font-body text-gray-200 text-left hover:text-[#EA580C] transition-colors py-2 border-b border-gray-200"
             >
               Book Consultation
             </button>

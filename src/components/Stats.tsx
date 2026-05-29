@@ -36,7 +36,7 @@ function Counter({ end, suffix = "", duration = 2 }: { end: number; suffix?: str
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-[#0A1628] border-t border-white/5 relative overflow-hidden">
+    <section className="py-20 bg-white border-t border-gray-200 relative overflow-hidden">
       {/* Background abstract shape */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234, 88, 12,0.03)_0%,transparent_70%)] pointer-events-none" />
 
@@ -47,7 +47,7 @@ export default function Stats() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl">
               <Counter end={10000} suffix="+" duration={1.5} />
             </h3>
-            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
+            <p className="text-xs md:text-sm text-gray-800 uppercase tracking-widest font-semibold">
               Visa Consultations Completed
             </p>
           </div>
@@ -56,7 +56,7 @@ export default function Stats() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl">
               <Counter end={98} suffix=".6%" duration={1.5} />
             </h3>
-            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
+            <p className="text-xs md:text-sm text-gray-800 uppercase tracking-widest font-semibold">
               Historical Approval Success
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function Stats() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl">
               <Counter end={50} suffix="+" duration={1.5} />
             </h3>
-            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
+            <p className="text-xs md:text-sm text-gray-800 uppercase tracking-widest font-semibold">
               Global Destinations Covered
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function Stats() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl">
               <Counter end={5} suffix="+ Yrs" duration={1.5} />
             </h3>
-            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
+            <p className="text-xs md:text-sm text-gray-800 uppercase tracking-widest font-semibold">
               Flagship Agency Status
             </p>
           </div>

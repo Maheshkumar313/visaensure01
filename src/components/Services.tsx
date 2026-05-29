@@ -57,7 +57,7 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
   ];
 
   return (
-    <section id="services" className="py-20 bg-[#0A1628] border-t border-white/5 relative">
+    <section id="services" className="py-20 bg-white border-t border-gray-200 relative">
       {/* Background decoration */}
       <div className="absolute top-[30%] right-[5%] w-[350px] h-[350px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
 
@@ -67,10 +67,10 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
           <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             Platform Capabilities
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
             Premium Visa & Immigration Programs
           </h2>
-          <p className="text-gray-400 text-sm max-w-xl mx-auto">
+          <p className="text-gray-800 text-sm max-w-xl mx-auto">
             Expertly curated services structured to deliver high success rates, using advanced profiling and digital checklist technology.
           </p>
         </div>
@@ -89,42 +89,42 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
               <div className="space-y-3">
                 {/* Image Banner wrapped in Link */}
                 {srv.image ? (
-                  <Link href={`/services/${srv.linkId}`} className="block w-full h-36 md:h-44 rounded-xl overflow-hidden mb-4 border border-white/10 relative shadow-inner cursor-pointer">
+                  <Link href={`/services/${srv.linkId}`} className="block w-full h-36 md:h-44 rounded-xl overflow-hidden mb-4 border border-gray-200 relative shadow-inner cursor-pointer">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={srv.image} alt={srv.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 w-10 h-10 bg-black/40 backdrop-blur-md border border-white/20 rounded-lg flex items-center justify-center group-hover:bg-[#EA580C]/30 group-hover:border-[#EA580C]/50 transition-all duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 w-10 h-10 bg-black/40 backdrop-blur-md border border-gray-300 rounded-lg flex items-center justify-center group-hover:bg-[#EA580C]/30 group-hover:border-[#EA580C]/50 transition-all duration-300">
                       {React.cloneElement(srv.icon as React.ReactElement<any>, { className: "w-5 h-5 text-[#EA580C]" })}
                     </div>
                   </Link>
                 ) : (
-                  <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-[#EA580C]/10 group-hover:border-[#EA580C]/30 transition-all duration-300">
+                  <div className="w-14 h-14 bg-white border border-gray-200 rounded-xl flex items-center justify-center group-hover:bg-[#EA580C]/10 group-hover:border-[#EA580C]/30 transition-all duration-300">
                     {srv.icon}
                   </div>
                 )}
                 
                 {/* Title wrapped in Link */}
                 <Link href={`/services/${srv.linkId}`}>
-                  <h3 className="text-xl font-heading text-white font-bold group-hover:text-[#EA580C] transition-colors mt-2 cursor-pointer inline-block">
+                  <h3 className="text-xl font-heading text-black font-bold group-hover:text-[#EA580C] transition-colors mt-2 cursor-pointer inline-block">
                     {srv.title}
                   </h3>
                 </Link>
-                <p className="text-gray-400 text-xs leading-relaxed font-body">
+                <p className="text-gray-800 text-xs leading-relaxed font-body">
                   {srv.desc}
                 </p>
               </div>
 
               {/* Action Links */}
-              <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-semibold">
+              <div className="mt-8 pt-4 border-t border-gray-200 flex items-center justify-between text-xs font-semibold">
                 <button
                   onClick={onOpenAssessment}
-                  className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+                  className="text-gray-900 hover:text-black transition-colors cursor-pointer"
                 >
                   Verify Eligibility
                 </button>
                 <Link
                   href={`/services/${srv.linkId}`}
-                  className="text-[#EA580C] flex items-center gap-1 hover:text-white transition-all cursor-pointer"
+                  className="text-[#EA580C] flex items-center gap-1 hover:text-black transition-all cursor-pointer"
                 >
                   <span>Learn More</span>
                   <ArrowRight className="w-3.5 h-3.5" />

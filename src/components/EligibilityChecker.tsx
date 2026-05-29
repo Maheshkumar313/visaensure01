@@ -104,23 +104,23 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative w-full max-w-xl bg-[#0A1628] border border-orange/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
+      <div className="relative w-full max-w-xl bg-white border border-orange/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#050b14]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white">
           <div className="flex items-center gap-2">
             <Calculator className="w-5 h-5 text-[#EA580C]" />
-            <h3 className="text-xl font-heading text-white font-semibold">
+            <h3 className="text-xl font-heading text-black font-semibold">
               Visa Eligibility Checker
             </h3>
           </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
+          <button onClick={onClose} className="text-gray-800 hover:text-black transition-colors">
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Progress Bar */}
         {!isCalculated && (
-          <div className="w-full h-1 bg-white/5">
+          <div className="w-full h-1 bg-white">
             <div
               className="h-full bg-[#EA580C] transition-all duration-300"
               style={{ width: `${(step / 7) * 100}%` }}
@@ -135,7 +135,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
               {/* Step 1: Visa Category */}
               {step === 1 && (
                 <div className="space-y-4">
-                  <h4 className="text-base font-semibold text-white">1. Select your target Visa category:</h4>
+                  <h4 className="text-base font-semibold text-black">1. Select your target Visa category:</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {["Student Visa", "Work Visa", "PR Migration", "Tourist Visa"].map((cat) => (
                       <button
@@ -145,7 +145,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.visaCategory === cat
                             ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
-                            : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
+                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
                         {cat}
@@ -158,7 +158,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
               {/* Step 2: Country */}
               {step === 2 && (
                 <div className="space-y-4">
-                  <h4 className="text-base font-semibold text-white">2. Which is your dream destination?</h4>
+                  <h4 className="text-base font-semibold text-black">2. Which is your dream destination?</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {["USA", "Canada", "UK", "Australia", "Germany"].map((c) => (
                       <button
@@ -168,7 +168,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.country === c
                             ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
-                            : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
+                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
                         {c}
@@ -181,7 +181,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
               {/* Step 3: Age */}
               {step === 3 && (
                 <div className="space-y-4">
-                  <h4 className="text-base font-semibold text-white">3. What is your age group?</h4>
+                  <h4 className="text-base font-semibold text-black">3. What is your age group?</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {["18-24", "25-32", "33-39", "40+"].map((ageGrp) => (
                       <button
@@ -191,7 +191,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.age === ageGrp
                             ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
-                            : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
+                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
                         {ageGrp} Years
@@ -204,7 +204,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
               {/* Step 4: Education */}
               {step === 4 && (
                 <div className="space-y-4">
-                  <h4 className="text-base font-semibold text-white">4. What is your highest qualification?</h4>
+                  <h4 className="text-base font-semibold text-black">4. What is your highest qualification?</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {["PhD", "Masters", "Bachelors", "High School / Diploma"].map((edu) => (
                       <button
@@ -214,7 +214,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.education === edu
                             ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
-                            : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
+                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
                         {edu}
@@ -227,7 +227,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
               {/* Step 5: Work Experience */}
               {step === 5 && (
                 <div className="space-y-4">
-                  <h4 className="text-base font-semibold text-white">5. How many years of work experience?</h4>
+                  <h4 className="text-base font-semibold text-black">5. How many years of work experience?</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {["None / < 1 Year", "1-2 Years", "3-5 Years", "5+ Years"].map((exp) => (
                       <button
@@ -237,7 +237,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.experience === exp
                             ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
-                            : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
+                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
                         {exp}
@@ -250,7 +250,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
               {/* Step 6: English Proficiency */}
               {step === 6 && (
                 <div className="space-y-4">
-                  <h4 className="text-base font-semibold text-white">6. What is your English language score?</h4>
+                  <h4 className="text-base font-semibold text-black">6. What is your English language score?</h4>
                   <div className="grid grid-cols-1 gap-3">
                     {[
                       "IELTS 8+ / PTE 79+ (Superior)",
@@ -265,7 +265,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         className={`p-3 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.english === eng
                             ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
-                            : "bg-[#122540] border-white/5 text-gray-300 hover:border-white/20"
+                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
                         {eng}
@@ -278,52 +278,52 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
               {/* Step 7: Lead Form */}
               {step === 7 && (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <h4 className="text-base font-semibold text-white mb-2">
+                  <h4 className="text-base font-semibold text-black mb-2">
                     7. Final Step: Enter details to compute results
                   </h4>
                   <div className="space-y-3">
                     <div>
-                      <label className="block text-xs text-gray-300 mb-1">Your Full Name *</label>
+                      <label className="block text-xs text-gray-900 mb-1">Your Full Name *</label>
                       <input
                         type="text"
                         required
                         value={answers.name}
                         onChange={(e) => setAnswers({ ...answers, name: e.target.value })}
                         placeholder="Rajesh Kumar"
-                        className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-orange"
+                        className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-black focus:outline-none focus:border-orange"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-300 mb-1">Email Address *</label>
+                      <label className="block text-xs text-gray-900 mb-1">Email Address *</label>
                       <input
                         type="email"
                         required
                         value={answers.email}
                         onChange={(e) => setAnswers({ ...answers, email: e.target.value })}
                         placeholder="rajesh@gmail.com"
-                        className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-orange"
+                        className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-black focus:outline-none focus:border-orange"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-300 mb-1">WhatsApp / Phone Number *</label>
+                      <label className="block text-xs text-gray-900 mb-1">WhatsApp / Phone Number *</label>
                       <input
                         type="tel"
                         required
                         value={answers.phone}
                         onChange={(e) => setAnswers({ ...answers, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full bg-[#122540] border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-orange"
+                        className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-black focus:outline-none focus:border-orange"
                       />
                     </div>
                   </div>
 
-                  <div className="bg-white/5 p-3 rounded-lg text-[11px] text-gray-400">
+                  <div className="bg-white p-3 rounded-lg text-[11px] text-gray-800">
                     By submitting, you agree to receive a detailed immigration report and a follow-up consultation call from VisaEnsure.
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 mt-4"
+                    className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 mt-4"
                   >
                     <Award className="w-5 h-5" />
                     <span>Calculate Eligibility Report</span>
@@ -332,12 +332,12 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
               )}
 
               {/* Navigation Controls */}
-              <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+              <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-200">
                 {step > 1 ? (
                   <button
                     type="button"
                     onClick={prevStep}
-                    className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors"
+                    className="flex items-center gap-1.5 text-xs text-gray-800 hover:text-black transition-colors"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     <span>Back</span>
@@ -350,7 +350,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="flex items-center gap-1.5 text-xs bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg text-white hover:text-[#EA580C] transition-all"
+                    className="flex items-center gap-1.5 text-xs bg-white hover:bg-white border border-gray-200 px-4 py-2 rounded-lg text-black hover:text-[#EA580C] transition-all"
                   >
                     <span>Next</span>
                     <ArrowRight className="w-4 h-4" />
@@ -385,34 +385,34 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="text-2xl font-bold font-heading text-white">{score}</span>
-                  <span className="text-[10px] text-gray-400">Score</span>
+                  <span className="text-2xl font-bold font-heading text-black">{score}</span>
+                  <span className="text-[10px] text-gray-800">Score</span>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-xl font-heading text-white font-bold">Eligibility Calculated</h4>
+                <h4 className="text-xl font-heading text-black font-bold">Eligibility Calculated</h4>
                 <p className="text-xs text-[#EA580C] tracking-wide uppercase font-semibold">
                   {answers.visaCategory} — {answers.country}
                 </p>
-                <p className="text-sm text-gray-300 max-w-md mx-auto pt-2 px-4 italic leading-relaxed">
+                <p className="text-sm text-gray-900 max-w-md mx-auto pt-2 px-4 italic leading-relaxed">
                   "{feedback}"
                 </p>
               </div>
 
-              <div className="border border-white/5 bg-[#122540] p-4 rounded-xl max-w-sm mx-auto text-left space-y-2.5">
-                <h5 className="text-xs font-bold text-white uppercase tracking-wider">Report Details</h5>
-                <div className="grid grid-cols-2 gap-2 text-xs text-gray-400">
-                  <div>Education Factor: <strong className="text-white">{answers.education}</strong></div>
-                  <div>Experience Factor: <strong className="text-white">{answers.experience}</strong></div>
-                  <div>Language Score: <strong className="text-white">{answers.english.split(" ")[0]}</strong></div>
-                  <div>Age Bracket: <strong className="text-white">{answers.age} Yrs</strong></div>
+              <div className="border border-gray-200 bg-white p-4 rounded-xl max-w-sm mx-auto text-left space-y-2.5">
+                <h5 className="text-xs font-bold text-black uppercase tracking-wider">Report Details</h5>
+                <div className="grid grid-cols-2 gap-2 text-xs text-gray-800">
+                  <div>Education Factor: <strong className="text-black">{answers.education}</strong></div>
+                  <div>Experience Factor: <strong className="text-black">{answers.experience}</strong></div>
+                  <div>Language Score: <strong className="text-black">{answers.english.split(" ")[0]}</strong></div>
+                  <div>Age Bracket: <strong className="text-black">{answers.age} Yrs</strong></div>
                 </div>
               </div>
 
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-gray-800">
                 A VisaEnsure Senior Case Officer has been assigned to your file. We will call you shortly on{" "}
-                <strong className="text-white">{answers.phone}</strong> to guide you on the document submission checklist.
+                <strong className="text-black">{answers.phone}</strong> to guide you on the document submission checklist.
               </p>
 
               <div className="flex gap-3 max-w-xs mx-auto pt-2">
@@ -432,13 +432,13 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                       phone: "",
                     });
                   }}
-                  className="flex-1 py-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-lg text-xs transition-all"
+                  className="flex-1 py-2 bg-white hover:bg-white text-black border border-gray-200 rounded-lg text-xs transition-all"
                 >
                   Check Again
                 </button>
                 <button
                   onClick={onClose}
-                  className="flex-1 py-2 bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] font-bold rounded-lg text-xs transition-all"
+                  className="flex-1 py-2 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg text-xs transition-all"
                 >
                   Done
                 </button>

@@ -103,7 +103,7 @@ export default function Calculator() {
     <div className="w-full glass-premium rounded-2xl p-6 border border-orange/10">
       <div className="flex items-center gap-2 mb-6">
         <Clock className="w-5 h-5 text-orange" />
-        <h3 className="text-xl font-heading text-white font-semibold">
+        <h3 className="text-xl font-heading text-black font-semibold">
           Processing Time & Fee Calculator
         </h3>
       </div>
@@ -111,13 +111,13 @@ export default function Calculator() {
       {/* Selectors */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         <div>
-          <label className="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">
+          <label className="block text-[10px] uppercase tracking-wider text-gray-800 mb-1">
             Destination Country
           </label>
           <select
             value={country}
             onChange={(e) => setCountry(e.target.value)}
-            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-orange"
+            className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-xs font-semibold text-black focus:outline-none focus:border-orange"
           >
             <option value="USA">United States</option>
             <option value="Canada">Canada</option>
@@ -125,13 +125,13 @@ export default function Calculator() {
           </select>
         </div>
         <div>
-          <label className="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">
+          <label className="block text-[10px] uppercase tracking-wider text-gray-800 mb-1">
             Visa Category
           </label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-orange"
+            className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-xs font-semibold text-black focus:outline-none focus:border-orange"
           >
             <option value="Student">Student Visa</option>
             <option value="Worker">Work Visa / Permit</option>
@@ -143,9 +143,9 @@ export default function Calculator() {
 
       {/* Results Display */}
       <div className="space-y-4">
-        <div className="p-4 bg-[#050b14] border border-white/5 rounded-xl flex items-center justify-between">
+        <div className="p-4 bg-white border border-gray-200 rounded-xl flex items-center justify-between">
           <div className="space-y-0.5">
-            <span className="text-[10px] uppercase tracking-wider text-gray-400">
+            <span className="text-[10px] uppercase tracking-wider text-gray-800">
               Est. Processing Time
             </span>
             <h4 className="text-lg font-bold font-heading text-[#EA580C]">{result.time}</h4>
@@ -153,12 +153,12 @@ export default function Calculator() {
           <Clock className="w-8 h-8 text-orange/30" />
         </div>
 
-        <div className="p-4 bg-[#050b14] border border-white/5 rounded-xl flex items-center justify-between">
+        <div className="p-4 bg-white border border-gray-200 rounded-xl flex items-center justify-between">
           <div className="space-y-0.5">
-            <span className="text-[10px] uppercase tracking-wider text-gray-400">
+            <span className="text-[10px] uppercase tracking-wider text-gray-800">
               Government Fees (Est.)
             </span>
-            <h4 className="text-sm font-semibold text-white leading-relaxed">{result.fees}</h4>
+            <h4 className="text-sm font-semibold text-black leading-relaxed">{result.fees}</h4>
           </div>
           <Coins className="w-8 h-8 text-orange/30" />
         </div>
@@ -167,15 +167,15 @@ export default function Calculator() {
           <div className="flex gap-2">
             <AlertCircle className="w-4 h-4 text-orange shrink-0 mt-0.5" />
             <div>
-              <strong className="text-white block font-medium">Recommended Filing Window</strong>
-              <span className="text-gray-300">{result.window}</span>
+              <strong className="text-black block font-medium">Recommended Filing Window</strong>
+              <span className="text-gray-900">{result.window}</span>
             </div>
           </div>
-          <div className="flex gap-2 pt-2 border-t border-white/5">
-            <HelpCircle className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
+          <div className="flex gap-2 pt-2 border-t border-gray-200">
+            <HelpCircle className="w-4 h-4 text-gray-800 shrink-0 mt-0.5" />
             <div>
-              <strong className="text-white block font-medium">Fast-Track Channels</strong>
-              <span className="text-gray-300">{result.fastTrack}</span>
+              <strong className="text-black block font-medium">Fast-Track Channels</strong>
+              <span className="text-gray-900">{result.fastTrack}</span>
             </div>
           </div>
         </div>

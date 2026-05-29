@@ -98,7 +98,7 @@ export default function Globe3D() {
       </div>
       <div className="absolute bottom-[20%] left-[5%] glass border-orange/20 p-3 rounded-lg text-xs flex items-center gap-2 animate-float shadow-lg z-20 pointer-events-none" style={{ animationDelay: "1.5s" }}>
         <span className="w-2 h-2 rounded-full bg-blue-400"></span>
-        <span className="font-semibold text-white">Canada Express Entry CRS: 512</span>
+        <span className="font-semibold text-black">Canada Express Entry CRS: 512</span>
       </div>
     </div>
   );

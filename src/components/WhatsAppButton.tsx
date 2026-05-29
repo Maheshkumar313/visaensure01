@@ -15,7 +15,7 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 left-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+      className="fixed bottom-6 left-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-black p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
       aria-label="Chat on WhatsApp"
     >
       {/* Outer Pulse ring */}
@@ -25,7 +25,7 @@ export default function WhatsAppButton() {
       <MessageSquareCode className="w-6 h-6 relative z-10" />
 
       {/* Tooltip */}
-      <span className="absolute left-14 bg-[#0A1628] border border-white/10 text-white text-[11px] font-semibold tracking-wide py-1.5 px-3 rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-md">
+      <span className="absolute left-14 bg-white border border-gray-200 text-black text-[11px] font-semibold tracking-wide py-1.5 px-3 rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-md">
         Chat with a Consultant
       </span>
     </a>

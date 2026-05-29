@@ -84,7 +84,7 @@ export default function ComparisonTool() {
     <div className="w-full glass-premium rounded-2xl p-6 border border-orange/10">
       <div className="flex items-center gap-2 mb-6">
         <Scale className="w-5 h-5 text-orange" />
-        <h3 className="text-xl font-heading text-white font-semibold">
+        <h3 className="text-xl font-heading text-black font-semibold">
           Country Pathway Comparison
         </h3>
       </div>
@@ -92,36 +92,36 @@ export default function ComparisonTool() {
       {/* Selectors */}
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div>
-          <label className="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">
+          <label className="block text-[10px] uppercase tracking-wider text-gray-800 mb-1">
             Compare Country A
           </label>
           <select
             value={countryA}
             onChange={(e) => setCountryA(e.target.value)}
-            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-orange"
+            className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-xs font-semibold text-black focus:outline-none focus:border-orange"
           >
             {Object.keys(countriesData)
               .filter((c) => c !== countryB)
               .map((c) => (
-                <option key={c} value={c} className="bg-[#0A1628]">
+                <option key={c} value={c} className="bg-white">
                   {countriesData[c].name}
                 </option>
               ))}
           </select>
         </div>
         <div>
-          <label className="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">
+          <label className="block text-[10px] uppercase tracking-wider text-gray-800 mb-1">
             Compare Country B
           </label>
           <select
             value={countryB}
             onChange={(e) => setCountryB(e.target.value)}
-            className="w-full bg-[#122540] border border-white/10 rounded-lg px-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-orange"
+            className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-xs font-semibold text-black focus:outline-none focus:border-orange"
           >
             {Object.keys(countriesData)
               .filter((c) => c !== countryA)
               .map((c) => (
-                <option key={c} value={c} className="bg-[#0A1628]">
+                <option key={c} value={c} className="bg-white">
                   {countriesData[c].name}
                 </option>
               ))}
@@ -132,17 +132,17 @@ export default function ComparisonTool() {
       {/* Side-by-side Table */}
       <div className="space-y-4 text-xs">
         {/* Processing Time */}
-        <div className="grid grid-cols-5 border-b border-white/5 pb-3 items-center">
-          <div className="col-span-1 text-gray-400 font-semibold uppercase text-[10px]">
+        <div className="grid grid-cols-5 border-b border-gray-200 pb-3 items-center">
+          <div className="col-span-1 text-gray-800 font-semibold uppercase text-[10px]">
             Processing Speed
           </div>
-          <div className="col-span-2 text-white font-medium pl-2">{detailA.processingTime}</div>
-          <div className="col-span-2 text-white font-medium pl-2">{detailB.processingTime}</div>
+          <div className="col-span-2 text-black font-medium pl-2">{detailA.processingTime}</div>
+          <div className="col-span-2 text-black font-medium pl-2">{detailB.processingTime}</div>
         </div>
 
         {/* PR Ease */}
-        <div className="grid grid-cols-5 border-b border-white/5 pb-3 items-center">
-          <div className="col-span-1 text-gray-400 font-semibold uppercase text-[10px]">
+        <div className="grid grid-cols-5 border-b border-gray-200 pb-3 items-center">
+          <div className="col-span-1 text-gray-800 font-semibold uppercase text-[10px]">
             PR Pathway Ease
           </div>
           <div className="col-span-2 text-orange font-medium pl-2">{detailA.prEase}</div>
@@ -150,26 +150,26 @@ export default function ComparisonTool() {
         </div>
 
         {/* Post-Study Work */}
-        <div className="grid grid-cols-5 border-b border-white/5 pb-3 items-center">
-          <div className="col-span-1 text-gray-400 font-semibold uppercase text-[10px]">
+        <div className="grid grid-cols-5 border-b border-gray-200 pb-3 items-center">
+          <div className="col-span-1 text-gray-800 font-semibold uppercase text-[10px]">
             Post-Study Work
           </div>
-          <div className="col-span-2 text-white font-medium pl-2">{detailA.postStudyWork}</div>
-          <div className="col-span-2 text-white font-medium pl-2">{detailB.postStudyWork}</div>
+          <div className="col-span-2 text-black font-medium pl-2">{detailA.postStudyWork}</div>
+          <div className="col-span-2 text-black font-medium pl-2">{detailB.postStudyWork}</div>
         </div>
 
         {/* Living Cost */}
-        <div className="grid grid-cols-5 border-b border-white/5 pb-3 items-center">
-          <div className="col-span-1 text-gray-400 font-semibold uppercase text-[10px]">
+        <div className="grid grid-cols-5 border-b border-gray-200 pb-3 items-center">
+          <div className="col-span-1 text-gray-800 font-semibold uppercase text-[10px]">
             Est. Living Cost
           </div>
-          <div className="col-span-2 text-white font-medium pl-2">{detailA.livingCost}</div>
-          <div className="col-span-2 text-white font-medium pl-2">{detailB.livingCost}</div>
+          <div className="col-span-2 text-black font-medium pl-2">{detailA.livingCost}</div>
+          <div className="col-span-2 text-black font-medium pl-2">{detailB.livingCost}</div>
         </div>
 
         {/* Avg. Salary */}
-        <div className="grid grid-cols-5 border-b border-white/5 pb-3 items-center">
-          <div className="col-span-1 text-gray-400 font-semibold uppercase text-[10px]">
+        <div className="grid grid-cols-5 border-b border-gray-200 pb-3 items-center">
+          <div className="col-span-1 text-gray-800 font-semibold uppercase text-[10px]">
             Average Salary
           </div>
           <div className="col-span-2 text-green-400 font-semibold pl-2">{detailA.avgSalary}</div>
@@ -177,8 +177,8 @@ export default function ComparisonTool() {
         </div>
 
         {/* Top Industries */}
-        <div className="grid grid-cols-5 border-b border-white/5 pb-3 items-center">
-          <div className="col-span-1 text-gray-400 font-semibold uppercase text-[10px]">
+        <div className="grid grid-cols-5 border-b border-gray-200 pb-3 items-center">
+          <div className="col-span-1 text-gray-800 font-semibold uppercase text-[10px]">
             Hot Job Markets
           </div>
           <div className="col-span-2 pl-2">
@@ -186,7 +186,7 @@ export default function ComparisonTool() {
               {detailA.topIndustries.map((ind) => (
                 <span
                   key={ind}
-                  className="bg-white/5 border border-white/10 px-2 py-0.5 rounded text-[10px] text-gray-300"
+                  className="bg-white border border-gray-200 px-2 py-0.5 rounded text-[10px] text-gray-900"
                 >
                   {ind}
                 </span>
@@ -198,7 +198,7 @@ export default function ComparisonTool() {
               {detailB.topIndustries.map((ind) => (
                 <span
                   key={ind}
-                  className="bg-white/5 border border-white/10 px-2 py-0.5 rounded text-[10px] text-gray-300"
+                  className="bg-white border border-gray-200 px-2 py-0.5 rounded text-[10px] text-gray-900"
                 >
                   {ind}
                 </span>
@@ -209,12 +209,12 @@ export default function ComparisonTool() {
 
         {/* Primary Visa Routes */}
         <div className="grid grid-cols-5 pb-1 items-center">
-          <div className="col-span-1 text-gray-400 font-semibold uppercase text-[10px]">
+          <div className="col-span-1 text-gray-800 font-semibold uppercase text-[10px]">
             Visa Channels
           </div>
           <div className="col-span-2 pl-2 space-y-1">
             {detailA.visaRoutes.map((route) => (
-              <div key={route} className="flex items-center gap-1 text-white">
+              <div key={route} className="flex items-center gap-1 text-black">
                 <Check className="w-3 h-3 text-orange shrink-0" />
                 <span>{route}</span>
               </div>
@@ -222,7 +222,7 @@ export default function ComparisonTool() {
           </div>
           <div className="col-span-2 pl-2 space-y-1">
             {detailB.visaRoutes.map((route) => (
-              <div key={route} className="flex items-center gap-1 text-white">
+              <div key={route} className="flex items-center gap-1 text-black">
                 <Check className="w-3 h-3 text-orange shrink-0" />
                 <span>{route}</span>
               </div>
@@ -231,10 +231,10 @@ export default function ComparisonTool() {
         </div>
       </div>
 
-      <div className="mt-5 pt-4 border-t border-white/10 text-center">
+      <div className="mt-5 pt-4 border-t border-gray-200 text-center">
         <a
           href="#contact"
-          className="inline-flex items-center gap-1.5 text-xs text-orange hover:text-white font-bold transition-all"
+          className="inline-flex items-center gap-1.5 text-xs text-orange hover:text-black font-bold transition-all"
         >
           <span>Request Detailed Comparison Report</span>
           <ArrowRight className="w-3.5 h-3.5" />

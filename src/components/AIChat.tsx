@@ -85,7 +85,7 @@ export default function AIChat() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center relative group"
+          className="bg-[#EA580C] hover:bg-[#F97316] text-black p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center relative group"
         >
           {/* Outer Pulse ring */}
           <span className="absolute inset-0 rounded-full bg-[#EA580C]/40 animate-ping group-hover:animate-none"></span>
@@ -99,31 +99,31 @@ export default function AIChat() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="w-[340px] md:w-[380px] h-[480px] bg-[#0A1628] border border-orange/30 rounded-2xl overflow-hidden shadow-2xl flex flex-col transition-all duration-300 animate-in fade-in zoom-in-95">
+        <div className="w-[340px] md:w-[380px] h-[480px] bg-white border border-orange/30 rounded-2xl overflow-hidden shadow-2xl flex flex-col transition-all duration-300 animate-in fade-in zoom-in-95">
           {/* Chat Header */}
-          <div className="bg-[#050b14] border-b border-white/10 px-4 py-3 flex items-center justify-between">
+          <div className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-[#EA580C] flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-[#0A1628]" />
+                <Sparkles className="w-4 h-4 text-black" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-white flex items-center gap-1.5">
+                <h4 className="text-sm font-semibold text-black flex items-center gap-1.5">
                   VisaEnsure Assistant
                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping"></span>
                 </h4>
-                <span className="text-[10px] text-gray-400">24/7 Instant Support</span>
+                <span className="text-[10px] text-gray-800">24/7 Instant Support</span>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-800 hover:text-black transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3.5 no-scrollbar bg-[#0A1628]">
+          <div className="flex-1 p-4 overflow-y-auto space-y-3.5 no-scrollbar bg-white">
             {messages.map((m, idx) => (
               <div
                 key={idx}
@@ -133,7 +133,7 @@ export default function AIChat() {
               >
                 <div
                   className={`w-7 h-7 rounded-full flex items-center justify-center text-xs shrink-0 ${
-                    m.sender === "user" ? "bg-[#EA580C]/10 text-orange" : "bg-white/5 text-gray-300"
+                    m.sender === "user" ? "bg-[#EA580C]/10 text-orange" : "bg-white text-gray-900"
                   }`}
                 >
                   {m.sender === "user" ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
@@ -142,13 +142,13 @@ export default function AIChat() {
                   <div
                     className={`text-xs p-3 rounded-2xl leading-relaxed ${
                       m.sender === "user"
-                        ? "bg-[#EA580C] text-[#0A1628] rounded-tr-none font-medium"
-                        : "bg-white/5 text-white border border-white/5 rounded-tl-none"
+                        ? "bg-[#EA580C] text-black rounded-tr-none font-medium"
+                        : "bg-white text-black border border-gray-200 rounded-tl-none"
                     }`}
                   >
                     {m.text}
                   </div>
-                  <span className="text-[9px] text-gray-500 block px-1">{m.time}</span>
+                  <span className="text-[9px] text-gray-800 block px-1">{m.time}</span>
                 </div>
               </div>
             ))}
@@ -157,12 +157,12 @@ export default function AIChat() {
 
           {/* Quick Replies */}
           {leadStage === 0 && (
-            <div className="px-4 py-2 bg-[#050b14]/50 flex gap-2 overflow-x-auto no-scrollbar border-t border-white/5">
+            <div className="px-4 py-2 bg-white/50 flex gap-2 overflow-x-auto no-scrollbar border-t border-gray-200">
               {["Check Visa Fees", "Processing Times", "Required Documents"].map((tag) => (
                 <button
                   key={tag}
                   onClick={() => handleQuickReply(tag)}
-                  className="shrink-0 text-[10px] font-semibold text-gray-300 hover:text-orange bg-white/5 border border-white/10 hover:border-orange/30 px-3 py-1.5 rounded-full transition-all"
+                  className="shrink-0 text-[10px] font-semibold text-gray-900 hover:text-orange bg-white border border-gray-200 hover:border-orange/30 px-3 py-1.5 rounded-full transition-all"
                 >
                   {tag}
                 </button>
@@ -171,7 +171,7 @@ export default function AIChat() {
           )}
 
           {/* Chat Input */}
-          <div className="p-3 border-t border-white/10 bg-[#050b14]">
+          <div className="p-3 border-t border-gray-200 bg-white">
             <div className="flex gap-2">
               <input
                 type="text"
@@ -181,11 +181,11 @@ export default function AIChat() {
                 placeholder={
                   leadStage === 1 ? "Type phone / email here..." : "Ask your question here..."
                 }
-                className="flex-1 bg-[#122540] border border-white/10 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-orange"
+                className="flex-1 bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs text-black focus:outline-none focus:border-orange"
               />
               <button
                 onClick={() => handleSend()}
-                className="bg-[#EA580C] hover:bg-[#F97316] text-[#0A1628] px-3.5 rounded-lg flex items-center justify-center transition-colors"
+                className="bg-[#EA580C] hover:bg-[#F97316] text-black px-3.5 rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Send Message"
               >
                 <Send className="w-4 h-4" />

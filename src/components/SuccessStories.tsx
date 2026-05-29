@@ -69,7 +69,7 @@ export default function SuccessStories() {
   const current = testimonials[activeIndex];
 
   return (
-    <section className="py-20 bg-[#050b14] border-t border-white/5 relative">
+    <section className="py-20 bg-white border-t border-gray-200 relative">
       <div className="absolute top-[40%] left-[20%] w-[350px] h-[350px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 md:px-8 text-center space-y-10">
@@ -79,7 +79,7 @@ export default function SuccessStories() {
           <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             Testimonials
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
             Client Success Stories
           </h2>
         </div>
@@ -104,7 +104,7 @@ export default function SuccessStories() {
                 {current.image && (
                   <div className="w-full md:w-1/3 shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={current.image} alt={current.name} className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-xl border border-white/10" />
+                    <img src={current.image} alt={current.name} className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-xl border border-gray-200" />
                   </div>
                 )}
                 
@@ -123,11 +123,11 @@ export default function SuccessStories() {
 
                   {/* Profile */}
                   <div className={`flex items-center gap-3 ${current.image ? 'justify-start' : 'justify-center'}`}>
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#EA580C] to-[#0A1628] flex items-center justify-center font-bold text-[#0A1628] text-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#EA580C] to-[#0A1628] flex items-center justify-center font-bold text-black text-sm">
                       {current.avatar}
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-white">{current.name}</h4>
+                      <h4 className="text-sm font-bold text-black">{current.name}</h4>
                       <span className="text-[10px] text-orange font-semibold tracking-wide uppercase">
                         {current.visaType}
                       </span>
@@ -142,14 +142,14 @@ export default function SuccessStories() {
           <div className="flex gap-4 mt-8 relative z-20">
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-orange/30 text-gray-300 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white border border-gray-200 hover:border-orange/30 text-gray-900 hover:text-black flex items-center justify-center transition-all cursor-pointer"
               aria-label="Previous Testimonial"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-orange/30 text-gray-300 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white border border-gray-200 hover:border-orange/30 text-gray-900 hover:text-black flex items-center justify-center transition-all cursor-pointer"
               aria-label="Next Testimonial"
             >
               <ArrowRight className="w-4 h-4" />

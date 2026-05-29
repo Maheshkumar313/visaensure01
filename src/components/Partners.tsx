@@ -48,7 +48,7 @@ export default function Partners() {
   const list = partners[activeRegion] || [];
 
   return (
-    <section className="py-16 bg-[#0A1628] border-t border-white/5 relative">
+    <section className="py-16 bg-white border-t border-gray-200 relative">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Title */}
@@ -56,16 +56,16 @@ export default function Partners() {
           <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
             Global Network
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold font-heading text-white">
+          <h2 className="text-2xl md:text-3xl font-bold font-heading text-black">
             Partner Universities & Institutions
           </h2>
-          <p className="text-gray-400 text-xs md:text-sm max-w-lg mx-auto">
+          <p className="text-gray-800 text-xs md:text-sm max-w-lg mx-auto">
             Direct application pathways and priority credit transfers with 350+ accredited schools worldwide.
           </p>
         </div>
 
         {/* Region selector */}
-        <div className="flex gap-2 justify-center pb-4 mb-8 border-b border-white/5 overflow-x-auto no-scrollbar">
+        <div className="flex gap-2 justify-center pb-4 mb-8 border-b border-gray-200 overflow-x-auto no-scrollbar">
           {Object.keys(partners).map((region) => (
             <button
               key={region}
@@ -73,7 +73,7 @@ export default function Partners() {
               className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all border cursor-pointer ${
                 activeRegion === region
                   ? "bg-orange-light border-orange text-[#EA580C]"
-                  : "bg-white/5 border-transparent text-gray-300 hover:bg-white/10"
+                  : "bg-white border-transparent text-gray-900 hover:bg-white"
               }`}
             >
               {region}
@@ -91,23 +91,23 @@ export default function Partners() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="glass p-5 rounded-xl border border-white/5 flex flex-col justify-between hover:border-[#EA580C]/35 hover:-translate-y-1 group transition-all duration-300 grayscale hover:grayscale-0 hover:glow-orange"
+                className="glass p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:border-[#EA580C]/35 hover:-translate-y-1 group transition-all duration-300 grayscale hover:grayscale-0 hover:glow-orange"
               >
                 <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-white/5 group-hover:bg-[#EA580C]/10 flex items-center justify-center text-gray-400 group-hover:text-orange transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-white group-hover:bg-[#EA580C]/10 flex items-center justify-center text-gray-800 group-hover:text-orange transition-colors">
                     <Landmark className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold text-white group-hover:text-orange transition-colors truncate">
+                    <h3 className="text-xs font-bold text-black group-hover:text-orange transition-colors truncate">
                       {uni.name}
                     </h3>
-                    <p className="text-[10px] text-gray-400 mt-1">{uni.location}</p>
+                    <p className="text-[10px] text-gray-800 mt-1">{uni.location}</p>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[9px] uppercase tracking-wider text-gray-400 font-semibold font-mono">
+                <div className="mt-4 pt-3 border-t border-gray-200 flex items-center justify-between text-[9px] uppercase tracking-wider text-gray-800 font-semibold font-mono">
                   <span>RANKINGS</span>
-                  <span className="text-white">{uni.rank}</span>
+                  <span className="text-black">{uni.rank}</span>
                 </div>
               </motion.div>
             ))}
