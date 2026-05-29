@@ -13,14 +13,41 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone is required";
+    } else if (formData.phone.length < 10) {
+      newErrors.phone = "Invalid phone number";
+    }
+    return newErrors;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone) {
-      alert("Please fill in all required fields.");
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
-    setIsSubmitted(true);
+
+    setErrors({});
+    setIsLoading(true);
+
+    // Simulate API call
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSubmitted(true);
+    }, 1500);
   };
 
   return (
@@ -56,12 +83,15 @@ export default function Contact() {
                     </label>
                     <input
                       type="text"
-                      required
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) => {
+                        setFormData({ ...formData, name: e.target.value });
+                        if (errors.name) setErrors({ ...errors, name: "" });
+                      }}
                       placeholder="Rajesh Kumar"
-                      className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange"
+                      className={`w-full bg-white border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange`}
                     />
+                    {errors.name && <p className="text-[10px] text-red-500 mt-1 font-semibold">{errors.name}</p>}
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-900 mb-1.5">
@@ -69,12 +99,15 @@ export default function Contact() {
                     </label>
                     <input
                       type="email"
-                      required
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) => {
+                        setFormData({ ...formData, email: e.target.value });
+                        if (errors.email) setErrors({ ...errors, email: "" });
+                      }}
                       placeholder="rajesh@gmail.com"
-                      className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange"
+                      className={`w-full bg-white border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange`}
                     />
+                    {errors.email && <p className="text-[10px] text-red-500 mt-1 font-semibold">{errors.email}</p>}
                   </div>
                 </div>
 
@@ -85,12 +118,15 @@ export default function Contact() {
                     </label>
                     <input
                       type="tel"
-                      required
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) => {
+                        setFormData({ ...formData, phone: e.target.value });
+                        if (errors.phone) setErrors({ ...errors, phone: "" });
+                      }}
                       placeholder="+91 96424 42227"
-                      className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange"
+                      className={`w-full bg-white border ${errors.phone ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange`}
                     />
+                    {errors.phone && <p className="text-[10px] text-red-500 mt-1 font-semibold">{errors.phone}</p>}
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-900 mb-1.5">
@@ -125,10 +161,20 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+                  disabled={isLoading}
+                  className={`w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Inquiry</span>
+                  {isLoading ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                      <span>Processing...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Submit Inquiry</span>
+                    </>
+                  )}
                 </button>
               </form>
             ) : (

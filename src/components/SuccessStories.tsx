@@ -117,7 +117,7 @@ export default function SuccessStories() {
                   </div>
 
                   {/* Story */}
-                  <p className={`text-gray-200 text-sm md:text-base leading-relaxed italic font-body ${!current.image ? 'max-w-2xl mx-auto' : ''}`}>
+                  <p className={`text-gray-900 text-sm md:text-base leading-relaxed italic font-body ${!current.image ? 'max-w-2xl mx-auto' : ''}`}>
                     "{current.story}"
                   </p>
 
