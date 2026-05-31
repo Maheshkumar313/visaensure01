@@ -28,24 +28,30 @@ export default function Globe3D() {
         .backgroundColor('rgba(0,0,0,0)')
         .showGlobe(true)
         .showAtmosphere(true)
-        .atmosphereColor('#EA580C')
+        .atmosphereColor('#ffffff') // White atmosphere
         .atmosphereAltitude(0.15)
         .polygonsData(geoJsonData.current.features)
         .polygonAltitude(0.01)
-        .polygonCapColor(() => 'rgba(234, 88, 12, 0.25)') // Base gold color for continents
-        .polygonSideColor(() => 'rgba(234, 88, 12, 0.0)')
-        .polygonStrokeColor(() => 'rgba(234, 88, 12, 0.8)')
+        .polygonCapColor(() => 'rgba(234, 88, 12, 0.7)') // Orange for continents
+        .polygonSideColor(() => 'rgba(234, 88, 12, 0.1)')
+        .polygonStrokeColor(() => '#ffffff') // White borders for contrast
         .polygonLabel((d: any) => `
-          <div style="background: rgba(10,22,40,0.95); padding: 8px 12px; border-radius: 8px; color: white; border: 1px solid #EA580C; font-family: inherit; font-size: 13px; font-weight: 500; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+          <div style="background: rgba(255,255,255,0.95); padding: 8px 12px; border-radius: 8px; color: #1e293b; border: 1px solid #EA580C; font-family: inherit; font-size: 13px; font-weight: 500; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
             <strong style="color: #EA580C; display: block; margin-bottom: 2px;">${d.properties.ADMIN}</strong>
-            <span style="font-size: 11px; color: #a0aec0;">ISO: ${d.properties.ISO_A2} | Pop: ${(d.properties.POP_EST / 1000000).toFixed(1)}M</span>
+            <span style="font-size: 11px; color: #64748b;">ISO: ${d.properties.ISO_A2} | Pop: ${(d.properties.POP_EST / 1000000).toFixed(1)}M</span>
           </div>
         `)
         .onPolygonHover((hoverD: any) => globe
           .polygonAltitude((d: any) => d === hoverD ? 0.08 : 0.01)
-          .polygonCapColor((d: any) => d === hoverD ? 'rgba(234, 88, 12, 0.9)' : 'rgba(234, 88, 12, 0.25)')
+          .polygonCapColor((d: any) => d === hoverD ? 'rgba(234, 88, 12, 0.9)' : 'rgba(234, 88, 12, 0.7)')
         )
         .polygonsTransitionDuration(300);
+
+      // Access ThreeJS material to change ocean color
+      const globeMaterial = globe.globeMaterial();
+      globeMaterial.color.set('#ffedd5'); // Light orange for oceans
+      globeMaterial.emissive.set('#fed7aa');
+      globeMaterial.emissiveIntensity = 0.2;
 
       globeInstance.current = globe;
       
@@ -86,7 +92,7 @@ export default function Globe3D() {
       />
       
       {/* Background radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234, 88, 12,0.12)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Globe Container */}
       <div ref={containerRef} className="w-full h-full relative z-10 cursor-crosshair" />
