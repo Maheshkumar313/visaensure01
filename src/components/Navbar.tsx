@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, MessageCircle, Globe2, Briefcase, GraduationCap, Plane, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
   onOpenAssessment: () => void;
@@ -11,58 +12,56 @@ interface NavbarProps {
   onOpenTracker: () => void;
 }
 
-export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
+const megaMenuVariants = {
+  hidden: { opacity: 0, y: 15, scale: 0.98 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { duration: 0.3, ease: "easeOut" }
+  },
+  exit: { 
+    opacity: 0, 
+    y: 10, 
+    scale: 0.98,
+    transition: { duration: 0.2, ease: "easeIn" }
+  }
+};
+
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  onMouseEnter?: () => void;
+  onClick: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
+}
+
+const NavLink = ({ href, children, onMouseEnter, onClick }: NavLinkProps) => {
+  return (
+    <Link
+      href={href}
+      onMouseEnter={onMouseEnter}
+      onClick={(e) => onClick(e, href)}
+      className="relative group px-3 py-2 text-sm font-semibold font-body text-gray-800 transition-colors"
+    >
+      <span className="relative z-10 group-hover:text-black">{children}</span>
+      <span
+        className="absolute bottom-0 left-0 w-0 h-[2px] bg-black group-hover:w-full transition-all duration-300"
+        aria-hidden="true"
+      />
+    </Link>
+  );
+};
+
+export default function Navbar({ onOpenBooking }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
   
+  // Mobile accordion state
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileCountriesOpen, setMobileCountriesOpen] = useState(false);
+
   const pathname = usePathname();
   const router = useRouter();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navItems = [
-    { 
-      label: "Home", 
-      href: "/#hero",
-      subItems: [
-        { label: "Visa Lounge", href: "/#visa-lounge" },
-        { label: "Our Process", href: "/#process" },
-        { label: "Testimonials", href: "/#success-stories" }
-      ]
-    },
-    { label: "About", href: "/#about" },
-    { 
-      label: "Services", 
-      href: "/#services",
-      subItems: [
-        { label: "USA Student Visa", href: "/services/usa-student-visa" },
-        { label: "Canada PR", href: "/services/canada-pr" },
-        { label: "UK Work Visa", href: "/services/uk-work-visa" },
-        { label: "Australia Tourist", href: "/services/australia-tourist" },
-      ]
-    },
-    { 
-      label: "Destinations", 
-      href: "/#destinations",
-      subItems: [
-        { label: "Study in USA", href: "/services/usa-student-visa" },
-        { label: "Migrate to Canada", href: "/services/canada-pr" },
-        { label: "Work in UK", href: "/services/uk-work-visa" }
-      ]
-    },
-    { label: "Why Us", href: "/#why-choose" },
-    { label: "Contact", href: "/#contact" },
-  ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("/#") || href.startsWith("#")) {
@@ -83,179 +82,384 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
     }
   };
 
+  const closeMenu = () => setActiveMenu(null);
+
+  // Mega Menu Data
+  const servicesCategories = [
+    {
+      title: "Study Visas",
+      icon: <GraduationCap className="w-5 h-5 text-blue-500" />,
+      items: [
+        { label: "USA Study Visa", href: "/services/usa-study" },
+        { label: "UK Study Visa", href: "/services/uk-study" },
+        { label: "Canada Study Visa", href: "/services/canada-study" },
+        { label: "Australia Study Visa", href: "/services/australia-study" },
+        { label: "Germany Study Visa", href: "/services/germany-study" },
+      ]
+    },
+    {
+      title: "Work Visas",
+      icon: <Briefcase className="w-5 h-5 text-green-500" />,
+      items: [
+        { label: "H1B Visa", href: "/services/h1b" },
+        { label: "UK Skilled Worker Visa", href: "/services/uk-skilled" },
+        { label: "Canada Work Permit", href: "/services/canada-work" },
+        { label: "Australia Work Visa", href: "/services/australia-work" },
+      ]
+    },
+    {
+      title: "Visitor Visas",
+      icon: <Plane className="w-5 h-5 text-orange-500" />,
+      items: [
+        { label: "USA B1/B2", href: "/services/usa-b1b2" },
+        { label: "UK Visitor Visa", href: "/services/uk-visitor" },
+        { label: "Schengen Visa", href: "/services/schengen" },
+        { label: "Canada Visitor Visa", href: "/services/canada-visitor" },
+      ]
+    },
+    {
+      title: "Immigration Services",
+      icon: <Globe2 className="w-5 h-5 text-purple-500" />,
+      items: [
+        { label: "PR Services", href: "/services/pr" },
+        { label: "Express Entry", href: "/services/express-entry" },
+        { label: "Skilled Migration", href: "/services/skilled-migration" },
+        { label: "Family Sponsorship", href: "/services/family-sponsorship" },
+      ]
+    },
+    {
+      title: "Additional Services",
+      icon: <ShieldCheck className="w-5 h-5 text-teal-500" />,
+      items: [
+        { label: "Visa Documentation", href: "/services/documentation" },
+        { label: "SOP Writing", href: "/services/sop-writing" },
+        { label: "Interview Preparation", href: "/services/interview-prep" },
+        { label: "Travel Insurance", href: "/services/travel-insurance" },
+      ]
+    }
+  ];
+
+  const countriesList = [
+    { name: "USA", flag: "🇺🇸", desc: "Top destination for tech & education", visas: ["Study", "H1B", "B1/B2"], href: "/destinations/usa" },
+    { name: "Canada", flag: "🇨🇦", desc: "Welcoming immigrants via Express Entry", visas: ["PR", "Study", "Work"], href: "/destinations/canada" },
+    { name: "UK", flag: "🇬🇧", desc: "Excellent education & skilled worker routes", visas: ["Study", "Skilled Worker"], href: "/destinations/uk" },
+    { name: "Australia", flag: "🇦🇺", desc: "High quality of life & skilled migration", visas: ["PR", "Study", "Work"], href: "/destinations/australia" },
+    { name: "Germany", flag: "🇩🇪", desc: "Europe's largest economy & free education", visas: ["Job Seeker", "Study"], href: "/destinations/germany" },
+    { name: "New Zealand", flag: "🇳🇿", desc: "Beautiful landscapes & great work-life", visas: ["Study", "Work"], href: "/destinations/new-zealand" },
+    { name: "Ireland", flag: "🇮🇪", desc: "Tech hub of Europe with friendly locals", visas: ["Study", "Work"], href: "/destinations/ireland" },
+    { name: "Europe", flag: "🇪🇺", desc: "Access 27 countries with Schengen Visa", visas: ["Schengen", "Visit"], href: "/destinations/europe" },
+  ];
+
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 py-4 ${
-          isScrolled
-            ? "bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-lg"
-            : "bg-transparent"
-        }`}
-        style={{ top: "37px" }} 
+        onMouseLeave={closeMenu}
+        className="relative w-full z-[100] bg-white border-b border-gray-100 shadow-sm"
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between relative">
-          {/* Logo */}
+        <div className="max-w-7xl mx-auto px-4 md:px-8 w-full flex items-center justify-between py-4">
+          
+          {/* Left: Logo Section */}
           <Link
             href="/"
-            className="flex items-center gap-2 group cursor-pointer"
+            onClick={closeMenu}
+            className="flex items-center gap-2 md:gap-3 group cursor-pointer relative z-10 hover:opacity-90 transition-opacity"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
               src="/images/visaensureLogoForWebsite/1.png" 
               alt="VisaEnsure Logo" 
-              className="h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300" 
+              className="w-auto object-contain h-16 md:h-20" 
             />
-            <div className="flex flex-col">
-              <span className="text-xl md:text-2xl font-heading tracking-widest font-bold text-black group-hover:text-[#EA580C] transition-colors">
-                VISA<span className="text-[#EA580C]">ENSURE</span>
+            
+            <div className="flex flex-col justify-center">
+              <span className="text-xl md:text-2xl font-heading tracking-widest font-bold text-gray-900 leading-none">
+                VISA<span className="text-orange-600">ENSURE</span>
               </span>
-              <span className="text-[10px] tracking-wider text-gray-800 font-body uppercase mt-0.5">
-                Your Trusted Visa Companion
+              <span className="text-[9px] md:text-[10px] tracking-wider text-gray-500 font-body uppercase mt-1 whitespace-nowrap">
+                Your Trusted Global Visa Partner
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            <div className="flex items-center gap-6">
-              {navItems.map((item) => (
-                <div 
-                  key={item.label}
-                  className="relative group h-full py-2" // using 'group' for css hover state
-                >
-                  <Link
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className="flex items-center gap-1 text-sm font-semibold font-body text-gray-900 hover:text-[#EA580C] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#EA580C] hover:after:w-full after:transition-all after:duration-300"
-                  >
-                    {item.label}
-                    {item.subItems && <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />}
-                  </Link>
-                  
-                  {/* CSS-only Dropdown Menu */}
-                  {item.subItems && (
-                     <div className="absolute top-[100%] left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-3 z-[110]">
-                        <div className="w-56 bg-white border border-gray-100 rounded-xl shadow-2xl p-2 flex flex-col">
-                          {item.subItems.map(subItem => (
-                            <Link
-                              key={subItem.label}
-                              href={subItem.href}
-                              onClick={(e) => {
-                                if(subItem.href.includes('#')) {
-                                  handleNavClick(e, subItem.href);
-                                }
-                              }}
-                              className="block px-4 py-3 text-sm font-medium text-gray-800 hover:text-[#EA580C] hover:bg-orange-50 rounded-lg transition-colors whitespace-nowrap"
-                            >
-                              {subItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                     </div>
-                  )}
-                </div>
-              ))}
+          {/* Center Desktop Navigation */}
+          <div className="hidden lg:flex flex-1 justify-center items-center gap-2 xl:gap-4 px-4">
+            <NavLink href="/" onMouseEnter={closeMenu} onClick={handleNavClick}>Home</NavLink>
+            
+            <div className="relative cursor-pointer" onMouseEnter={() => setActiveMenu('services')}>
+              <button className="flex items-center gap-1 relative group px-3 py-2 text-sm font-semibold font-body text-gray-800 transition-colors">
+                <span className={`relative z-10 ${activeMenu === 'services' ? 'text-black' : 'group-hover:text-black'}`}>Services</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === 'services' ? 'rotate-180' : ''}`} />
+                <span className={`absolute bottom-0 left-0 h-[2px] bg-black transition-all duration-300 ${activeMenu === 'services' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+              </button>
             </div>
 
-            {/* CTAs */}
-            <div className="flex items-center gap-4">
-              <button
-                onClick={onOpenBooking}
-                className="text-xs text-black hover:text-[#EA580C] font-semibold tracking-wider uppercase transition-colors"
-              >
-                Book Consultation
-              </button>
-              <button
-                onClick={onOpenAssessment}
-                className="bg-[#EA580C] hover:bg-[#F97316] text-black font-body text-xs md:text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-md flex items-center gap-2 hover:shadow-[#EA580C]/20 hover:shadow-lg"
-              >
-                <span>Free Assessment</span>
-                <ArrowRight className="w-4 h-4" />
+            <div className="relative cursor-pointer" onMouseEnter={() => setActiveMenu('countries')}>
+              <button className="flex items-center gap-1 relative group px-3 py-2 text-sm font-semibold font-body text-gray-800 transition-colors">
+                <span className={`relative z-10 ${activeMenu === 'countries' ? 'text-black' : 'group-hover:text-black'}`}>Countries</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === 'countries' ? 'rotate-180' : ''}`} />
+                <span className={`absolute bottom-0 left-0 h-[2px] bg-black transition-all duration-300 ${activeMenu === 'countries' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
               </button>
             </div>
+
+            <NavLink href="/#success-stories" onMouseEnter={closeMenu} onClick={handleNavClick}>Success Stories</NavLink>
+            <NavLink href="/#about" onMouseEnter={closeMenu} onClick={handleNavClick}>About Us</NavLink>
+            <NavLink href="/#blog" onMouseEnter={closeMenu} onClick={handleNavClick}>Blog</NavLink>
+            <NavLink href="/#contact" onMouseEnter={closeMenu} onClick={handleNavClick}>Contact</NavLink>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 lg:hidden">
+          {/* Right CTAs */}
+          <div className="hidden lg:flex items-center gap-4 relative z-10">
+            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 hover:text-green-600 transition-colors font-semibold text-sm">
+              <MessageCircle className="w-5 h-5" />
+              <span>WhatsApp</span>
+            </a>
+            
             <button
-              onClick={onOpenAssessment}
-              className="bg-[#EA580C] hover:bg-[#F97316] text-black text-xs font-bold px-3 py-1.5 rounded-full transition-all duration-300"
+              onClick={onOpenBooking}
+              className="relative group bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white font-body text-sm font-bold px-6 py-2 rounded-full transition-all duration-300 shadow-md hover:shadow-lg shadow-orange-500/30 overflow-hidden flex items-center gap-2"
             >
-              Assessment
+              <motion.span className="absolute inset-0 bg-white/20" initial={{ x: '-100%' }} whileHover={{ x: '100%' }} transition={{ duration: 0.5 }} />
+              <motion.div animate={{ scale: [1, 1.05, 1] }} transition={{ repeat: Infinity, duration: 2 }} className="flex items-center gap-2 relative z-10">
+                <span>Free Consultation</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.div>
             </button>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="flex items-center gap-4 lg:hidden relative z-10">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-black hover:text-[#EA580C] transition-colors focus:outline-none"
+              className="text-gray-900 hover:text-orange-600 transition-colors focus:outline-none"
               aria-label="Toggle Menu"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <div
-          className={`lg:hidden fixed top-[89px] left-0 w-full bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-b border-gray-200 transition-all duration-500 overflow-y-auto ${
-            isMobileMenuOpen ? "max-h-[85vh] opacity-100 py-6" : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="flex flex-col px-6 gap-2">
-            {navItems.map((item) => (
-              <div key={item.label} className="flex flex-col">
-                <Link
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-base font-body font-medium text-black hover:text-[#EA580C] transition-colors py-3 border-b border-gray-100 flex items-center justify-between"
-                >
-                  {item.label}
-                  {item.subItems && <ChevronDown className="w-4 h-4 text-gray-400" />}
-                </Link>
-                {/* Mobile Sub Items */}
-                {item.subItems && (
-                  <div className="flex flex-col pl-4 mt-1 mb-1">
-                    {item.subItems.map(sub => (
-                      <Link
-                        key={sub.label}
-                        href={sub.href}
-                        onClick={(e) => {
-                          if (sub.href.includes('#')) {
-                            handleNavClick(e, sub.href);
-                          } else {
-                            setIsMobileMenuOpen(false);
-                          }
-                        }}
-                        className="text-sm font-medium text-gray-600 hover:text-[#EA580C] py-2 border-b border-gray-50 last:border-b-0 block"
-                      >
-                        {sub.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+        {/* --- Desktop Mega Menus --- */}
+        <AnimatePresence>
+          {activeMenu === 'services' && (
+            <motion.div
+              key="services-mega"
+              variants={megaMenuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-2xl origin-top"
+            >
+              <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
+                <div className="grid grid-cols-5 gap-8">
+                  {servicesCategories.map((category, idx) => (
+                    <div key={idx} className="flex flex-col">
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="p-2 bg-gray-50 rounded-lg">
+                          {category.icon}
+                        </div>
+                        <h3 className="font-heading font-bold text-gray-900 text-base">{category.title}</h3>
+                      </div>
+                      <ul className="flex flex-col gap-3">
+                        {category.items.map((item, itemIdx) => (
+                          <li key={itemIdx}>
+                            <Link 
+                              href={item.href}
+                              onClick={closeMenu}
+                              className="text-sm text-gray-600 hover:text-orange-600 hover:translate-x-1 transition-all flex items-center gap-2 group/item"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover/item:bg-orange-500 transition-colors" />
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                onOpenTracker();
-              }}
-              className="text-base font-body font-medium text-[#EA580C] text-left hover:text-black transition-colors py-3 border-b border-gray-100 block w-full"
+            </motion.div>
+          )}
+
+          {activeMenu === 'countries' && (
+            <motion.div
+              key="countries-mega"
+              variants={megaMenuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-2xl origin-top"
             >
-              Track Status
-            </button>
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                onOpenBooking();
-              }}
-              className="text-base font-body font-medium text-black text-left hover:text-[#EA580C] transition-colors py-3 border-b border-gray-100 block w-full"
-            >
-              Book Consultation
-            </button>
-          </div>
-        </div>
+              <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
+                <div className="grid grid-cols-4 gap-6">
+                  {countriesList.map((country, idx) => (
+                    <Link 
+                      href={country.href} 
+                      key={idx}
+                      onClick={closeMenu}
+                      className="group flex flex-col p-4 rounded-2xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-all duration-300"
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-3xl">{country.flag}</span>
+                        <h3 className="font-heading font-bold text-lg text-gray-900 group-hover:text-orange-600 transition-colors">{country.name}</h3>
+                      </div>
+                      <p className="text-xs text-gray-500 mb-3 line-clamp-1">{country.desc}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {country.visas.map((visa, vIdx) => (
+                          <span key={vIdx} className="text-[10px] uppercase font-semibold bg-white border border-gray-200 text-gray-600 px-2 py-1 rounded-md">
+                            {visa}
+                          </span>
+                        ))}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
-      {/* Spacer to push content below fixed header */}
-      <div className="h-[93px] w-full" />
+
+      {/* --- Mobile Drawer Navigation --- */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 z-[110] bg-white flex flex-col lg:hidden"
+          >
+            <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/visaensureLogoForWebsite/1.png" alt="Logo" className="h-14 w-auto" />
+                <span className="text-xl font-heading font-bold text-gray-900">
+                  VISA<span className="text-orange-600">ENSURE</span>
+                </span>
+              </Link>
+              <button 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 bg-gray-50 rounded-full text-gray-600 hover:text-black"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            
+            <div className="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+              <Link href="/" onClick={(e) => handleNavClick(e, "/")} className="block text-xl font-heading font-semibold text-gray-900">
+                Home
+              </Link>
+              
+              {/* Mobile Services Accordion */}
+              <div>
+                <button 
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="flex items-center justify-between w-full text-xl font-heading font-semibold text-gray-900 py-1"
+                >
+                  <span>Services</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileServicesOpen && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-4 pb-2 space-y-6">
+                        {servicesCategories.map((cat, idx) => (
+                          <div key={idx}>
+                            <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">{cat.title}</h4>
+                            <ul className="space-y-3 pl-2">
+                              {cat.items.map((item, iIdx) => (
+                                <li key={iIdx}>
+                                  <Link href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-orange-600 font-medium block py-1">
+                                    {item.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Mobile Countries Accordion */}
+              <div>
+                <button 
+                  onClick={() => setMobileCountriesOpen(!mobileCountriesOpen)}
+                  className="flex items-center justify-between w-full text-xl font-heading font-semibold text-gray-900 py-1"
+                >
+                  <span>Countries</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileCountriesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileCountriesOpen && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-4 pb-2 grid grid-cols-2 gap-4">
+                        {countriesList.map((country, idx) => (
+                          <Link 
+                            key={idx}
+                            href={country.href} 
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="p-3 border border-gray-100 rounded-xl bg-gray-50 flex flex-col gap-2"
+                          >
+                            <span className="text-2xl">{country.flag}</span>
+                            <span className="font-semibold text-gray-900">{country.name}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <Link href="/#success-stories" onClick={(e) => handleNavClick(e, "/#success-stories")} className="block text-xl font-heading font-semibold text-gray-900">
+                Success Stories
+              </Link>
+              <Link href="/#about" onClick={(e) => handleNavClick(e, "/#about")} className="block text-xl font-heading font-semibold text-gray-900">
+                About Us
+              </Link>
+              <Link href="/#blog" onClick={(e) => handleNavClick(e, "/#blog")} className="block text-xl font-heading font-semibold text-gray-900">
+                Blog
+              </Link>
+              <Link href="/#contact" onClick={(e) => handleNavClick(e, "/#contact")} className="block text-xl font-heading font-semibold text-gray-900">
+                Contact
+              </Link>
+            </div>
+
+            {/* Mobile Footer CTAs */}
+            <div className="p-6 bg-gray-50 border-t border-gray-100 space-y-4">
+              <a 
+                href="https://wa.me/1234567890" 
+                className="flex items-center justify-center gap-2 w-full py-3.5 bg-white border border-gray-200 text-gray-900 font-semibold rounded-xl"
+              >
+                <MessageCircle className="w-5 h-5 text-green-600" />
+                <span>Chat on WhatsApp</span>
+              </a>
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  onOpenBooking();
+                }}
+                className="flex items-center justify-center gap-2 w-full py-3.5 bg-gradient-to-r from-orange-600 to-orange-500 text-white font-bold rounded-xl shadow-lg shadow-orange-500/25"
+              >
+                <span>Free Consultation</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

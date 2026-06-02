@@ -83,7 +83,7 @@ export default function Globe3D() {
   }, [dataLoaded, globeReady]);
 
   return (
-    <div className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center overflow-hidden">
+    <div className="relative w-full h-[450px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-visible">
       {/* Load globe.gl via unpkg */}
       <Script 
         src="https://unpkg.com/globe.gl" 

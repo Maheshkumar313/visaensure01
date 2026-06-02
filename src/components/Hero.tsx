@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const Globe3D = dynamic(() => import("./Globe3D"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[350px] md:h-[500px] flex items-center justify-center">
+    <div className="w-full h-[450px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-visible">
       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#EA580C]"></div>
     </div>
   ),
