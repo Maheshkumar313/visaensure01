@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowRight, ChevronDown, MessageCircle, Globe2, Briefcase, GraduationCap, Plane, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 interface NavbarProps {
   onOpenAssessment: () => void;
@@ -12,7 +12,7 @@ interface NavbarProps {
   onOpenTracker: () => void;
 }
 
-const megaMenuVariants = {
+const megaMenuVariants: Variants = {
   hidden: { opacity: 0, y: 15, scale: 0.98 },
   visible: { 
     opacity: 1, 
