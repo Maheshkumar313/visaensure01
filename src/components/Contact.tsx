@@ -52,13 +52,13 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-20 bg-white border-t border-gray-200 relative">
-      <div className="absolute top-[40%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[40%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#FF6B00]/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Title */}
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#FF6B00] uppercase">
             Get in Touch
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
@@ -162,7 +162,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full py-3 bg-[#FF6B00] hover:bg-[#FF7A1A] text-black font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {isLoading ? (
                     <>

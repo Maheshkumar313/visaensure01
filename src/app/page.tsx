@@ -37,6 +37,9 @@ import BookingModal from "@/components/BookingModal";
 import EligibilityChecker from "@/components/EligibilityChecker";
 import StatusTracker from "@/components/StatusTracker";
 
+// Scroll Transition Wrapper
+import SectionReveal from "@/components/SectionReveal";
+
 export default function Home() {
   // Modal states
   const [isAssessmentOpen, setIsAssessmentOpen] = useState(false);
@@ -64,28 +67,34 @@ export default function Home() {
         />
 
         {/* Trust Section */}
-        <Trust />
+        <SectionReveal className="bg-white">
+          <Trust />
+        </SectionReveal>
 
         {/* Services Section */}
-        <Services
-          onOpenAssessment={() => setIsAssessmentOpen(true)}
-          onOpenChecklist={() => {
-            const el = document.getElementById("visa-lounge");
-            if (el) el.scrollIntoView({ behavior: "smooth" });
-          }}
-        />
+        <SectionReveal className="bg-[#F8F9FB]">
+          <Services
+            onOpenAssessment={() => setIsAssessmentOpen(true)}
+            onOpenChecklist={() => {
+              const el = document.getElementById("visa-lounge");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+        </SectionReveal>
 
         {/* Destinations Section */}
-        <Destinations />
+        <SectionReveal className="bg-white">
+          <Destinations />
+        </SectionReveal>
 
         {/* Digital Visa Lounge: SaaS Interactive Tools Section */}
-        <section id="visa-lounge" className="py-20 bg-white border-t border-gray-200 relative">
-          <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
-          <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <SectionReveal id="visa-lounge" className="py-20 bg-gradient-to-b from-[#FF6B00]/4 to-[#FFFFFF] relative overflow-hidden">
+          <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/6 blur-[120px] pointer-events-none" />
+          <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
             {/* Title */}
             <div className="text-center space-y-3 mb-16">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200 text-[10px] font-semibold tracking-wider text-orange uppercase">
-                <Sparkles className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200 text-[10px] font-semibold tracking-wider text-[#FF6B00] uppercase font-body">
+                <Sparkles className="w-3.5 h-3.5 text-[#FF6B00]" />
                 <span>Visa Lounge</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
@@ -103,28 +112,42 @@ export default function Home() {
               <ChecklistGenerator />
             </div>
           </div>
-        </section>
+        </SectionReveal>
 
         {/* Why Choose Section */}
-        <WhyChoose />
+        <SectionReveal className="bg-[#FAFAFA]">
+          <WhyChoose />
+        </SectionReveal>
 
         {/* Timeline Process */}
-        <Process />
+        <SectionReveal className="bg-[#F8F9FB]">
+          <Process />
+        </SectionReveal>
 
         {/* Partner Universities */}
-        <Partners />
+        <SectionReveal className="bg-white">
+          <Partners />
+        </SectionReveal>
 
         {/* Testimonials */}
-        <SuccessStories />
+        <SectionReveal className="bg-gradient-to-br from-[#0A0A0A] via-[#121212] to-[#1A1A1A]">
+          <SuccessStories />
+        </SectionReveal>
 
         {/* Stats counters */}
-        <Stats />
+        <SectionReveal className="bg-gradient-to-br from-[#121212] to-[#0A0A0A]">
+          <Stats />
+        </SectionReveal>
 
         {/* Final CTA Assessment Banner */}
-        <AssessmentCTA onOpenAssessment={() => setIsAssessmentOpen(true)} />
+        <SectionReveal className="bg-gradient-to-br from-[#0A0A0A] via-[#121212] to-[#1A1A1A]">
+          <AssessmentCTA onOpenAssessment={() => setIsAssessmentOpen(true)} />
+        </SectionReveal>
 
         {/* Contact form and business info */}
-        <Contact />
+        <SectionReveal className="bg-[#FAFAFA]">
+          <Contact />
+        </SectionReveal>
 
         {/* Footer */}
         <Footer />

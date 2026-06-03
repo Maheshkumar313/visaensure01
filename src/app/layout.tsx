@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
+import InteractiveCursorGlow from "@/components/InteractiveCursorGlow";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-heading",
@@ -46,6 +47,7 @@ export default function RootLayout({
       className={`${cormorant.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body bg-white text-black">
+        <InteractiveCursorGlow />
         {children}
       </body>
     </html>

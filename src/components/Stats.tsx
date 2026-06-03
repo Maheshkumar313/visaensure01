@@ -33,7 +33,7 @@ function Counter({ end, suffix = "", duration = 2, decimals = 0 }: { end: number
   }, [isInView, end, duration, hasStarted]);
 
   return (
-    <span ref={ref} className="font-heading font-bold text-[#EA580C]">
+    <span ref={ref} className="font-heading font-bold text-[#FF6B00]">
       {!hasStarted && !isInView ? (
         <span>{end.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}</span>
       ) : (
@@ -45,9 +45,9 @@ function Counter({ end, suffix = "", duration = 2, decimals = 0 }: { end: number
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-white border-t border-gray-200 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-[#121212] to-[#0A0A0A] border-t border-white/[0.05] relative overflow-hidden">
       {/* Background abstract shape */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234, 88, 12,0.03)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.04)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -56,7 +56,7 @@ export default function Stats() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl">
               <Counter end={10000} suffix="+" duration={1.5} />
             </h3>
-            <p className="text-xs md:text-sm text-gray-800 uppercase tracking-widest font-semibold">
+            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
               Visa Consultations Completed
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function Stats() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl">
               <Counter end={98.6} suffix="%" duration={1.5} decimals={1} />
             </h3>
-            <p className="text-xs md:text-sm text-gray-800 uppercase tracking-widest font-semibold">
+            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
               Historical Approval Success
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function Stats() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl">
               <Counter end={50} suffix="+" duration={1.5} />
             </h3>
-            <p className="text-xs md:text-sm text-gray-800 uppercase tracking-widest font-semibold">
+            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
               Global Destinations Covered
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function Stats() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl">
               <Counter end={5} suffix="+ Yrs" duration={1.5} />
             </h3>
-            <p className="text-xs md:text-sm text-gray-800 uppercase tracking-widest font-semibold">
+            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
               Flagship Agency Status
             </p>
           </div>

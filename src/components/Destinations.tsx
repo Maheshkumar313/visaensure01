@@ -130,14 +130,14 @@ export default function Destinations() {
   const data = destinations[activeTab];
 
   return (
-    <section id="destinations" className="py-20 bg-white border-t border-gray-200 relative">
+    <section id="destinations" className="py-20 bg-gradient-to-b from-[#FFFFFF] to-[#FF6B00]/4 relative">
       <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-white/30 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Title */}
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#FF6B00] uppercase">
             Global Horizons
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
@@ -156,7 +156,7 @@ export default function Destinations() {
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-3 rounded-full text-xs md:text-sm font-semibold whitespace-nowrap transition-all border cursor-pointer ${
                 activeTab === tab
-                  ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
+                  ? "bg-orange-light border-orange text-[#FF6B00] glow-orange"
                   : "bg-white border-transparent text-gray-900 hover:bg-white"
               }`}
             >
@@ -196,7 +196,7 @@ export default function Destinations() {
                     {data.pathways.map((path, index) => (
                       <div
                         key={index}
-                        className="glass p-4 rounded-xl border border-gray-200 space-y-2 hover:border-[#EA580C]/20 transition-colors"
+                        className="glass p-4 rounded-xl border border-gray-200 space-y-2 hover:border-[#FF6B00]/20 transition-colors"
                       >
                         <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center">
                           {path.icon}
@@ -230,7 +230,7 @@ export default function Destinations() {
                   <span className="text-[10px] text-gray-900 uppercase font-semibold">Ready to choose?</span>
                   <a
                     href={`/services/${data.slug}`}
-                    className="bg-[#EA580C] hover:bg-[#F97316] text-black text-xs font-bold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 hover:scale-105"
+                    className="bg-[#FF6B00] hover:bg-[#FF7A1A] text-black text-xs font-bold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 hover:scale-105"
                   >
                     <span>View Portal</span>
                     <ArrowRight className="w-3.5 h-3.5" />

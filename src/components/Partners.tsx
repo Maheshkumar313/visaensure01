@@ -48,12 +48,12 @@ export default function Partners() {
   const list = partners[activeRegion] || [];
 
   return (
-    <section className="py-16 bg-white border-t border-gray-200 relative">
+    <section className="py-16 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Title */}
         <div className="text-center space-y-3 mb-12">
-          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#FF6B00] uppercase">
             Global Network
           </span>
           <h2 className="text-2xl md:text-3xl font-bold font-heading text-black">
@@ -65,14 +65,14 @@ export default function Partners() {
         </div>
 
         {/* Region selector */}
-        <div className="flex gap-2 justify-center pb-4 mb-8 border-b border-gray-200 overflow-x-auto no-scrollbar">
+        <div className="flex gap-2 justify-center pb-4 mb-8 overflow-x-auto no-scrollbar">
           {Object.keys(partners).map((region) => (
             <button
               key={region}
               onClick={() => setActiveRegion(region)}
               className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all border cursor-pointer ${
                 activeRegion === region
-                  ? "bg-orange-light border-orange text-[#EA580C]"
+                  ? "bg-orange-light border-orange text-[#FF6B00]"
                   : "bg-white border-transparent text-gray-900 hover:bg-white"
               }`}
             >
@@ -91,14 +91,14 @@ export default function Partners() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="glass p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:border-[#EA580C]/35 hover:-translate-y-1 group transition-all duration-300 grayscale hover:grayscale-0 hover:glow-orange"
+                className="glass p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:border-[#FF6B00]/35 hover:-translate-y-1 group transition-all duration-300 grayscale hover:grayscale-0 hover:glow-orange"
               >
                 <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-white group-hover:bg-[#EA580C]/10 flex items-center justify-center text-gray-800 group-hover:text-orange transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-white group-hover:bg-[#FF6B00]/10 flex items-center justify-center text-gray-800 group-hover:text-[#FF6B00] transition-colors">
                     <Landmark className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold text-black group-hover:text-orange transition-colors truncate">
+                    <h3 className="text-xs font-bold text-black group-hover:text-[#FF6B00] transition-colors truncate">
                       {uni.name}
                     </h3>
                     <p className="text-[10px] text-gray-800 mt-1">{uni.location}</p>

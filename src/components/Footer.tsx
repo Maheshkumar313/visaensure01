@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Compass, Mail, Phone, MapPin, Send, Globe } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,17 +16,17 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white border-t border-gray-200 pt-16 pb-8 text-xs text-gray-800 font-body relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-[#0A0A0A] via-[#121212] to-[#0A0A0A] border-t border-white/[0.05] pt-16 pb-8 text-xs text-gray-400 font-body relative overflow-hidden">
       
       {/* Subtle Airplane Trail Animation */}
-      <div className="absolute right-[-100px] top-[10%] opacity-15 pointer-events-none select-none">
+      <div className="absolute right-[-100px] top-[10%] opacity-20 pointer-events-none select-none">
         <svg
           width="400"
           height="120"
           viewBox="0 0 400 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="stroke-[#EA580C]"
+          className="stroke-[#FF6B00]"
         >
           <path
             d="M10 80 Q 150 10, 300 90 T 390 20"
@@ -34,13 +35,13 @@ export default function Footer() {
             className="path-anim"
           />
           {/* Animated plane node */}
-          <circle r="4" fill="#EA580C">
+          <circle r="4" fill="#FF6B00">
             <animateMotion dur="10s" repeatCount="indefinite" path="M10 80 Q 150 10, 300 90 T 390 20" />
           </circle>
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12 relative z-10">
         
         {/* Brand: Column span 4 */}
         <div className="lg:col-span-4 space-y-4">
@@ -54,45 +55,45 @@ export default function Footer() {
               <img 
                 src="/images/visaensureLogoForWebsite/1.png" 
                 alt="VisaEnsure Logo" 
-                className="h-9 w-auto object-contain hover:scale-105 transition-transform duration-300" 
+                className="h-9 w-auto object-contain hover:scale-105 transition-transform duration-300 filter brightness-110" 
               />
               <div className="flex flex-col">
-                <span className="text-base font-heading tracking-widest font-bold text-black">
-                  VISA<span className="text-[#EA580C]">ENSURE</span>
+                <span className="text-base font-heading tracking-widest font-bold text-white">
+                  VISA<span className="text-[#FF6B00]">ENSURE</span>
                 </span>
-                <span className="text-[8px] tracking-wider text-gray-800 uppercase mt-0.5">
+                <span className="text-[8px] tracking-wider text-gray-500 uppercase mt-0.5">
                   Your Trusted Visa Companion
                 </span>
               </div>
             </div>
           </a>
 
-          <p className="text-[11px] leading-relaxed text-gray-800 max-w-sm">
+          <p className="text-[11px] leading-relaxed text-gray-300 max-w-sm">
             VisaEnsure is a premium global immigration consultancy providing end-to-end visa solutions with Stripe-level security protocols and an unmatched 98.6% approval record.
           </p>
 
-          <div className="space-y-2 text-[10px]">
+          <div className="space-y-2 text-[10px] text-gray-400">
             <div className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#EA580C]" />
+              <MapPin className="w-3.5 h-3.5 text-[#FF6B00]" />
               <span>Domalguda Main Road, Liberty Circle, Hyderabad</span>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-[#EA580C]" />
-              <a href="mailto:apply@visaensure.com" className="hover:text-[#EA580C] transition-colors">apply@visaensure.com</a>
+              <Mail className="w-3.5 h-3.5 text-[#FF6B00]" />
+              <a href="mailto:apply@visaensure.com" className="hover:text-[#FF6B00] transition-colors">apply@visaensure.com</a>
             </div>
           </div>
           
           <div className="flex items-center gap-4 pt-4">
-            <a href="https://facebook.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-[#EA580C] transition-colors" aria-label="Facebook">
+            <a href="https://facebook.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#FF6B00] transition-colors" aria-label="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
-            <a href="https://instagram.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-[#EA580C] transition-colors" aria-label="Instagram">
+            <a href="https://instagram.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#FF6B00] transition-colors" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </a>
-            <a href="https://linkedin.com/company/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-[#EA580C] transition-colors" aria-label="LinkedIn">
+            <a href="https://linkedin.com/company/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#FF6B00] transition-colors" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="https://x.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-[#EA580C] transition-colors" aria-label="Twitter">
+            <a href="https://x.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#FF6B00] transition-colors" aria-label="Twitter">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
             </a>
           </div>
@@ -100,30 +101,30 @@ export default function Footer() {
 
         {/* Services: Column span 3 */}
         <div className="lg:col-span-3 space-y-4 pl-0 lg:pl-6">
-          <h4 className="text-black text-xs font-bold uppercase tracking-wider">Services</h4>
+          <h4 className="text-white text-xs font-bold uppercase tracking-wider">Services</h4>
           <ul className="space-y-2 text-[11px]">
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
                 Student Visa (F-1/Study Permits)
               </a>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
                 Work Visas & Opportunity Cards
               </a>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
                 PR & Skilled Migration (EE/PNP)
               </a>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
                 Tourist & Short-Term Visitor Visas
               </a>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#EA580C] transition-colors">
+              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
                 English Exam Coaching (IELTS/PTE)
               </a>
             </li>
@@ -132,30 +133,30 @@ export default function Footer() {
 
         {/* Destinations: Column span 2 */}
         <div className="lg:col-span-2 space-y-4">
-          <h4 className="text-black text-xs font-bold uppercase tracking-wider">Destinations</h4>
+          <h4 className="text-white text-xs font-bold uppercase tracking-wider">Destinations</h4>
           <ul className="space-y-2 text-[11px]">
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">United States</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">United States</a>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">Canada</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">Canada</a>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">United Kingdom</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">United Kingdom</a>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">Australia</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">Australia</a>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#EA580C] transition-colors">Germany</a>
+              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">Germany</a>
             </li>
           </ul>
         </div>
 
         {/* Newsletter / Direct Chat: Column span 3 */}
         <div className="lg:col-span-3 space-y-4">
-          <h4 className="text-black text-xs font-bold uppercase tracking-wider">Newsletter</h4>
-          <p className="text-[10px] leading-relaxed">
+          <h4 className="text-white text-xs font-bold uppercase tracking-wider">Newsletter</h4>
+          <p className="text-[10px] leading-relaxed text-gray-400">
             Join our weekly VIP circular. Receive current PR draw scores, visa rules, and processing wait lists.
           </p>
           <form onSubmit={(e) => { e.preventDefault(); alert("Subscribed!"); }} className="flex gap-2">
@@ -163,11 +164,11 @@ export default function Footer() {
               type="email"
               required
               placeholder="E.g. rajesh@gmail.com"
-              className="flex-1 bg-white border border-gray-200 rounded px-2.5 py-1.5 text-[10px] text-black focus:outline-none focus:border-[#EA580C]"
+              className="flex-1 bg-white/[0.03] border border-white/[0.08] rounded px-2.5 py-1.5 text-[10px] text-white focus:outline-none focus:border-[#FF6B00] placeholder-gray-500"
             />
             <button
               type="submit"
-              className="bg-[#EA580C] hover:bg-[#C2410C] text-black px-2.5 rounded flex items-center justify-center transition-colors cursor-pointer"
+              className="bg-[#FF6B00] hover:bg-[#FF7A1A] text-black px-2.5 rounded flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Subscribe"
             >
               <Send className="w-3.5 h-3.5" />
@@ -177,19 +178,34 @@ export default function Footer() {
 
       </div>
 
+      {/* Animated Divider Line with glowing light streak */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/[0.08] to-transparent relative my-8 overflow-hidden">
+          <motion.div
+            initial={{ left: "-100%" }}
+            animate={{ left: "100%" }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 w-1/3 h-full bg-gradient-to-r from-transparent via-[#FF6B00]/40 to-transparent"
+          />
+        </div>
+      </div>
+
       {/* Bottom Legal */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-800">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-500 relative z-10">
         <div>
           &copy; {currentYear} VisaEnsure Platform. All rights reserved. Registered Office Hyderabad, India.
         </div>
         <div className="flex gap-4">
-          <a href="#" className="hover:underline">Privacy Circular</a>
+          <a href="#" className="hover:text-white transition-colors">Privacy Circular</a>
           <span>|</span>
-          <a href="#" className="hover:underline">Terms of Service</a>
+          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
           <span>|</span>
-          <a href="#" className="hover:underline">Disclaimers</a>
+          <a href="#" className="hover:text-white transition-colors">Disclaimers</a>
         </div>
       </div>
+
+      {/* Soft orange base glow at the bottom center of the footer */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#FF6B00]/4 rounded-full blur-[100px] pointer-events-none" />
       
     </footer>
   );
