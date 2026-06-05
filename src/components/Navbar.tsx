@@ -90,51 +90,51 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
       title: "Study Visas",
       icon: <GraduationCap className="w-5 h-5 text-blue-500" />,
       items: [
-        { label: "USA Study Visa", href: "/services/usa-study" },
-        { label: "UK Study Visa", href: "/services/uk-study" },
-        { label: "Canada Study Visa", href: "/services/canada-study" },
-        { label: "Australia Study Visa", href: "/services/australia-study" },
-        { label: "Germany Study Visa", href: "/services/germany-study" },
+        { label: "All Study Programs", href: "/services/student-visa" },
+        { label: "USA Study Visa", href: "/services/usa-student-visa" },
+        { label: "Canada Study Visa", href: "/services/student-visa" },
+        { label: "Australia Study Visa", href: "/services/student-visa" },
+        { label: "Germany Study Visa", href: "/services/student-visa" },
       ]
     },
     {
       title: "Work Visas",
       icon: <Briefcase className="w-5 h-5 text-green-500" />,
       items: [
-        { label: "H1B Visa", href: "/services/h1b" },
-        { label: "UK Skilled Worker Visa", href: "/services/uk-skilled" },
-        { label: "Canada Work Permit", href: "/services/canada-work" },
-        { label: "Australia Work Visa", href: "/services/australia-work" },
+        { label: "All Work Permits", href: "/services/work-visa" },
+        { label: "US H1B Visa", href: "/services/h1b-visa" },
+        { label: "UK Skilled Worker Visa", href: "/services/uk-work-visa" },
+        { label: "Germany Opportunity Card", href: "/services/germany-job-seeker-visa" },
       ]
     },
     {
       title: "Visitor Visas",
       icon: <Plane className="w-5 h-5 text-orange-500" />,
       items: [
-        { label: "USA B1/B2", href: "/services/usa-b1b2" },
-        { label: "UK Visitor Visa", href: "/services/uk-visitor" },
-        { label: "Schengen Visa", href: "/services/schengen" },
-        { label: "Canada Visitor Visa", href: "/services/canada-visitor" },
+        { label: "USA B1/B2 Tourist", href: "/services/tourist-visa" },
+        { label: "UK Visitor Visa", href: "/services/tourist-visa" },
+        { label: "Schengen Tourist Visa", href: "/services/tourist-visa" },
+        { label: "Canada Visitor Visa", href: "/services/tourist-visa" },
       ]
     },
     {
       title: "Immigration Services",
       icon: <Globe2 className="w-5 h-5 text-purple-500" />,
       items: [
-        { label: "PR Services", href: "/services/pr" },
-        { label: "Express Entry", href: "/services/express-entry" },
-        { label: "Skilled Migration", href: "/services/skilled-migration" },
-        { label: "Family Sponsorship", href: "/services/family-sponsorship" },
+        { label: "PR & Skilled Migration", href: "/services/migration-visa" },
+        { label: "Canada Express Entry", href: "/services/canada-pr" },
+        { label: "Australia Subclass 189/190", href: "/services/australia-pr" },
+        { label: "Family Sponsorship", href: "/services/dependent-visa" },
       ]
     },
     {
       title: "Additional Services",
       icon: <ShieldCheck className="w-5 h-5 text-teal-500" />,
       items: [
-        { label: "Visa Documentation", href: "/services/documentation" },
-        { label: "SOP Writing", href: "/services/sop-writing" },
-        { label: "Interview Preparation", href: "/services/interview-prep" },
-        { label: "Travel Insurance", href: "/services/travel-insurance" },
+        { label: "English Coaching (IELTS)", href: "/services/ielts-coaching" },
+        { label: "Business & Investor Visa", href: "/services/business-visa" },
+        { label: "SOP & Essay Support", href: "/services/student-visa" },
+        { label: "Interview Preparation", href: "/services/student-visa" },
       ]
     }
   ];
