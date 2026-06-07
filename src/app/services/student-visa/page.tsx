@@ -4,6 +4,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InteractivePlaneWorldMap from "@/components/InteractivePlaneWorldMap";
+import TopUniversities from "@/components/TopUniversities";
 import { GraduationCap, Landmark, HelpCircle, CheckCircle, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -70,6 +71,9 @@ export default function StudentVisaPage() {
               </div>
             ))}
           </section>
+
+          {/* Top Universities Section */}
+          <TopUniversities />
 
           {/* Quick FAQ Block */}
           <section className="space-y-6 pt-6 border-t border-gray-100">
