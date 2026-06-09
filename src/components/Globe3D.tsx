@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { preload } from "react-dom";
 import Script from "next/script";
 import * as THREE from "three";
+import { Play, Pause, Sun, Moon } from "lucide-react";
 
 // Custom country-specific info mapping
 const COUNTRY_DETAILS: Record<string, { capital: string; timezone: string; offset: number; visas: string[] }> = {
@@ -35,20 +36,46 @@ const LABELS_DATA = [
   { lat: -20.0, lng: 80.0, text: "Indian Ocean", size: 1.4, color: "#FFA54F" }
 ];
 
+// Pulse rings destinations mapping
+const RINGS_DATA = [
+  { lat: 37.0902, lng: -95.7129, maxRadius: 10, color: '#FF6B00' }, // USA
+  { lat: 56.1304, lng: -106.3468, maxRadius: 10, color: '#FF6B00' }, // Canada
+  { lat: 55.3781, lng: -3.4360, maxRadius: 10, color: '#FF6B00' }, // UK
+  { lat: -25.2744, lng: 133.7751, maxRadius: 10, color: '#FF6B00' }, // Australia
+  { lat: 51.1657, lng: 10.4515, maxRadius: 10, color: '#FF6B00' } // Germany
+];
+
+const DESTINATIONS = [
+  { name: "USA", lat: 37.0902, lng: -95.7129, flag: "🇺🇸" },
+  { name: "Canada", lat: 56.1304, lng: -106.3468, flag: "🇨🇦" },
+  { name: "United Kingdom", lat: 55.3781, lng: -3.4360, flag: "🇬🇧" },
+  { name: "Australia", lat: -25.2744, lng: 133.7751, flag: "🇦🇺" },
+  { name: "Germany", lat: 51.1657, lng: 10.4515, flag: "🇩🇪" }
+];
+
+const LIVE_UPDATES = [
+  { country: "United States", visa: "F-1 Approved", flag: "🇺🇸", details: "Harvard University" },
+  { country: "Canada", visa: "Express Entry PR", flag: "🇨🇦", details: "CRS Score: 508" },
+  { country: "United Kingdom", visa: "Skilled Worker", flag: "🇬🇧", details: "NHS London Trust" },
+  { country: "Australia", visa: "Subclass 189", flag: "🇦🇺", details: "Software Engineer" },
+  { country: "Germany", visa: "EU Blue Card", flag: "🇩🇪", details: "Tech Lead Munich" },
+  { country: "Ireland", visa: "Stamp 1G Granted", flag: "🇮🇪", details: "Trinity College Dublin" }
+];
+
 export default function Globe3D() {
   const containerRef = useRef<HTMLDivElement>(null);
   const globeInstance = useRef<any>(null);
+  const flyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [globeReady, setGlobeReady] = useState(false);
+  const [autoRotate, setAutoRotate] = useState(true);
+  const [selectedDest, setSelectedDest] = useState<string | null>(null);
+  const [isNightMode, setIsNightMode] = useState(true);
+  const [activeUpdateIdx, setActiveUpdateIdx] = useState(0);
   const geoJsonData = useRef<any>(null);
   const cloudAnimId = useRef<number | null>(null);
-  const airplanesRef = useRef<any[]>([]);
 
-  // Preload heavy textures to dramatically speed up the globe loading time
-  preload('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg', { as: 'image' });
-  preload('https://unpkg.com/three-globe/example/img/earth-topology.png', { as: 'image' });
-  preload('https://unpkg.com/three-globe/example/img/earth-water.png', { as: 'image' });
-  preload('https://unpkg.com/three-globe/example/img/earth-clouds10k.png', { as: 'image' });
+  // Removed preload as it may cause React/Next.js Hydration issues if not used inside a supported boundary
 
   // Helper: ISO code to flag emoji
   const getFlagEmoji = (countryCode: string) => {
@@ -108,7 +135,7 @@ export default function Globe3D() {
 
   useEffect(() => {
     // Fetch world countries GeoJSON with force-cache for instant loads after first visit
-    fetch('https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson', { cache: "force-cache" })
+    fetch('/ne_110m_admin_0_countries.geojson', { cache: "force-cache" })
       .then(res => res.json())
       .then(data => {
         geoJsonData.current = data;
@@ -128,8 +155,8 @@ export default function Globe3D() {
         .atmosphereAltitude(0.22)
         
         // Photorealistic Earth textures
-        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-        .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+        .globeImageUrl('/images/globe/earth-blue-marble.jpg')
+        .bumpImageUrl('/images/globe/earth-topology.png')
 
         // Continent and ocean text labels
         .labelsData(LABELS_DATA)
@@ -141,6 +168,13 @@ export default function Globe3D() {
         .labelDotRadius(0)
         .labelAltitude(0.015)
         .labelResolution(2)
+
+        // Pulsing rings for top destinations
+        .ringsData(RINGS_DATA)
+        .ringColor((d: any) => d.color)
+        .ringMaxRadius((d: any) => d.maxRadius)
+        .ringPropagationSpeed(1.8)
+        .ringAltitude(0.015)
 
         // Interactive polygons (for country highlighting)
         .polygonsData(geoJsonData.current.features)
@@ -192,7 +226,7 @@ export default function Globe3D() {
       const textureLoader = new THREE.TextureLoader();
 
       // Specular ocean map (to reflect sunlight)
-      const waterTexture = textureLoader.load('https://unpkg.com/three-globe/example/img/earth-water.png');
+      const waterTexture = textureLoader.load('/images/globe/earth-water.png');
       if (globeMaterial.isMeshPhongMaterial) {
         globeMaterial.specularMap = waterTexture;
         globeMaterial.specular = new THREE.Color(0x222222);
@@ -205,16 +239,16 @@ export default function Globe3D() {
       }
 
       // Emissive night city-lights map (visible on shadowed side)
-      const nightTexture = textureLoader.load('https://unpkg.com/three-globe/example/img/earth-night.jpg');
+      const nightTexture = textureLoader.load('/images/globe/earth-night.jpg');
       globeMaterial.emissiveMap = nightTexture;
       globeMaterial.emissive = new THREE.Color(0xffbb77); // soft amber glow
       globeMaterial.emissiveIntensity = 2.5;
 
       // Add Custom Dynamic Cloud Layer
-      const radius = globe.getGlobeRadius();
+      const radius = 100; // standard globe.gl radius
       const cloudGeometry = new THREE.SphereGeometry(radius * 1.010, 64, 64);
       const cloudMaterial = new THREE.MeshStandardMaterial({
-        map: textureLoader.load('https://unpkg.com/three-globe/example/img/earth-clouds10k.png'),
+        map: textureLoader.load('/images/globe/earth-clouds.png'),
         transparent: true,
         opacity: 0.35,
         depthWrite: false
@@ -222,135 +256,9 @@ export default function Globe3D() {
       const clouds = new THREE.Mesh(cloudGeometry, cloudMaterial);
       scene.add(clouds);
 
-      // Create Airplane Mesh Factory (Highly Detailed Passenger Jet Structure)
-      const createAirplane = () => {
-        const group = new THREE.Group();
-        const mat = new THREE.MeshStandardMaterial({ 
-          color: 0xffffff, 
-          emissive: 0xFF6B00, 
-          emissiveIntensity: 1.2,
-          roughness: 0.3,
-          metalness: 0.6
-        });
-        
-        // 1. Main Fuselage
-        const fuselageGeo = new THREE.CylinderGeometry(0.4, 0.4, 4.5, 32);
-        fuselageGeo.rotateX(Math.PI / 2);
-        const fuselage = new THREE.Mesh(fuselageGeo, mat);
-
-        // 2. Nose Cone
-        const noseGeo = new THREE.ConeGeometry(0.4, 1.5, 32);
-        noseGeo.rotateX(Math.PI / 2);
-        const nose = new THREE.Mesh(noseGeo, mat);
-        nose.position.z = 3.0; // Attach to front of fuselage
-
-        // 3. Tail Cone
-        const tailConeGeo = new THREE.ConeGeometry(0.4, 1.2, 32);
-        tailConeGeo.rotateX(-Math.PI / 2);
-        const tailCone = new THREE.Mesh(tailConeGeo, mat);
-        tailCone.position.z = -2.85; // Attach to rear
-
-        // 4. Main Wings (Swept back)
-        const wingGeo = new THREE.BoxGeometry(4.0, 0.15, 1.5);
-        const rightWing = new THREE.Mesh(wingGeo, mat);
-        rightWing.position.set(1.8, 0, 0.5);
-        rightWing.rotation.y = -0.5; // Sweep back angle
-        
-        const leftWing = new THREE.Mesh(wingGeo, mat);
-        leftWing.position.set(-1.8, 0, 0.5);
-        leftWing.rotation.y = 0.5;
-
-        // 5. Vertical Stabilizer (Tail Fin)
-        const finGeo = new THREE.BoxGeometry(0.15, 1.8, 1.5);
-        const fin = new THREE.Mesh(finGeo, mat);
-        fin.position.set(0, 0.9, -2.8);
-        fin.rotation.x = -0.5; // Sweep backwards
-
-        // 6. Horizontal Stabilizers
-        const hStabGeo = new THREE.BoxGeometry(2.0, 0.1, 0.8);
-        const rightHStab = new THREE.Mesh(hStabGeo, mat);
-        rightHStab.position.set(0.8, 0, -3.0);
-        rightHStab.rotation.y = -0.5;
-
-        const leftHStab = new THREE.Mesh(hStabGeo, mat);
-        leftHStab.position.set(-0.8, 0, -3.0);
-        leftHStab.rotation.y = 0.5;
-
-        group.add(fuselage, nose, tailCone, rightWing, leftWing, fin, rightHStab, leftHStab);
-        
-        // Massive overall scale
-        group.scale.set(1.4, 1.4, 1.4); 
-        return group;
-      };
-
-      // Define major international flight routes (Expanded for dense air traffic)
-      const FLIGHTS = [
-        { from: [28.6139, 77.2090], to: [40.7128, -74.0060] }, // Delhi -> NY
-        { from: [28.6139, 77.2090], to: [51.5074, -0.1278] }, // Delhi -> London
-        { from: [28.6139, 77.2090], to: [-33.8688, 151.2093] }, // Delhi -> Sydney
-        { from: [40.7128, -74.0060], to: [51.5074, -0.1278] }, // NY -> London
-        { from: [51.5074, -0.1278], to: [25.2048, 55.2708] }, // London -> Dubai
-        { from: [25.2048, 55.2708], to: [1.3521, 103.8198] }, // Dubai -> Singapore
-        { from: [1.3521, 103.8198], to: [-33.8688, 151.2093] }, // Singapore -> Sydney
-        { from: [43.6510, -79.3470], to: [28.6139, 77.2090] }, // Toronto -> Delhi
-        { from: [48.8566, 2.3522], to: [35.6762, 139.6503] }, // Paris -> Tokyo
-        { from: [-23.5505, -46.6333], to: [40.7128, -74.0060] }, // Sao Paulo -> NY
-        { from: [-23.5505, -46.6333], to: [51.5074, -0.1278] }, // Sao Paulo -> London
-        { from: [-33.9249, 18.4241], to: [51.5074, -0.1278] }, // Cape Town -> London
-        { from: [-33.9249, 18.4241], to: [25.2048, 55.2708] }, // Cape Town -> Dubai
-        { from: [35.6762, 139.6503], to: [37.7749, -122.4194] }, // Tokyo -> SF
-        { from: [37.7749, -122.4194], to: [40.7128, -74.0060] }, // SF -> NY
-        { from: [19.0760, 72.8777], to: [51.5074, -0.1278] }, // Mumbai -> London
-        { from: [19.0760, 72.8777], to: [1.3521, 103.8198] }, // Mumbai -> Singapore
-        { from: [39.9042, 116.4074], to: [40.7128, -74.0060] }, // Beijing -> NY
-        { from: [39.9042, 116.4074], to: [48.8566, 2.3522] }, // Beijing -> Paris
-        { from: [55.7558, 37.6173], to: [25.2048, 55.2708] }, // Moscow -> Dubai
-        { from: [41.9028, 12.4964], to: [40.7128, -74.0060] }, // Rome -> NY
-        { from: [34.0522, -118.2437], to: [-33.8688, 151.2093] }, // LA -> Sydney
-        { from: [34.0522, -118.2437], to: [35.6762, 139.6503] }, // LA -> Tokyo
-        { from: [-34.6037, -58.3816], to: [40.4168, -3.7038] }, // Buenos Aires -> Madrid
-        { from: [40.4168, -3.7038], to: [25.2048, 55.2708] }, // Madrid -> Dubai
-      ];
-
-      // Initialize airplanes
-      const airplanes: any[] = [];
-      FLIGHTS.forEach(route => {
-        const mesh = createAirplane();
-        scene.add(mesh);
-        
-        const start = globe.getCoords(route.from[0], route.from[1], 0);
-        const end = globe.getCoords(route.to[0], route.to[1], 0);
-        
-        airplanes.push({
-          mesh,
-          start: new THREE.Vector3(start.x, start.y, start.z),
-          end: new THREE.Vector3(end.x, end.y, end.z),
-          progress: Math.random(), // Staggered start times
-          speed: 0.0015 + Math.random() * 0.0015, // Variable speeds
-        });
-      });
-      airplanesRef.current = airplanes;
-
-      // Animate clouds rotation and flight arcs independently
+      // Animate clouds rotation
       const animateScene = () => {
         if (clouds) clouds.rotation.y += 0.0005;
-
-        airplanesRef.current.forEach(plane => {
-          plane.progress += plane.speed;
-          if (plane.progress > 1) plane.progress = 0;
-          
-          // Parabolic altitude for takeoff and landing
-          const currentAlt = 1.001 + Math.sin(plane.progress * Math.PI) * 0.12;
-          
-          // Slerp for realistic curved trajectory across the globe
-          const currentPos = new THREE.Vector3().copy(plane.start).lerp(plane.end, plane.progress).normalize().multiplyScalar(radius * currentAlt);
-          plane.mesh.position.copy(currentPos);
-          
-          // Point the airplane in the direction of travel
-          const nextPos = new THREE.Vector3().copy(plane.start).lerp(plane.end, plane.progress + 0.01).normalize().multiplyScalar(radius * currentAlt);
-          plane.mesh.lookAt(nextPos);
-        });
-
         cloudAnimId.current = requestAnimationFrame(animateScene);
       };
       animateScene();
@@ -369,7 +277,7 @@ export default function Globe3D() {
       globeInstance.current = globe;
       
       // Setup controls
-      globe.controls().autoRotate = true;
+      globe.controls().autoRotate = autoRotate;
       globe.controls().autoRotateSpeed = 1.8; // Faster rotation speed as requested
       globe.controls().enableZoom = false;
 
@@ -390,7 +298,6 @@ export default function Globe3D() {
         if (cloudAnimId.current) cancelAnimationFrame(cloudAnimId.current);
         if (scene) {
           if (clouds) scene.remove(clouds);
-          airplanesRef.current.forEach(p => scene.remove(p.mesh));
         }
         if (containerRef.current) {
           containerRef.current.innerHTML = '';
@@ -400,29 +307,152 @@ export default function Globe3D() {
     }
   }, [dataLoaded, globeReady]);
 
+  // Dynamic controls sync
+  useEffect(() => {
+    if (globeInstance.current) {
+      globeInstance.current.controls().autoRotate = autoRotate;
+    }
+  }, [autoRotate]);
+
+  useEffect(() => {
+    if (globeInstance.current) {
+      const globeMaterial = globeInstance.current.globeMaterial();
+      if (globeMaterial) {
+        globeMaterial.emissiveIntensity = isNightMode ? 2.5 : 0.0;
+      }
+    }
+  }, [isNightMode]);
+
+  // Live success updates rotation
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveUpdateIdx((prev) => (prev + 1) % LIVE_UPDATES.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Cleanup timeout
+  useEffect(() => {
+    return () => {
+      if (flyTimeoutRef.current) {
+        clearTimeout(flyTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleFlyTo = (dest: typeof DESTINATIONS[0]) => {
+    setSelectedDest(dest.name);
+    setAutoRotate(false);
+    
+    if (flyTimeoutRef.current) {
+      clearTimeout(flyTimeoutRef.current);
+    }
+
+    if (globeInstance.current) {
+      globeInstance.current.pointOfView({ lat: dest.lat, lng: dest.lng, altitude: 1.8 }, 1500);
+      
+      flyTimeoutRef.current = setTimeout(() => {
+        setAutoRotate(true);
+        setSelectedDest(null);
+      }, 8000);
+    }
+  };
+
   return (
-    <div className="relative w-full h-[450px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-visible">
-      {/* Load globe.gl via unpkg */}
+    <div className="relative w-full h-[500px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-visible select-none">
+      {/* Load globe.gl via jsdelivr (faster CDN) */}
       <Script 
-        src="https://unpkg.com/globe.gl" 
+        id="globe-gl-script"
+        src="https://cdn.jsdelivr.net/npm/globe.gl" 
         strategy="afterInteractive" 
         onLoad={() => setGlobeReady(true)}
       />
       
-      {/* Background soft orange atmospheric glow behind the globe */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.14)_0%,transparent_65%)] pointer-events-none z-0" />
+      {/* Premium futuristic radial atmospheric glow under the globe */}
+      <div className="absolute w-[80%] h-[80%] bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.18)_0%,transparent_70%)] pointer-events-none z-0 filter blur-xl" />
+
+      {/* Cybernetic ambient orbit ring behind the globe */}
+      <div className="absolute w-[360px] h-[360px] md:w-[500px] md:h-[500px] rounded-full border border-[#FF6B00]/10 pointer-events-none z-0 animate-[spin_40s_linear_infinite]" />
+      <div className="absolute w-[380px] h-[380px] md:w-[530px] md:h-[530px] rounded-full border border-dashed border-[#FF6B00]/5 pointer-events-none z-0 animate-[spin_60s_linear_infinite_reverse]" />
 
       {/* Globe Container */}
-      <div ref={containerRef} className="w-full h-full relative z-10 cursor-crosshair" />
+      <div ref={containerRef} className="w-full h-full relative z-10 cursor-grab active:cursor-grabbing" />
 
-      {/* Floating real-time visa updates (Premium Touch) */}
-      <div className="absolute top-[12%] right-[8%] glass border-white/10 p-3.5 rounded-2xl text-xs flex items-center gap-2.5 animate-float shadow-xl z-20 pointer-events-none bg-white/70 backdrop-blur-md">
-        <span className="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
-        <span className="font-semibold text-black tracking-wide">VE-2026: USA F-1 Approved</span>
+      {/* Live Successful Applications Ticker */}
+      <div 
+        className="absolute top-[6%] right-[4%] md:right-[8%] glass border border-white/20 p-3 px-4 rounded-2xl text-xs flex items-center gap-3 shadow-2xl z-20 pointer-events-none bg-white/85 backdrop-blur-md text-black border-l-4 border-l-[#FF6B00] transition-all duration-500 max-w-[260px] md:max-w-xs"
+      >
+        <span className="relative flex h-2.5 w-2.5 shrink-0">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+        </span>
+        <div className="flex flex-col gap-0.5">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="font-semibold">{LIVE_UPDATES[activeUpdateIdx].flag} {LIVE_UPDATES[activeUpdateIdx].country}</span>
+            <span className="text-[#FF6B00] font-bold text-[10px] tracking-wide uppercase px-1.5 py-0.5 rounded bg-[#FF6B00]/10">{LIVE_UPDATES[activeUpdateIdx].visa}</span>
+          </div>
+          <span className="text-gray-600 text-[10px] font-medium tracking-wide">{LIVE_UPDATES[activeUpdateIdx].details}</span>
+        </div>
       </div>
-      <div className="absolute bottom-[18%] left-[5%] glass border-white/10 p-3.5 rounded-2xl text-xs flex items-center gap-2.5 animate-float shadow-xl z-20 pointer-events-none bg-white/70 backdrop-blur-md" style={{ animationDelay: "1.8s" }}>
-        <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-        <span className="font-semibold text-black tracking-wide">Canada Express Entry CRS: 512</span>
+
+      {/* Dynamic Dashboard Controls */}
+      <div className="absolute bottom-[3%] left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-3 w-[92%] sm:w-auto">
+        {/* Top Destinations Quick Travel */}
+        <div className="flex flex-wrap justify-center gap-1.5 bg-black/85 backdrop-blur-lg px-3 py-2 rounded-full border border-white/10 shadow-2xl">
+          {DESTINATIONS.map((dest) => (
+            <button
+              key={dest.name}
+              onClick={() => handleFlyTo(dest)}
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 ${
+                selectedDest === dest.name
+                  ? "bg-[#FF6B00] text-black shadow-lg shadow-[#FF6B00]/40 font-bold"
+                  : "text-white/80 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              <span>{dest.flag}</span>
+              <span>{dest.name}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Global Controls */}
+        <div className="flex items-center gap-4 bg-black/90 backdrop-blur-lg px-4.5 py-2 rounded-full border border-white/10 shadow-2xl text-[11px] text-white font-sans">
+          <button
+            onClick={() => setAutoRotate(!autoRotate)}
+            className="flex items-center gap-1.5 hover:text-[#FF6B00] transition-colors cursor-pointer font-medium"
+          >
+            {autoRotate ? (
+              <>
+                <Pause className="w-3.5 h-3.5 text-[#FF6B00]" />
+                <span>Pause Rotation</span>
+              </>
+            ) : (
+              <>
+                <Play className="w-3.5 h-3.5 text-[#FF6B00]" />
+                <span>Auto Rotate</span>
+              </>
+            )}
+          </button>
+          
+          <div className="w-[1px] h-3.5 bg-white/20" />
+
+          <button
+            onClick={() => setIsNightMode(!isNightMode)}
+            className="flex items-center gap-1.5 hover:text-[#FF6B00] transition-colors cursor-pointer font-medium"
+          >
+            {isNightMode ? (
+              <>
+                <Sun className="w-3.5 h-3.5 text-[#FFA54F]" />
+                <span>Day Mode</span>
+              </>
+            ) : (
+              <>
+                <Moon className="w-3.5 h-3.5 text-blue-400" />
+                <span>Night Lights</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );
