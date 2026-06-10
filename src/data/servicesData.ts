@@ -26,7 +26,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     keywords: ["USA student visa", "F1 visa Hyderabad", "study in USA", "I-20 visa assistance", "US university applications"],
     headline: "Fulfill Your American Dream with VisaEnsure",
     subheadline: "Expert guidance through I-20 acquisition, SEVIS payment, and the crucial F-1 consular interview.",
-    introduction: "Studying in the USA is a gateway to unmatched academic excellence and global career opportunities. The F-1 Student Visa is the primary pathway for international students seeking to pursue higher education at accredited US universities. VisaEnsure provides comprehensive support, ensuring your profile is presented with premium polish.",
+    introduction: "Studying in the USA is a gateway to unmatched academic excellence and global career opportunities. The F-1 Student Visa is the primary pathway for international students seeking to pursue higher education at accredited US universities. VisaEnsure provides comprehensive support, ensuring your profile is presented with elite polish.",
     features: [
       "Ivy League & Top-Tier University Shortlisting",
       "I-20 Form Assistance & Documentation Auditing",
@@ -238,7 +238,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     title: "Tourist & Visitor Visas",
     category: "tourist",
     metaTitle: "Tourist & Visitor Visa Services | USA, Europe, UK | VisaEnsure",
-    metaDescription: "Apply for tourist visas to USA (B1/B2), Schengen Area, UK, and Australia. Fast processing, premium documentation, and itinerary planning by VisaEnsure.",
+    metaDescription: "Apply for tourist visas to USA (B1/B2), Schengen Area, UK, and Australia. Fast processing, elite documentation, and itinerary planning by VisaEnsure.",
     keywords: ["Schengen visa", "USA B1 B2 visa", "UK visitor visa", "Tourist visa consultants", "Europe tourist visa"],
     headline: "Explore The World With Peace of Mind",
     subheadline: "Worry-free tourist visa applications for USA, UK, Schengen, Canada, and Australia.",
@@ -327,7 +327,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     metaDescription: "Score 8+ bands in IELTS and 79+ in PTE. Professional training with master trainers, mock tests, and custom study material at VisaEnsure.",
     keywords: ["IELTS coaching Hyderabad", "PTE training", "TOEFL preparation", "English proficiency", "IELTS online classes"],
     headline: "Achieve Target Scores on Your First Attempt",
-    subheadline: "Premium English test training with master instructors, customized study plans, and regular mocks.",
+    subheadline: "Elite English test training with master instructors, customized study plans, and regular mocks.",
     introduction: "High scores in IELTS, PTE, or TOEFL are essential for university admissions and visa approvals. Our coaching division offers structured courses focusing on all four language modules: Listening, Reading, Writing, and Speaking, to help you achieve your goals quickly.",
     features: [
       "Certified Master Trainers with 10+ Years Experience",

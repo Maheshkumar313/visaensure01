@@ -68,7 +68,7 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
             Platform Capabilities
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
-            Premium Visa & Immigration Programs
+            Global Visa & Migration Services
           </h2>
           <p className="text-gray-800 text-sm max-w-xl mx-auto">
             Expertly curated services structured to deliver high success rates, using advanced profiling and digital checklist technology.

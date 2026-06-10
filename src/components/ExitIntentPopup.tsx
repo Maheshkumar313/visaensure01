@@ -65,7 +65,7 @@ export default function ExitIntentPopup() {
                 Wait! Before You Leave...
               </h3>
               <p className="text-sm text-gray-900 max-w-xs mx-auto">
-                Download our premium guide: <strong>"Top 10 Secrets to Quick Visa Approvals in 2026"</strong> for free.
+                Download our elite guide: <strong>"Top 10 Secrets to Quick Visa Approvals in 2026"</strong> for free.
               </p>
             </div>
 

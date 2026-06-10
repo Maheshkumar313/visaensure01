@@ -1,29 +1,28 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import InteractiveCursorGlow from "@/components/InteractiveCursorGlow";
 
-const cormorant = Cormorant_Garamond({
+const poppins = Poppins({
   variable: "--font-heading",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "VisaEnsure | Premium Global Immigration & Visa Consultancy",
+  title: "VisaEnsure | Your Trusted Visa Companion",
   description: "Experience luxury travel and high-trust immigration consultancy. Expert visa guidance for study, work, migration, and tourism from Hyderabad to the world.",
   keywords: ["visa consultancy", "study abroad", "immigration platform", "work visa", "PR visa", "Hyderabad visa consultants", "VisaEnsure"],
   metadataBase: new URL("https://www.visaensure.com"),
   openGraph: {
-    title: "VisaEnsure | Premium Global Immigration & Visa Consultancy",
+    title: "VisaEnsure | Your Trusted Visa Companion",
     description: "Expert visa guidance for study, work, migration, and tourism with a trusted success-driven process.",
     url: "https://www.visaensure.com",
     siteName: "VisaEnsure",
@@ -45,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

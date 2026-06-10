@@ -8,7 +8,7 @@ export default function Process() {
   const steps = [
     {
       icon: <MessageSquare className="w-5 h-5" />,
-      title: "1. Premium Profile Assessment",
+      title: "1. Elite Profile Assessment",
       desc: "Our senior counselors review your background, verify eligibility points, and recommend the best countries and streams to lock in.",
     },
     {

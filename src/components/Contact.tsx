@@ -207,7 +207,7 @@ export default function Contact() {
                 <div className="flex gap-3">
                   <MapPin className="w-5 h-5 text-orange shrink-0 mt-0.5" />
                   <span className="leading-relaxed text-gray-900">
-                    #1 Floor, Vishudha 1-2-6, Domalguda Main Road, Near Saduram Eye Hospital, Liberty Circle, Hyderabad – 500029
+                    Flat no 402, 4th floor, Avasa's VPR Komitla Residency, Sri Sai Nagar, Jahangir Nagar Colony, Chintalkunta, Hyderabad, Telangana 500074
                   </span>
                 </div>
                 <div className="flex gap-3">
@@ -238,7 +238,7 @@ export default function Contact() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234, 88, 12,0.15)_0%,transparent_75%)]" />
               <div className="relative z-10 space-y-1">
                 <span className="text-[10px] tracking-wider text-orange uppercase font-bold">MAP DIRECTIONS</span>
-                <p className="text-[11px] text-gray-800">Saduram Eye Hospital Circle, Domalguda Main Road</p>
+                <p className="text-[11px] text-gray-800">Sri Sai Nagar, Jahangir Nagar Colony, Chintalkunta</p>
                 <a
                   href="https://maps.google.com"
                   target="_blank"

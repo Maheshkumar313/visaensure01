@@ -177,7 +177,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                   VISA<span className="text-orange-600">ENSURE</span>
                 </span>
                 <span className="tracking-wider text-gray-500 font-body uppercase whitespace-nowrap text-[9px] md:text-[10px] mt-1">
-                  Your Trusted Global Visa Partner
+                  Your Trusted Visa Companion
                 </span>
               </div>
             </Link>

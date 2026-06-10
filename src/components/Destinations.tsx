@@ -141,7 +141,7 @@ export default function Destinations() {
             Global Horizons
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
-            Explore Premium Destinations
+            Explore Top International Destinations
           </h2>
           <p className="text-gray-800 text-sm max-w-xl mx-auto">
             Compare pathways and access structured consultation services for the world's leading economies.
@@ -166,7 +166,7 @@ export default function Destinations() {
         </div>
 
         {/* Content Box */}
-        <div className="glass-premium rounded-2xl p-6 md:p-10 border border-orange/10 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
+        <div className="glass-elite rounded-2xl p-6 md:p-10 border border-orange/10 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}

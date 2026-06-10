@@ -42,7 +42,7 @@ export default function Hero({ onOpenAssessment, onOpenBooking }: HeroProps) {
       className="relative bg-white pt-0 pb-16 md:pt-2 md:pb-24 overflow-hidden"
     >
       {/* ========================================================================= */}
-      {/* PREMIUM LAYOUT BACKGROUNDS */}
+      {/* ELITE LAYOUT BACKGROUNDS */}
       {/* ========================================================================= */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         
@@ -195,7 +195,7 @@ export default function Hero({ onOpenAssessment, onOpenBooking }: HeroProps) {
           {/* Tagline Badge */}
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 text-xs font-semibold tracking-wider text-[#FF6B00] uppercase">
             <Compass className="w-4 h-4 animate-spin-slow text-[#FF6B00]" />
-            <span>Premium Global Immigration</span>
+            <span>Your Trusted Visa Companion</span>
           </motion.div>
 
           {/* Main Headline */}

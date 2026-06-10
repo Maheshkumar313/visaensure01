@@ -69,7 +69,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
       // Generate a dynamic mock record for any other tracking ID to show functionality
       setResult({
         id: trimmedId,
-        name: "Premium Candidate",
+        name: "Elite Candidate",
         visaType: "Skilled Work Visa",
         country: "UK / Australia",
         submittedOn: new Date().toISOString().split("T")[0],
@@ -217,7 +217,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
               <div className="p-3 bg-orange-light border border-orange/20 rounded-xl flex items-start gap-2.5">
                 <AlertCircle className="w-5 h-5 text-[#EA580C] shrink-0 mt-0.5" />
                 <div className="text-[11px] text-gray-900 leading-relaxed">
-                  Need to update files, change bio details, or upload sponsor bank statements? Please ping your counselor directly on WhatsApp or call our Domalguda desk quoting the CASE ID.
+                  Need to update files, change bio details, or upload sponsor bank statements? Please ping your counselor directly on WhatsApp or call our Chintalkunta desk quoting the CASE ID.
                 </div>
               </div>
             </div>

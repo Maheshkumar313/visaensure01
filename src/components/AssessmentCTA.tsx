@@ -12,7 +12,7 @@ export default function AssessmentCTA({ onOpenAssessment }: AssessmentCTAProps) 
     <section className="py-16 bg-gradient-to-br from-[#0A0A0A] via-[#121212] to-[#1A1A1A] border-t border-white/[0.05] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
         
-        {/* Banner with premium gradient and border */}
+        {/* Banner with elite gradient and border */}
         <div className="w-full bg-gradient-to-r from-[#121212] via-[#0A0A0A] to-[#1A1A1A] border border-[#FF6B00]/30 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl">
           {/* Ambient overlay */}
           <div className="absolute right-0 top-0 w-[200px] h-[200px] rounded-full bg-[#FF6B00]/8 blur-3xl pointer-events-none" />

@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
     image: "/images/test_aarav.png",
     country: "USA",
     visaType: "F-1 Student Visa (Stanford)",
-    story: "VisaEnsure handled my application to Stanford with absolute premium care. From SOP editing to mock consular interview drills, the process was seamless. I got my F-1 stamped in Hyderabad within 15 days!",
+    story: "VisaEnsure handled my application to Stanford with absolute elite care. From SOP editing to mock consular interview drills, the process was seamless. I got my F-1 stamped in Hyderabad within 15 days!",
   },
   {
     name: "Sneha Reddy",

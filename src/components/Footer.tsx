@@ -55,13 +55,13 @@ export default function Footer() {
               <img 
                 src="/images/visaensureLogoForWebsite/1.png" 
                 alt="VisaEnsure Logo" 
-                className="h-9 w-auto object-contain hover:scale-105 transition-transform duration-300 filter brightness-110" 
+                className="w-auto object-contain h-15 md:h-18 hover:scale-105 transition-transform duration-300 filter brightness-110" 
               />
-              <div className="flex flex-col">
-                <span className="text-base font-heading tracking-widest font-bold text-white">
+              <div className="flex flex-col justify-center">
+                <span className="font-heading tracking-widest font-bold text-white leading-none text-xl md:text-2xl">
                   VISA<span className="text-[#FF6B00]">ENSURE</span>
                 </span>
-                <span className="text-[8px] tracking-wider text-gray-500 uppercase mt-0.5">
+                <span className="tracking-wider text-gray-500 font-body uppercase whitespace-nowrap text-[9px] md:text-[10px] mt-1">
                   Your Trusted Visa Companion
                 </span>
               </div>
@@ -69,13 +69,13 @@ export default function Footer() {
           </a>
 
           <p className="text-[11px] leading-relaxed text-gray-300 max-w-sm">
-            VisaEnsure is a premium global immigration consultancy providing end-to-end visa solutions with Stripe-level security protocols and an unmatched 98.6% approval record.
+            VisaEnsure is a elite global immigration consultancy providing end-to-end visa solutions with Stripe-level security protocols and an unmatched 98.6% approval record.
           </p>
 
           <div className="space-y-2 text-[10px] text-gray-400">
             <div className="flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-[#FF6B00]" />
-              <span>Domalguda Main Road, Liberty Circle, Hyderabad</span>
+              <span>Flat no 402, 4th floor, Avasa's VPR Komitla Residency, Chintalkunta, Hyderabad, Telangana 500074</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5 text-[#FF6B00]" />

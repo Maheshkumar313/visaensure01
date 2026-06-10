@@ -73,7 +73,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-[#050b14] to-[#0A1628]">
           <div>
             <h3 className="text-xl font-heading text-black font-semibold">
-              Book a Premium Consultation
+              Book a Elite Consultation
             </h3>
             <p className="text-xs text-gray-800">Select a slot with an immigration partner</p>
           </div>
@@ -246,7 +246,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               </div>
 
               <p className="text-xs text-gray-800">
-                Our premium consultant will call you at <strong className="text-black">{formData.phone}</strong>.
+                Our elite consultant will call you at <strong className="text-black">{formData.phone}</strong>.
               </p>
 
               <div className="flex gap-4 max-w-xs mx-auto pt-2">

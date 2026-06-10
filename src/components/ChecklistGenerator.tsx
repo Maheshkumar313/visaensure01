@@ -70,7 +70,7 @@ export default function ChecklistGenerator() {
   };
 
   return (
-    <div className="w-full glass-premium rounded-2xl p-6 border border-orange/10">
+    <div className="w-full glass-elite rounded-2xl p-6 border border-orange/10">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <FileCheck2 className="w-5 h-5 text-orange" />
@@ -161,7 +161,7 @@ export default function ChecklistGenerator() {
         {!sent ? (
           <form onSubmit={handleSend} className="space-y-2.5">
             <label className="block text-[10px] uppercase tracking-wider text-gray-800 font-medium">
-              E-mail checklist as a premium PDF Guide
+              E-mail checklist as a elite PDF Guide
             </label>
             <div className="flex gap-2">
               <input

@@ -117,16 +117,16 @@ export default function Trust() {
                 <Building className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-heading text-black font-semibold group-hover:text-[#EA580C] transition-colors">
-                Premium Hyderabad HQ
+                Elite Hyderabad HQ
               </h3>
               <p className="text-gray-800 text-xs leading-relaxed font-body">
-                Located near Saduram Eye Hospital at Liberty Circle, Hyderabad. Visit our state-of-the-art office featuring counseling lounges, training rooms, and secure document lockers.
+                Located at Chintalkunta, Hyderabad. Visit our state-of-the-art office featuring counseling lounges, training rooms, and secure document lockers.
               </p>
               
               <div className="flex gap-2 text-xs text-gray-900">
                 <MapPin className="w-4 h-4 text-[#EA580C] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
-                  #1 Floor, Domalguda Main Road, Liberty Circle, Hyderabad - 500029
+                  Flat no 402, 4th floor, Avasa's VPR Komitla Residency, Sri Sai Nagar, Jahangir Nagar Colony, Chintalkunta, Hyderabad, Telangana 500074
                 </span>
               </div>
             </div>

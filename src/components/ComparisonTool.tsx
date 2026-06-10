@@ -81,7 +81,7 @@ export default function ComparisonTool() {
   const detailB = countriesData[countryB];
 
   return (
-    <div className="w-full glass-premium rounded-2xl p-6 border border-orange/10">
+    <div className="w-full glass-elite rounded-2xl p-6 border border-orange/10">
       <div className="flex items-center gap-2 mb-6">
         <Scale className="w-5 h-5 text-orange" />
         <h3 className="text-xl font-heading text-black font-semibold">

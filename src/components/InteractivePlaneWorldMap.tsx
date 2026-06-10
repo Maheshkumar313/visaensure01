@@ -418,7 +418,7 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
           className="w-full h-full transition-all duration-700 ease-out select-none"
           style={{ maxHeight: "450px" }}
         >
-          {/* Graticule lines (subtle mesh background for premium feel) */}
+          {/* Graticule lines (subtle mesh background for elite feel) */}
           <g stroke="rgba(14, 165, 233, 0.1)" strokeWidth="0.5" fill="none">
             {Array.from({ length: 18 }).map((_, i) => {
               const lng = -180 + i * 20;

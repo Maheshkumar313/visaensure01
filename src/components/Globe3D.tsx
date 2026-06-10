@@ -193,7 +193,7 @@ export default function Globe3D() {
         .polygonSideColor(() => 'rgba(0, 0, 0, 0)')
         .polygonStrokeColor(() => 'rgba(255, 255, 255, 0.08)') // ultra subtle borders
 
-        // Customized premium tooltips
+        // Customized elite tooltips
         .polygonLabel((d: any) => {
           const info = getCountryInfo(d.properties);
           return `
@@ -371,7 +371,7 @@ export default function Globe3D() {
 
   return (
     <div className="relative w-full h-[500px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-visible select-none">
-      {/* Premium futuristic radial atmospheric glow under the globe */}
+      {/* Elite futuristic radial atmospheric glow under the globe */}
       <div className="absolute w-[80%] h-[80%] bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.18)_0%,transparent_70%)] pointer-events-none z-0 filter blur-xl" />
 
       {/* Cybernetic ambient orbit ring behind the globe */}

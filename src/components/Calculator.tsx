@@ -22,13 +22,13 @@ const calculatorData: Record<string, Record<string, CalcData>> = {
       time: "2 to 3 Months",
       fees: "$190 USD (Filing Fee) + $460-$2,500+ (Employer Petitions)",
       window: "Apply 6 months prior to employment start date (usually H-1B lottery is in March)",
-      fastTrack: "Premium Processing available ($2,805 USD for 15-day USCIS adjudication)",
+      fastTrack: "Elite Processing available ($2,805 USD for 15-day USCIS adjudication)",
     },
     PR: {
       time: "12 to 18 Months (EB-2 / EB-3 routes)",
       fees: "$700 USD (I-140 filing) + $1,225 USD (Adjustment of Status)",
       window: "File as soon as employer obtains PERM Labor Certification approval",
-      fastTrack: "Premium processing available for certain EB-2/EB-3 I-140 petitions ($2,805 USD)",
+      fastTrack: "Elite processing available for certain EB-2/EB-3 I-140 petitions ($2,805 USD)",
     },
     Tourist: {
       time: "10 to 15 Days (post-interview)",
@@ -100,7 +100,7 @@ export default function Calculator() {
   const result = calculatorData[normalizedCountry][normalizedCategory];
 
   return (
-    <div className="w-full glass-premium rounded-2xl p-6 border border-orange/10">
+    <div className="w-full glass-elite rounded-2xl p-6 border border-orange/10">
       <div className="flex items-center gap-2 mb-6">
         <Clock className="w-5 h-5 text-orange" />
         <h3 className="text-xl font-heading text-black font-semibold">
