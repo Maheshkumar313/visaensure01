@@ -5,7 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InteractivePlaneWorldMap from "@/components/InteractivePlaneWorldMap";
 import TopUniversities from "@/components/TopUniversities";
-import { GraduationCap, Landmark, HelpCircle, CheckCircle, ShieldCheck } from "lucide-react";
+import { GraduationCap, Landmark, HelpCircle, CheckCircle, ShieldCheck, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Student Visa & Global Study Services | VisaEnsure",
@@ -24,10 +25,23 @@ export default function StudentVisaPage() {
         <div className="absolute top-[10%] left-[20%] w-[300px] h-[300px] bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] bg-[#EA580C]/5 rounded-full blur-[80px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12 relative z-10">
+          {/* Back to Home Button */}
+          <div className="pt-2">
+            <Link 
+              href="/"
+              className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-[#EA580C] transition-colors group"
+            >
+              <div className="p-2 rounded-full bg-white shadow-sm border border-gray-200 group-hover:border-[#EA580C]/30 group-hover:bg-[#EA580C]/5 transition-all duration-300">
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
+              </div>
+              Back to Home
+            </Link>
+          </div>
+
           {/* Hero Header */}
-          <div className="space-y-4 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase bg-orange-50 border border-orange-200/50 px-3 py-1 rounded-full inline-block">
+          <div className="space-y-6 text-center max-w-4xl mx-auto mt-4">
+            <span className="text-xs font-bold tracking-widest text-[#EA580C] uppercase bg-gradient-to-r from-orange-50 to-orange-100/50 border border-orange-200/50 px-4 py-1.5 rounded-full inline-block shadow-sm">
               Student Visa Programs
             </span>
             <h1 className="text-3xl md:text-5xl font-bold font-heading text-black leading-tight">
@@ -62,8 +76,8 @@ export default function StudentVisaPage() {
                 desc: "One-on-one mock interview sessions focusing on statement of purpose, intent verification, and positive body language."
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-150 p-6 rounded-2xl space-y-3 hover:border-orange/20 transition-all">
-                <div className="w-11 h-11 bg-white border border-gray-200 rounded-xl flex items-center justify-center">
+              <div key={idx} className="bg-white border border-gray-200 shadow-sm p-8 rounded-3xl space-y-4 hover:shadow-md hover:-translate-y-1 hover:border-[#EA580C]/30 transition-all duration-300 group">
+                <div className="w-12 h-12 bg-gray-50 group-hover:bg-[#EA580C]/10 border border-gray-100 group-hover:border-[#EA580C]/20 rounded-2xl flex items-center justify-center transition-colors duration-300">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-black font-heading">{item.title}</h3>

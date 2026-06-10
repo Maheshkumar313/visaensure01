@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import InteractiveCursorGlow from "@/components/InteractiveCursorGlow";
@@ -45,8 +46,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-body bg-white text-black">
+      <head>
+        <Script src="https://cdn.jsdelivr.net/npm/globe.gl" strategy="beforeInteractive" />
+      </head>
+      <body className="min-h-full flex flex-col font-body bg-white text-black" suppressHydrationWarning>
         <InteractiveCursorGlow />
         {children}
       </body>

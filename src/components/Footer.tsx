@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Compass, Mail, Phone, MapPin, Send, Globe } from "lucide-react";
+import { Compass, Mail, Phone, MapPin, Send, Globe, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Footer() {
@@ -43,8 +43,8 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12 relative z-10">
         
-        {/* Brand: Column span 4 */}
-        <div className="lg:col-span-4 space-y-4">
+        {/* Brand: Column span 3 */}
+        <div className="lg:col-span-3 space-y-4">
           <a
             href="#hero"
             onClick={(e) => handleScrollTo(e, "#hero")}
@@ -80,6 +80,10 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5 text-[#FF6B00]" />
               <a href="mailto:apply@visaensure.com" className="hover:text-[#FF6B00] transition-colors">apply@visaensure.com</a>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-3.5 h-3.5 text-[#FF6B00]" />
+              <span>Mon to Sat — 9:00 AM to 8:00 PM</span>
             </div>
           </div>
           
@@ -153,8 +157,24 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Newsletter / Direct Chat: Column span 3 */}
-        <div className="lg:col-span-3 space-y-4">
+        {/* Company: Column span 2 */}
+        <div className="lg:col-span-2 space-y-4">
+          <h4 className="text-white text-xs font-bold uppercase tracking-wider">Company</h4>
+          <ul className="space-y-2 text-[11px]">
+            <li>
+              <a href="#about" onClick={(e) => handleScrollTo(e, "#about")} className="hover:text-[#FF6B00] transition-colors">About Us</a>
+            </li>
+            <li>
+              <a href="#success-stories" onClick={(e) => handleScrollTo(e, "#success-stories")} className="hover:text-[#FF6B00] transition-colors">Success Stories</a>
+            </li>
+            <li>
+              <a href="#blog" onClick={(e) => handleScrollTo(e, "#blog")} className="hover:text-[#FF6B00] transition-colors">Blog</a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Newsletter / Direct Chat: Column span 2 */}
+        <div className="lg:col-span-2 space-y-4">
           <h4 className="text-white text-xs font-bold uppercase tracking-wider">Newsletter</h4>
           <p className="text-[10px] leading-relaxed text-gray-400">
             Join our weekly VIP circular. Receive current PR draw scores, visa rules, and processing wait lists.

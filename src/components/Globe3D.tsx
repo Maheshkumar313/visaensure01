@@ -142,6 +142,16 @@ export default function Globe3D() {
         setDataLoaded(true);
       })
       .catch(err => console.error("Error fetching GeoJSON", err));
+
+    // Wait for window.Globe to be available (loaded via layout.tsx beforeInteractive)
+    const checkGlobe = setInterval(() => {
+      if (typeof window !== "undefined" && (window as any).Globe) {
+        setGlobeReady(true);
+        clearInterval(checkGlobe);
+      }
+    }, 50);
+
+    return () => clearInterval(checkGlobe);
   }, []);
 
   useEffect(() => {
@@ -280,6 +290,7 @@ export default function Globe3D() {
       globe.controls().autoRotate = autoRotate;
       globe.controls().autoRotateSpeed = 1.8; // Faster rotation speed as requested
       globe.controls().enableZoom = false;
+      globe.pointOfView({ altitude: 2.5 }, 0); // Zoom out to view it completely
 
       // Responsive sizing
       const handleResize = () => {
@@ -360,14 +371,6 @@ export default function Globe3D() {
 
   return (
     <div className="relative w-full h-[500px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-visible select-none">
-      {/* Load globe.gl via jsdelivr (faster CDN) */}
-      <Script 
-        id="globe-gl-script"
-        src="https://cdn.jsdelivr.net/npm/globe.gl" 
-        strategy="afterInteractive" 
-        onLoad={() => setGlobeReady(true)}
-      />
-      
       {/* Premium futuristic radial atmospheric glow under the globe */}
       <div className="absolute w-[80%] h-[80%] bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.18)_0%,transparent_70%)] pointer-events-none z-0 filter blur-xl" />
 
@@ -396,7 +399,7 @@ export default function Globe3D() {
       </div>
 
       {/* Dynamic Dashboard Controls */}
-      <div className="absolute bottom-[3%] left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-3 w-[92%] sm:w-auto">
+      <div className="absolute -bottom-6 lg:-bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-3 w-[92%] sm:w-auto">
         {/* Top Destinations Quick Travel */}
         <div className="flex flex-wrap justify-center gap-1.5 bg-black/85 backdrop-blur-lg px-3 py-2 rounded-full border border-white/10 shadow-2xl">
           {DESTINATIONS.map((dest) => (

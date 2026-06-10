@@ -272,7 +272,7 @@ export default function Hero({ onOpenAssessment, onOpenBooking }: HeroProps) {
         </motion.div>
 
         {/* Right Side: Interactive Visual Globe */}
-        <div className="relative w-full flex items-center justify-center">
+        <div className="relative w-full flex items-center justify-center -mt-8 lg:-mt-24">
           <Globe3D />
         </div>
       </div>
