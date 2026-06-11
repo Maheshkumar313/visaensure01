@@ -42,7 +42,7 @@ export default function Preloader() {
             />
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left mt-2 sm:mt-0">
               <span className="text-3xl md:text-4xl font-heading tracking-widest font-bold text-black">
-                VISA<span className="text-[#FF6B00]">ENSURE</span>
+                <span className="text-[#FF6B00]">VISA</span>ENSURE
               </span>
               <span className="text-[10px] md:text-xs tracking-wider text-gray-800 font-body uppercase mt-1">
                 Your Trusted Visa Companion

@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Poppins, Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import InteractiveCursorGlow from "@/components/InteractiveCursorGlow";
 
 const poppins = Poppins({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
-const inter = Inter({
+const poppinsBody = Poppins({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
+      className={`${poppins.variable} ${poppinsBody.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

@@ -59,7 +59,7 @@ export default function Footer() {
               />
               <div className="flex flex-col justify-center">
                 <span className="font-heading tracking-widest font-bold text-white leading-none text-xl md:text-2xl">
-                  VISA<span className="text-[#FF6B00]">ENSURE</span>
+                  <span className="text-[#FF6B00]">VISA</span>ENSURE
                 </span>
                 <span className="tracking-wider text-gray-500 font-body uppercase whitespace-nowrap text-[9px] md:text-[10px] mt-1">
                   Your Trusted Visa Companion
