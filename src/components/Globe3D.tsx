@@ -276,7 +276,7 @@ export default function Globe3D() {
       
       // Setup controls
       globe.controls().autoRotate = autoRotate;
-      globe.controls().autoRotateSpeed = 1.8; // Faster rotation speed as requested
+      globe.controls().autoRotateSpeed = -0.5; // Negative to rotate West to East properly, smooth speed
       globe.controls().enableZoom = false;
       globe.pointOfView({ altitude: 2.5 }, 0); // Zoom out to view it completely
 
