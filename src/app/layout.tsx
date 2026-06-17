@@ -47,9 +47,6 @@ export default function RootLayout({
       className={`${poppins.variable} ${poppinsBody.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        <Script src="https://cdn.jsdelivr.net/npm/globe.gl" strategy="beforeInteractive" />
-      </head>
       <body className="min-h-full flex flex-col font-body bg-white text-black" suppressHydrationWarning>
         <InteractiveCursorGlow />
         {children}

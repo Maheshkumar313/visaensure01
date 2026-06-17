@@ -16,7 +16,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-[#0A0A0A] via-[#121212] to-[#0A0A0A] border-t border-white/[0.05] pt-16 pb-8 text-xs text-gray-400 font-body relative overflow-hidden">
+    <footer className="bg-premium-dark border-t border-white/5 pt-16 pb-8 text-xs text-gray-400 font-body relative overflow-hidden">
       
       {/* Subtle Airplane Trail Animation */}
       <div className="absolute right-[-100px] top-[10%] opacity-20 pointer-events-none select-none">
@@ -226,6 +226,17 @@ export default function Footer() {
 
       {/* Soft orange base glow at the bottom center of the footer */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#FF6B00]/4 rounded-full blur-[100px] pointer-events-none" />
+
+      {/* World Map Outline Overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] select-none pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/world-map.svg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      />
       
     </footer>
   );

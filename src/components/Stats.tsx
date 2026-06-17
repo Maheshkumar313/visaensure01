@@ -45,9 +45,20 @@ function Counter({ end, suffix = "", duration = 2, decimals = 0 }: { end: number
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#121212] to-[#0A0A0A] border-t border-white/[0.05] relative overflow-hidden">
-      {/* Background abstract shape */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.04)_0%,transparent_70%)] pointer-events-none" />
+    <section className="py-20 bg-premium-dark border-t border-white/5 relative overflow-hidden">
+      {/* Subtle orange glow particle */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[120px] pointer-events-none" />
+
+      {/* Global connection map backdrop */}
+      <div 
+        className="absolute inset-0 opacity-[0.02] select-none pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/world-map.svg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">

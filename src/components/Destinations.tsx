@@ -130,34 +130,70 @@ export default function Destinations() {
   const data = destinations[activeTab];
 
   return (
-    <section id="destinations" className="py-20 bg-gradient-to-b from-[#FFFFFF] to-[#FF6B00]/4 relative">
-      <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-white/30 blur-[150px] pointer-events-none" />
+    <section id="destinations" className="py-20 bg-premium-dark text-white relative overflow-hidden">
+      {/* Subtle orange glow particles */}
+      <div className="absolute top-[10%] right-[10%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[130px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      {/* Global Connection lines / map background */}
+      <div 
+        className="absolute inset-0 opacity-[0.025] select-none pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/world-map.svg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      />
+      <svg
+        className="absolute inset-0 w-full h-full opacity-[0.03] stroke-[#FF6B00] pointer-events-none"
+        viewBox="0 0 1440 900"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <motion.path
+          d="M 200 300 Q 500 150 800 250"
+          strokeWidth="1.2"
+          strokeDasharray="6 6"
+          initial={{ strokeDashoffset: 100 }}
+          animate={{ strokeDashoffset: 0 }}
+          transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.path
+          d="M 600 400 Q 900 600 1200 500"
+          strokeWidth="1.2"
+          strokeDasharray="6 6"
+          initial={{ strokeDashoffset: 100 }}
+          animate={{ strokeDashoffset: 0 }}
+          transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
+        />
+      </svg>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         
         {/* Title */}
         <div className="text-center space-y-3 mb-16">
           <span className="text-xs font-semibold tracking-widest text-[#FF6B00] uppercase">
             Global Horizons
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
             Explore Top International Destinations
           </h2>
-          <p className="text-gray-800 text-sm max-w-xl mx-auto">
+          <p className="text-gray-400 text-sm max-w-xl mx-auto">
             Compare pathways and access structured consultation services for the world's leading economies.
           </p>
         </div>
 
         {/* Tabs selector */}
-        <div className="flex gap-2 justify-start lg:justify-center border-b border-gray-200 pb-4 mb-8 overflow-x-auto no-scrollbar">
+        <div className="flex gap-2 justify-start lg:justify-center border-b border-white/10 pb-4 mb-8 overflow-x-auto no-scrollbar">
           {Object.keys(destinations).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-3 rounded-full text-xs md:text-sm font-semibold whitespace-nowrap transition-all border cursor-pointer ${
                 activeTab === tab
-                  ? "bg-orange-light border-orange text-[#FF6B00] glow-orange"
-                  : "bg-white border-transparent text-gray-900 hover:bg-white"
+                  ? "bg-[#FF6B00]/15 border-[#FF6B00] text-[#FF6B00] glow-orange"
+                  : "bg-white/5 border-transparent text-gray-300 hover:bg-white/10"
               }`}
             >
               {tab === "USA" ? "United States" : tab}
@@ -166,7 +202,7 @@ export default function Destinations() {
         </div>
 
         {/* Content Box */}
-        <div className="glass-elite rounded-2xl p-6 md:p-10 border border-orange/10 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
+        <div className="glass-dark rounded-2xl p-6 md:p-10 border border-white/10 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -179,30 +215,30 @@ export default function Destinations() {
               {/* Left Info: Column span 7 */}
               <div className="lg:col-span-7 space-y-6">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold font-heading text-black flex items-center gap-3">
+                  <h3 className="text-2xl md:text-3xl font-bold font-heading text-white flex items-center gap-3">
                     {data.name}
                   </h3>
-                  <p className="text-gray-800 text-xs md:text-sm leading-relaxed mt-3 max-w-2xl font-body">
+                  <p className="text-gray-300 text-xs md:text-sm leading-relaxed mt-3 max-w-2xl font-body">
                     {data.desc}
                   </p>
                 </div>
 
                 {/* Pathways */}
                 <div className="space-y-4">
-                  <h4 className="text-xs font-bold text-gray-900 uppercase tracking-widest">
+                  <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
                     Primary Immigration Channels
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {data.pathways.map((path, index) => (
                       <div
                         key={index}
-                        className="glass p-4 rounded-xl border border-gray-200 space-y-2 hover:border-[#FF6B00]/20 transition-colors"
+                        className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-4 rounded-xl space-y-2 hover:border-[#FF6B00]/20 transition-colors"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                           {path.icon}
                         </div>
-                        <h5 className="text-xs font-bold text-black">{path.title}</h5>
-                        <p className="text-[10px] text-gray-800 leading-relaxed font-body">
+                        <h5 className="text-xs font-bold text-white">{path.title}</h5>
+                        <p className="text-[10px] text-gray-400 leading-relaxed font-body">
                           {path.desc}
                         </p>
                       </div>
@@ -212,22 +248,22 @@ export default function Destinations() {
               </div>
 
               {/* Right Metrics: Column span 5 */}
-              <div className="lg:col-span-5 bg-white/50 border border-gray-200 p-6 rounded-2xl space-y-6">
-                <h4 className="text-xs font-bold text-gray-900 uppercase tracking-widest">
+              <div className="lg:col-span-5 bg-white/[0.03] border border-white/10 p-6 rounded-2xl space-y-6">
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
                   Key Metrics (2026)
                 </h4>
 
                 <div className="space-y-4">
                   {data.metrics.map((met, index) => (
-                    <div key={index} className="flex items-center justify-between border-b border-gray-200 pb-2.5">
-                      <span className="text-xs text-gray-800">{met.label}</span>
-                      <strong className="text-sm font-semibold text-black">{met.value}</strong>
+                    <div key={index} className="flex items-center justify-between border-b border-white/10 pb-2.5">
+                      <span className="text-xs text-gray-300">{met.label}</span>
+                      <strong className="text-sm font-semibold text-white">{met.value}</strong>
                     </div>
                   ))}
                 </div>
 
-                <div className="bg-white border border-gray-200 p-4 rounded-xl flex items-center justify-between">
-                  <span className="text-[10px] text-gray-900 uppercase font-semibold">Ready to choose?</span>
+                <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center justify-between">
+                  <span className="text-[10px] text-gray-300 uppercase font-semibold">Ready to choose?</span>
                   <a
                     href={`/services/${data.slug}`}
                     className="bg-[#FF6B00] hover:bg-[#FF7A1A] text-black text-xs font-bold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 hover:scale-105"

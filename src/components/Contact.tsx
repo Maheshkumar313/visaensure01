@@ -51,8 +51,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white border-t border-gray-200 relative">
-      <div className="absolute top-[40%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#FF6B00]/5 blur-[120px] pointer-events-none" />
+    <section id="contact" className="py-20 bg-transparent border-t border-gray-200 relative">
+      <div className="absolute top-[40%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#FF6B00]/4 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         

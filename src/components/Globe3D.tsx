@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { preload } from "react-dom";
-import Script from "next/script";
 import * as THREE from "three";
 import { Play, Pause, Sun, Moon } from "lucide-react";
+import Globe from "globe.gl";
 
 // Custom country-specific info mapping
 const COUNTRY_DETAILS: Record<string, { capital: string; timezone: string; offset: number; visas: string[] }> = {
@@ -67,7 +66,6 @@ export default function Globe3D() {
   const globeInstance = useRef<any>(null);
   const flyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [globeReady, setGlobeReady] = useState(false);
   const [autoRotate, setAutoRotate] = useState(true);
   const [selectedDest, setSelectedDest] = useState<string | null>(null);
   const [isNightMode, setIsNightMode] = useState(true);
@@ -142,22 +140,12 @@ export default function Globe3D() {
         setDataLoaded(true);
       })
       .catch(err => console.error("Error fetching GeoJSON", err));
-
-    // Wait for window.Globe to be available (loaded via layout.tsx beforeInteractive)
-    const checkGlobe = setInterval(() => {
-      if (typeof window !== "undefined" && (window as any).Globe) {
-        setGlobeReady(true);
-        clearInterval(checkGlobe);
-      }
-    }, 50);
-
-    return () => clearInterval(checkGlobe);
   }, []);
 
   useEffect(() => {
-    if (dataLoaded && globeReady && containerRef.current && (window as any).Globe && !globeInstance.current) {
+    if (dataLoaded && containerRef.current && !globeInstance.current) {
       // Initialize globe.gl
-      const globe = (window as any).Globe()(containerRef.current)
+      const globe = new Globe(containerRef.current)
         .backgroundColor('rgba(0,0,0,0)')
         .showGlobe(true)
         .showAtmosphere(true)
@@ -165,8 +153,8 @@ export default function Globe3D() {
         .atmosphereAltitude(0.22)
         
         // Photorealistic Earth textures
-        .globeImageUrl('/images/globe/earth-blue-marble.jpg')
-        .bumpImageUrl('/images/globe/earth-topology.png')
+        .globeImageUrl('/images/globe/earth-blue-marble.webp')
+        .bumpImageUrl('/images/globe/earth-topology.webp')
 
         // Continent and ocean text labels
         .labelsData(LABELS_DATA)
@@ -232,11 +220,11 @@ export default function Globe3D() {
 
       // Access ThreeJS scene and setup custom lighting + materials
       const scene = globe.scene();
-      const globeMaterial = globe.globeMaterial();
+      const globeMaterial = globe.globeMaterial() as any;
       const textureLoader = new THREE.TextureLoader();
 
       // Specular ocean map (to reflect sunlight)
-      const waterTexture = textureLoader.load('/images/globe/earth-water.png');
+      const waterTexture = textureLoader.load('/images/globe/earth-water.webp');
       if (globeMaterial.isMeshPhongMaterial) {
         globeMaterial.specularMap = waterTexture;
         globeMaterial.specular = new THREE.Color(0x222222);
@@ -249,7 +237,7 @@ export default function Globe3D() {
       }
 
       // Emissive night city-lights map (visible on shadowed side)
-      const nightTexture = textureLoader.load('/images/globe/earth-night.jpg');
+      const nightTexture = textureLoader.load('/images/globe/earth-night.webp');
       globeMaterial.emissiveMap = nightTexture;
       globeMaterial.emissive = new THREE.Color(0xffbb77); // soft amber glow
       globeMaterial.emissiveIntensity = 2.5;
@@ -258,7 +246,7 @@ export default function Globe3D() {
       const radius = 100; // standard globe.gl radius
       const cloudGeometry = new THREE.SphereGeometry(radius * 1.010, 64, 64);
       const cloudMaterial = new THREE.MeshStandardMaterial({
-        map: textureLoader.load('/images/globe/earth-clouds.png'),
+        map: textureLoader.load('/images/globe/earth-clouds.webp'),
         transparent: true,
         opacity: 0.35,
         depthWrite: false
@@ -316,7 +304,7 @@ export default function Globe3D() {
         globeInstance.current = null;
       };
     }
-  }, [dataLoaded, globeReady]);
+  }, [dataLoaded]);
 
   // Dynamic controls sync
   useEffect(() => {

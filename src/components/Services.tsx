@@ -57,9 +57,9 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
   ];
 
   return (
-    <section id="services" className="py-20 bg-white relative">
+    <section id="services" className="py-20 bg-transparent relative">
       {/* Background decoration */}
-      <div className="absolute top-[30%] right-[5%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[30%] right-[5%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Title */}

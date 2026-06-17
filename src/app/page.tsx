@@ -48,7 +48,25 @@ export default function Home() {
 
   return (
     <SmoothScroll>
-      <div className="flex flex-col min-h-screen bg-white">
+      <div className="flex flex-col min-h-screen relative overflow-hidden bg-white">
+        {/* Premium Dynamic Orange & White Background */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+          <div className="absolute -top-[10%] -right-[5%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FF6B00]/20 to-[#FF6B00]/0 blur-[100px] mix-blend-multiply" />
+          <div className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#FF6B00]/15 to-transparent blur-[120px] mix-blend-multiply" />
+          <div className="absolute bottom-[10%] right-[10%] w-[800px] h-[800px] rounded-full bg-gradient-to-tl from-[#FF6B00]/10 to-transparent blur-[150px] mix-blend-multiply" />
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-[100px]" />
+        </div>
+        {/* World Map Background overlay across light sections (subtle 1.5% opacity) */}
+        <div 
+          className="fixed inset-0 opacity-[0.015] select-none pointer-events-none z-0"
+          style={{
+            backgroundImage: "url('/images/world-map.svg')",
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            backgroundRepeat: "repeat-y"
+          }}
+        />
+
         {/* Preloader Animation */}
         <Preloader />
 
@@ -67,12 +85,12 @@ export default function Home() {
         />
 
         {/* Trust Section */}
-        <SectionReveal className="bg-white">
+        <SectionReveal className="bg-transparent relative z-10">
           <Trust />
         </SectionReveal>
 
         {/* Services Section */}
-        <SectionReveal className="bg-[#F8F9FB]">
+        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-[#FF6B00]/4 relative z-10">
           <Services
             onOpenAssessment={() => setIsAssessmentOpen(true)}
             onOpenChecklist={() => {
@@ -82,14 +100,14 @@ export default function Home() {
           />
         </SectionReveal>
 
-        {/* Destinations Section */}
-        <SectionReveal className="bg-white">
+        {/* Destinations Section (Featured Countries) */}
+        <SectionReveal className="bg-premium-dark text-white relative z-10">
           <Destinations />
         </SectionReveal>
 
         {/* Digital Visa Lounge: SaaS Interactive Tools Section */}
-        <SectionReveal id="visa-lounge" className="py-20 bg-gradient-to-b from-[#FF6B00]/4 to-[#FFFFFF] relative overflow-hidden">
-          <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/6 blur-[120px] pointer-events-none" />
+        <SectionReveal id="visa-lounge" className="py-20 bg-transparent relative overflow-hidden z-10">
+          <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[120px] pointer-events-none" />
           <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
             {/* Title */}
             <div className="text-center space-y-3 mb-16">
@@ -115,37 +133,37 @@ export default function Home() {
         </SectionReveal>
 
         {/* Why Choose Section */}
-        <SectionReveal className="bg-[#FAFAFA]">
+        <SectionReveal className="bg-transparent relative z-10">
           <WhyChoose />
         </SectionReveal>
 
         {/* Timeline Process */}
-        <SectionReveal className="bg-[#F8F9FB]">
+        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-[#FF6B00]/4 relative z-10">
           <Process />
         </SectionReveal>
 
         {/* Partner Universities */}
-        <SectionReveal className="bg-white">
+        <SectionReveal className="bg-transparent relative z-10">
           <Partners />
         </SectionReveal>
 
         {/* Testimonials */}
-        <SectionReveal className="bg-gradient-to-br from-[#0A0A0A] via-[#121212] to-[#1A1A1A]">
+        <SectionReveal className="bg-transparent relative z-10">
           <SuccessStories />
         </SectionReveal>
 
         {/* Stats counters */}
-        <SectionReveal className="bg-gradient-to-br from-[#121212] to-[#0A0A0A]">
+        <SectionReveal className="bg-premium-dark text-white relative z-10">
           <Stats />
         </SectionReveal>
 
         {/* Final CTA Assessment Banner */}
-        <SectionReveal className="bg-gradient-to-br from-[#0A0A0A] via-[#121212] to-[#1A1A1A]">
+        <SectionReveal className="bg-premium-dark text-white relative z-10">
           <AssessmentCTA onOpenAssessment={() => setIsAssessmentOpen(true)} />
         </SectionReveal>
 
         {/* Contact form and business info */}
-        <SectionReveal className="bg-[#FAFAFA]">
+        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-[#FF6B00]/4 relative z-10">
           <Contact />
         </SectionReveal>
 
