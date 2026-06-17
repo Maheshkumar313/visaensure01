@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import { Sparkles } from "lucide-react";
 
 // Components
-import Preloader from "@/components/Preloader";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -67,8 +66,6 @@ export default function Home() {
           }}
         />
 
-        {/* Preloader Animation */}
-        <Preloader />
 
         {/* Header Block */}
         <TopBar />

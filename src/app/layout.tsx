@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import InteractiveCursorGlow from "@/components/InteractiveCursorGlow";
 
 const poppins = Poppins({
   variable: "--font-heading",
@@ -48,7 +47,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-body bg-white text-black" suppressHydrationWarning>
-        <InteractiveCursorGlow />
         {children}
       </body>
     </html>

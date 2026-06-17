@@ -99,35 +99,27 @@ export default function SuccessStories() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
-                className="flex flex-col md:flex-row gap-8 items-center text-left"
+                className="flex flex-col gap-8 items-center text-center"
               >
-                {/* Image (Optional) */}
-                {current.image && (
-                  <div className="w-full md:w-1/3 shrink-0">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={current.image} alt={current.name} className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-xl border border-gray-200" />
-                  </div>
-                )}
-                
-                <div className={`w-full space-y-6 ${current.image ? 'md:w-2/3' : 'text-center'}`}>
+                <div className="w-full space-y-6 text-center">
                   {/* Stars */}
-                  <div className={`flex gap-1 text-[#FF6B00] ${current.image ? 'justify-start' : 'justify-center'}`}>
+                  <div className="flex gap-1 text-[#FF6B00] justify-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
 
                   {/* Story */}
-                  <p className={`text-gray-900 text-sm md:text-base leading-relaxed italic font-body ${!current.image ? 'max-w-2xl mx-auto' : ''}`}>
+                  <p className="text-gray-900 text-sm md:text-base leading-relaxed italic font-body max-w-2xl mx-auto">
                     "{current.story}"
                   </p>
 
                   {/* Profile */}
-                  <div className={`flex items-center gap-3 ${current.image ? 'justify-start' : 'justify-center'}`}>
+                  <div className="flex items-center gap-3 justify-center">
                     <div className="w-10 h-10 rounded-full bg-[#FF6B00] flex items-center justify-center font-bold text-black text-sm">
                       {current.avatar}
                     </div>
-                    <div>
+                    <div className="text-left">
                       <h4 className="text-sm font-bold text-black">{current.name}</h4>
                       <span className="text-[10px] text-[#FF6B00] font-semibold tracking-wide uppercase">
                         {current.visaType}
