@@ -48,23 +48,21 @@ export default function Footer() {
           <a
             href="#hero"
             onClick={(e) => handleScrollTo(e, "#hero")}
-            className="flex items-center gap-2 group cursor-pointer inline-block"
+            className="inline-flex items-center gap-0 group cursor-pointer"
           >
-            <div className="flex items-center gap-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
-                src="/images/visaensureLogoForWebsite/1.png" 
-                alt="VisaEnsure Logo" 
-                className="w-auto object-contain h-15 md:h-18 hover:scale-105 transition-transform duration-300 filter brightness-110" 
-              />
-              <div className="flex flex-col justify-center">
-                <span className="font-heading tracking-widest font-extrabold text-white leading-none text-xl md:text-2xl" style={{ fontFamily: 'var(--font-heading), var(--font-body), Poppins, sans-serif' }}>
-                  <span className="text-red-600">Visa</span> Ensure
-                </span>
-                <span className="tracking-wider text-gray-500 font-body uppercase whitespace-nowrap text-[9px] md:text-[10px] mt-1">
-                  Your Trusted Visa Companion
-                </span>
-              </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/images/visaensureLogoForWebsite/1.png" 
+              alt="VisaEnsure Logo" 
+              className="h-16 w-16 md:h-[72px] md:w-[72px] shrink-0 object-contain hover:scale-105 transition-transform duration-300 filter brightness-110 -ml-2 -mr-1" 
+            />
+            <div className="flex flex-col justify-center">
+              <span className="font-extrabold leading-none text-2xl md:text-[28px]" style={{ fontFamily: "'Poppins', sans-serif", letterSpacing: "-1.5px" }}>
+                <span style={{ color: "#FF1A00" }}>Visa</span> <span className="text-white">Ensure</span>
+              </span>
+              <span className="tracking-wider text-gray-500 font-body uppercase whitespace-nowrap text-[9px] md:text-[10px] mt-1">
+                Your Trusted Visa Companion
+              </span>
             </div>
           </a>
 

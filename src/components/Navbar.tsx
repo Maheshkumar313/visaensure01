@@ -153,7 +153,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
 
   return (
     <>
-      <header className="relative z-[100] w-full bg-white border-b border-gray-150 shadow-sm py-0">
+      <header className="sticky top-0 z-[100] w-full bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm py-0">
         <nav
           onMouseLeave={closeMenu}
           className="mx-auto relative w-full max-w-7xl bg-transparent px-4 md:px-8 py-3.5"
@@ -163,18 +163,18 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
             <Link
               href="/"
               onClick={closeMenu}
-              className="flex items-center gap-2 md:gap-3 group cursor-pointer relative z-10 hover:opacity-95 transition-opacity"
+              className="flex items-center gap-0 group cursor-pointer relative z-10 hover:opacity-95 transition-opacity"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src="/images/visaensureLogoForWebsite/1.png" 
                 alt="VisaEnsure Logo" 
-                className="w-auto object-contain h-15 md:h-18" 
+                className="h-16 w-16 md:h-[72px] md:w-[72px] shrink-0 object-contain hover:scale-105 transition-transform duration-300 -ml-2 -mr-1" 
               />
               
               <div className="flex flex-col justify-center">
-                <span className="font-heading tracking-widest font-extrabold text-gray-900 leading-none text-xl md:text-2xl" style={{ fontFamily: 'var(--font-heading), var(--font-body), Poppins, sans-serif' }}>
-                  <span className="text-red-600">Visa</span> Ensure
+                <span className="font-extrabold leading-none text-2xl md:text-[28px]" style={{ fontFamily: "'Poppins', sans-serif", letterSpacing: "-1.5px" }}>
+                  <span style={{ color: "#FF1A00" }}>Visa</span> <span className="text-gray-900">Ensure</span>
                 </span>
                 <span className="tracking-wider text-gray-500 font-body uppercase whitespace-nowrap text-[9px] md:text-[10px] mt-1">
                   Your Trusted Visa Companion
@@ -350,12 +350,12 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
             transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
             className="fixed inset-0 z-[110] bg-white/95 backdrop-blur-xl flex flex-col lg:hidden"
           >
-            <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 bg-white/50">
-               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
+             <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 bg-white/50">
+               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/visaensureLogoForWebsite/1.png" alt="Logo" className="h-13 w-auto" />
-                <span className="text-xl font-heading font-extrabold text-gray-900" style={{ fontFamily: 'var(--font-heading), var(--font-body), Poppins, sans-serif' }}>
-                  <span className="text-red-600">Visa</span> Ensure
+                <img src="/images/visaensureLogoForWebsite/1.png" alt="Logo" className="h-[60px] w-[60px] shrink-0 object-contain hover:scale-105 transition-transform duration-300 -ml-2 -mr-0" />
+                <span className="font-extrabold leading-none text-2xl md:text-[28px]" style={{ fontFamily: "'Poppins', sans-serif", letterSpacing: "-1.5px" }}>
+                  <span style={{ color: "#FF1A00" }}>Visa</span> <span className="text-gray-900">Ensure</span>
                 </span>
               </Link>
               <button 
