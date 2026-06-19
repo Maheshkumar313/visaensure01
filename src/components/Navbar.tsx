@@ -173,8 +173,8 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
               />
               
               <div className="flex flex-col justify-center">
-                <span className="font-heading tracking-widest font-bold text-gray-900 leading-none text-xl md:text-2xl">
-                  <span className="text-orange-600">VISA</span>ENSURE
+                <span className="font-heading tracking-widest font-extrabold text-gray-900 leading-none text-xl md:text-2xl" style={{ fontFamily: 'var(--font-heading), var(--font-body), Poppins, sans-serif' }}>
+                  <span className="text-red-600">Visa</span> Ensure
                 </span>
                 <span className="tracking-wider text-gray-500 font-body uppercase whitespace-nowrap text-[9px] md:text-[10px] mt-1">
                   Your Trusted Visa Companion
@@ -354,8 +354,8 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/visaensureLogoForWebsite/1.png" alt="Logo" className="h-13 w-auto" />
-                <span className="text-xl font-heading font-bold text-gray-900">
-                  <span className="text-orange-600">VISA</span>ENSURE
+                <span className="text-xl font-heading font-extrabold text-gray-900" style={{ fontFamily: 'var(--font-heading), var(--font-body), Poppins, sans-serif' }}>
+                  <span className="text-red-600">Visa</span> Ensure
                 </span>
               </Link>
               <button 

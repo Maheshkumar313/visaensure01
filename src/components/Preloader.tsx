@@ -41,8 +41,8 @@ export default function Preloader() {
               className="h-16 md:h-20 w-auto object-contain drop-shadow-2xl" 
             />
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left mt-2 sm:mt-0">
-              <span className="text-3xl md:text-4xl font-heading tracking-widest font-bold text-black">
-                <span className="text-[#FF6B00]">VISA</span>ENSURE
+              <span className="text-3xl md:text-4xl font-heading tracking-widest font-extrabold text-black" style={{ fontFamily: 'var(--font-heading), var(--font-body), Poppins, sans-serif' }}>
+                <span className="text-red-600">Visa</span> Ensure
               </span>
               <span className="text-[10px] md:text-xs tracking-wider text-gray-800 font-body uppercase mt-1">
                 Your Trusted Visa Companion

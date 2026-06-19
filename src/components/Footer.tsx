@@ -58,8 +58,8 @@ export default function Footer() {
                 className="w-auto object-contain h-15 md:h-18 hover:scale-105 transition-transform duration-300 filter brightness-110" 
               />
               <div className="flex flex-col justify-center">
-                <span className="font-heading tracking-widest font-bold text-white leading-none text-xl md:text-2xl">
-                  <span className="text-[#FF6B00]">VISA</span>ENSURE
+                <span className="font-heading tracking-widest font-extrabold text-white leading-none text-xl md:text-2xl" style={{ fontFamily: 'var(--font-heading), var(--font-body), Poppins, sans-serif' }}>
+                  <span className="text-red-600">Visa</span> Ensure
                 </span>
                 <span className="tracking-wider text-gray-500 font-body uppercase whitespace-nowrap text-[9px] md:text-[10px] mt-1">
                   Your Trusted Visa Companion
