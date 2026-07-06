@@ -73,10 +73,6 @@ export default function Trust() {
               {/* Document blur container */}
               <div className="relative border border-gray-200 rounded-xl p-3 bg-white/85 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0A1628]/95 z-10 pointer-events-none" />
-                <div className="absolute top-2 right-2 bg-green-500 text-black text-[9px] font-extrabold tracking-wider px-2 py-0.5 rounded-full z-20 uppercase animate-pulse">
-                  APPROVED
-                </div>
-                
                 {/* Mock data lines */}
                 <div className="space-y-1.5 filter blur-[1px] group-hover:blur-none transition-all duration-500 text-[10px] text-gray-800 font-mono">
                   <div>REGISTRATION: VE-9876-USA</div>

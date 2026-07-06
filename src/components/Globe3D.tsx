@@ -276,8 +276,10 @@ export default function Globe3D() {
       
       // Setup controls
       globe.controls().autoRotate = autoRotate;
-      globe.controls().autoRotateSpeed = -0.5; // Negative to rotate West to East properly, smooth speed
+      globe.controls().autoRotateSpeed = -1.5; // Negative to rotate West to East properly, smooth speed
       globe.controls().enableZoom = false;
+      globe.controls().enableDamping = true;
+      globe.controls().dampingFactor = 0.01;
       globe.pointOfView({ altitude: 2.5 }, 0); // Zoom out to view it completely
 
       // Responsive sizing
@@ -368,23 +370,6 @@ export default function Globe3D() {
 
       {/* Globe Container */}
       <div ref={containerRef} className="w-full h-full relative z-10 cursor-grab active:cursor-grabbing" />
-
-      {/* Live Successful Applications Ticker */}
-      <div 
-        className="absolute top-[6%] right-[4%] md:right-[8%] glass border border-white/20 p-3 px-4 rounded-2xl text-xs flex items-center gap-3 shadow-2xl z-20 pointer-events-none bg-white/85 backdrop-blur-md text-black border-l-4 border-l-[#FF6B00] transition-all duration-500 max-w-[260px] md:max-w-xs"
-      >
-        <span className="relative flex h-2.5 w-2.5 shrink-0">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-        </span>
-        <div className="flex flex-col gap-0.5">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="font-semibold">{LIVE_UPDATES[activeUpdateIdx].flag} {LIVE_UPDATES[activeUpdateIdx].country}</span>
-            <span className="text-[#FF6B00] font-bold text-[10px] tracking-wide uppercase px-1.5 py-0.5 rounded bg-[#FF6B00]/10">{LIVE_UPDATES[activeUpdateIdx].visa}</span>
-          </div>
-          <span className="text-gray-600 text-[10px] font-medium tracking-wide">{LIVE_UPDATES[activeUpdateIdx].details}</span>
-        </div>
-      </div>
 
       {/* Dynamic Dashboard Controls */}
       <div className="absolute -bottom-6 lg:-bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-3 w-[92%] sm:w-auto">
