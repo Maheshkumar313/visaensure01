@@ -163,23 +163,20 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
             <Link
               href="/"
               onClick={closeMenu}
-              className="flex items-center gap-0 group cursor-pointer relative z-10 hover:opacity-95 transition-opacity"
+              className="flex items-center gap-2 group cursor-pointer relative z-10 hover:opacity-95 transition-opacity"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
-                src="/images/visaensureLogoForWebsite/1.png" 
-                alt="VisaEnsure Logo" 
-                className="h-16 w-16 md:h-[72px] md:w-[72px] shrink-0 object-contain hover:scale-105 transition-transform duration-300 -ml-2 -mr-1" 
+              <img
+                src="/images/visaensureLogoForWebsite/12.png"
+                alt="VisaEnsure Globe"
+                className="h-14 md:h-[4.5rem] w-auto shrink-0 object-contain drop-shadow-md group-hover:drop-shadow-lg transition-all duration-300"
               />
-              
-              <div className="flex flex-col justify-center">
-                <span className="font-extrabold leading-none text-2xl md:text-[28px]" style={{ fontFamily: "'Poppins', sans-serif", letterSpacing: "-1.5px" }}>
-                  <span style={{ color: "#FF1A00" }}>Visa</span> <span className="text-gray-900">Ensure</span>
-                </span>
-                <span className="tracking-wider text-gray-500 font-body uppercase whitespace-nowrap text-[9px] md:text-[10px] mt-1">
-                  Your Trusted Visa Companion
-                </span>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/visaensureLogoForWebsite/visaensure001.png"
+                alt="VisaEnsure Logo"
+                className="h-12 md:h-14 w-auto shrink-0 object-contain"
+              />
             </Link>
 
             {/* Center Desktop Navigation */}
@@ -351,12 +348,11 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
             className="fixed inset-0 z-[110] bg-white/95 backdrop-blur-xl flex flex-col lg:hidden"
           >
              <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 bg-white/50">
-               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-0">
+               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/visaensureLogoForWebsite/1.png" alt="Logo" className="h-[60px] w-[60px] shrink-0 object-contain hover:scale-105 transition-transform duration-300 -ml-2 -mr-0" />
-                <span className="font-extrabold leading-none text-2xl md:text-[28px]" style={{ fontFamily: "'Poppins', sans-serif", letterSpacing: "-1.5px" }}>
-                  <span style={{ color: "#FF1A00" }}>Visa</span> <span className="text-gray-900">Ensure</span>
-                </span>
+                <img src="/images/visaensureLogoForWebsite/12.png" alt="VisaEnsure Globe" className="h-12 w-auto shrink-0 object-contain drop-shadow-md" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/visaensureLogoForWebsite/visaensure001.png" alt="VisaEnsure Logo" className="h-10 w-auto shrink-0 object-contain" />
               </Link>
               <button 
                 onClick={() => setIsMobileMenuOpen(false)}

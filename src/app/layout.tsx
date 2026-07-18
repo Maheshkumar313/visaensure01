@@ -46,6 +46,10 @@ export default function RootLayout({
       className={`${poppins.variable} ${poppinsBody.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <link rel="preload" href="/images/visaensureLogoForWebsite/12.png" as="image" />
+        <link rel="preload" href="/images/visaensureLogoForWebsite/visaensure001.png" as="image" />
+      </head>
       <body className="min-h-full flex flex-col font-body bg-white text-black" suppressHydrationWarning>
         {children}
       </body>
