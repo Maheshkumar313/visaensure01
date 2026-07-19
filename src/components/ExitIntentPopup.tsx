@@ -55,7 +55,7 @@ export default function ExitIntentPopup() {
         {!isSubmitted ? (
           <>
             {/* Icon */}
-            <div className="w-16 h-16 bg-[#EA580C]/10 border border-[#EA580C]/25 rounded-full flex items-center justify-center mx-auto text-orange animate-bounce">
+            <div className="w-16 h-16 bg-orange-600/10 border border-orange-600/25 rounded-full flex items-center justify-center mx-auto text-orange animate-bounce">
               <Gift className="w-8 h-8" />
             </div>
 
@@ -89,7 +89,7 @@ export default function ExitIntentPopup() {
               />
               <button
                 type="submit"
-                className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02]"
+                className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02]"
               >
                 <span>Send Me The Free Guide</span>
                 <Send className="w-4 h-4" />

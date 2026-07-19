@@ -35,18 +35,18 @@ export default function Process() {
 
   return (
     <section id="process" className="py-20 bg-[#F8F9FB] relative">
-      <div className="absolute top-[30%] right-[10%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[30%] right-[10%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Title */}
         <div className="text-center space-y-3 mb-20">
-          <span className="text-xs font-semibold tracking-widest text-[#FF6B00] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase">
             The Pathway
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
             Our Structured Success Journey
           </h2>
-          <p className="text-gray-800 text-sm max-w-xl mx-auto">
+          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
             From Hyderabad to the world — a systematic 5-step process designed to achieve approvals with absolute peace of mind.
           </p>
         </div>
@@ -54,8 +54,8 @@ export default function Process() {
         {/* Timeline Container */}
         <div className="relative max-w-3xl mx-auto">
           {/* Vertical progress line */}
-          <div className="absolute left-4 sm:left-1/2 top-2 bottom-2 w-[1px] bg-[#FF6B00]/20 -translate-x-1/2 hidden sm:block" />
-          <div className="absolute left-6 top-2 bottom-2 w-[1px] bg-[#FF6B00]/20 sm:hidden" />
+          <div className="absolute left-4 sm:left-1/2 top-2 bottom-2 w-[1px] bg-orange-600/20 -translate-x-1/2 hidden sm:block" />
+          <div className="absolute left-6 top-2 bottom-2 w-[1px] bg-orange-600/20 sm:hidden" />
 
           {/* Steps */}
           <div className="space-y-12">
@@ -74,7 +74,7 @@ export default function Process() {
                   }`}
                 >
                   {/* Icon Node */}
-                  <div className="absolute left-6 sm:left-1/2 top-1.5 sm:top-1/2 w-8 h-8 rounded-full bg-white border border-[#FF6B00] flex items-center justify-center -translate-x-1/2 -translate-y-1/2 z-20 text-[#FF6B00] shadow-lg shadow-[#FF6B00]/10 animate-float" style={{ animationDelay: `${idx * 0.5}s` }}>
+                  <div className="absolute left-6 sm:left-1/2 top-1.5 sm:top-1/2 w-8 h-8 rounded-full bg-white border border-orange-600 flex items-center justify-center -translate-x-1/2 -translate-y-1/2 z-20 text-orange-600 shadow-lg shadow-orange-600/10 animate-float" style={{ animationDelay: `${idx * 0.5}s` }}>
                     {st.icon}
                   </div>
 
@@ -84,10 +84,10 @@ export default function Process() {
                   {/* Content Box */}
                   <div className="w-full sm:w-[45%] pl-12 sm:pl-0">
                     <div className="glass p-5 rounded-2xl border border-gray-200 hover:border-orange/30 transition-all space-y-2.5">
-                      <h3 className="text-base font-bold font-heading text-black hover:text-orange transition-colors">
+                      <h3 className="text-base font-bold font-heading text-gray-900 hover:text-orange transition-colors">
                         {st.title}
                       </h3>
-                      <p className="text-gray-800 text-xs leading-relaxed font-body">
+                      <p className="text-gray-600 text-xs leading-relaxed font-body">
                         {st.desc}
                       </p>
                     </div>

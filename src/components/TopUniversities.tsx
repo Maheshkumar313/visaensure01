@@ -21,10 +21,10 @@ export default function TopUniversities() {
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase bg-orange-50 border border-orange-200/50 px-3 py-1 rounded-full inline-block">
+          <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase bg-orange-50 border border-orange-200/50 px-3 py-1 rounded-full inline-block">
             Global Institutions
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold font-heading text-black leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold font-heading text-gray-900 leading-tight">
             Top Universities by Destination
           </h2>
           <p className="text-base md:text-lg text-gray-600 font-light leading-relaxed">
@@ -43,7 +43,7 @@ export default function TopUniversities() {
                 onClick={() => setActiveCountry(country)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                   activeCountry === country
-                    ? "bg-[#EA580C] text-white shadow-md shadow-orange-500/20 scale-105"
+                    ? "bg-orange-600 text-white shadow-md shadow-orange-500/20 scale-105"
                     : "bg-transparent text-gray-600 hover:bg-gray-100"
                 }`}
               >
@@ -63,7 +63,7 @@ export default function TopUniversities() {
               placeholder="Search universities..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#EA580C]/50 focus:border-[#EA580C] transition-all text-black"
+              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-orange-600/50 focus:border-orange-600 transition-all text-gray-900"
             />
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function TopUniversities() {
             filteredUniversities.map((uni, idx) => (
               <div
                 key={idx}
-                className="group relative bg-white border border-gray-200 rounded-2xl p-5 hover:border-[#EA580C]/50 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 cursor-pointer flex flex-col h-full overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-5 hover:border-orange-600/50 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 cursor-pointer flex flex-col h-full overflow-hidden"
               >
                 {/* Decorative gradient blob on hover */}
                 <div className="absolute -right-10 -top-10 w-32 h-32 bg-gradient-to-br from-orange-400/20 to-orange-600/0 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -90,7 +90,7 @@ export default function TopUniversities() {
                     />
                   </div>
                   <div className="flex-1 pt-1">
-                    <h3 className="font-bold text-gray-900 text-sm leading-snug line-clamp-2 group-hover:text-[#EA580C] transition-colors">
+                    <h3 className="font-bold text-gray-900 text-sm leading-snug line-clamp-2 group-hover:text-orange-600 transition-colors">
                       {uni}
                     </h3>
                   </div>
@@ -101,7 +101,7 @@ export default function TopUniversities() {
                     <MapPin className="w-3.5 h-3.5 text-gray-400" />
                     <span>{activeCountry}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-[#EA580C] font-medium opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                  <div className="flex items-center gap-1 text-orange-600 font-medium opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                     <span>Details</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </div>
@@ -117,7 +117,7 @@ export default function TopUniversities() {
               <p className="text-gray-500 text-sm">We couldn't find any universities matching "{searchQuery}" in {activeCountry}.</p>
               <button 
                 onClick={() => setSearchQuery("")}
-                className="mt-2 text-[#EA580C] font-medium text-sm hover:underline"
+                className="mt-2 text-orange-600 font-medium text-sm hover:underline"
               >
                 Clear search
               </button>

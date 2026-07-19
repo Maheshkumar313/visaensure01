@@ -20,13 +20,13 @@ export default function WorkVisaPage() {
       {/* Header / Intro section */}
       <main className="flex-1 py-12 md:py-16 relative">
         {/* Decorative Background Elements */}
-        <div className="absolute top-[10%] left-[20%] w-[300px] h-[300px] bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] bg-[#EA580C]/5 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-[10%] left-[20%] w-[300px] h-[300px] bg-orange-600/5 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] bg-orange-600/5 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12">
           {/* Hero Header */}
           <div className="space-y-4 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase bg-orange-50 border border-orange-200/50 px-3 py-1 rounded-full inline-block">
+            <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase bg-orange-50 border border-orange-200/50 px-3 py-1 rounded-full inline-block">
               Work & Relocation Programs
             </span>
             <h1 className="text-3xl md:text-5xl font-bold font-heading text-black leading-tight">

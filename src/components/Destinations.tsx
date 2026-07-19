@@ -132,8 +132,8 @@ export default function Destinations() {
   return (
     <section id="destinations" className="py-20 bg-premium-dark text-white relative overflow-hidden">
       {/* Subtle orange glow particles */}
-      <div className="absolute top-[10%] right-[10%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[130px] pointer-events-none" />
+      <div className="absolute top-[10%] right-[10%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[130px] pointer-events-none" />
 
       {/* Global Connection lines / map background */}
       <div 
@@ -146,7 +146,7 @@ export default function Destinations() {
         }}
       />
       <svg
-        className="absolute inset-0 w-full h-full opacity-[0.03] stroke-[#FF6B00] pointer-events-none"
+        className="absolute inset-0 w-full h-full opacity-[0.03] stroke-orange-600 pointer-events-none"
         viewBox="0 0 1440 900"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +173,7 @@ export default function Destinations() {
         
         {/* Title */}
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-[#FF6B00] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-orange-400 uppercase">
             Global Horizons
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
@@ -192,7 +192,7 @@ export default function Destinations() {
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-3 rounded-full text-xs md:text-sm font-semibold whitespace-nowrap transition-all border cursor-pointer ${
                 activeTab === tab
-                  ? "bg-[#FF6B00]/15 border-[#FF6B00] text-[#FF6B00] glow-orange"
+                  ? "bg-orange-600/15 border-orange-600 text-orange-600 glow-orange"
                   : "bg-white/5 border-transparent text-gray-300 hover:bg-white/10"
               }`}
             >
@@ -232,7 +232,7 @@ export default function Destinations() {
                     {data.pathways.map((path, index) => (
                       <div
                         key={index}
-                        className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-4 rounded-xl space-y-2 hover:border-[#FF6B00]/20 transition-colors"
+                        className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-4 rounded-xl space-y-2 hover:border-orange-600/20 transition-colors"
                       >
                         <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                           {path.icon}
@@ -266,7 +266,7 @@ export default function Destinations() {
                   <span className="text-[10px] text-gray-300 uppercase font-semibold">Ready to choose?</span>
                   <a
                     href={`/services/${data.slug}`}
-                    className="bg-[#FF6B00] hover:bg-[#FF7A1A] text-black text-xs font-bold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 hover:scale-105"
+                    className="bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 hover:scale-105"
                   >
                     <span>View Portal</span>
                     <ArrowRight className="w-3.5 h-3.5" />

@@ -200,7 +200,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Confirm Free Consultation Slot</span>
@@ -236,7 +236,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       <Copy className="w-3.5 h-3.5" />
                     </button>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[#EA580C]">
+                  <div className="flex items-center gap-1.5 text-orange-600">
                     <Clock className="w-4 h-4" />
                     <span>
                       {formData.date} at {formData.timeSlot.split(" ")[0]}

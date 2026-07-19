@@ -148,7 +148,7 @@ export default function Calculator() {
             <span className="text-[10px] uppercase tracking-wider text-gray-800">
               Est. Processing Time
             </span>
-            <h4 className="text-lg font-bold font-heading text-[#EA580C]">{result.time}</h4>
+            <h4 className="text-lg font-bold font-heading text-orange-600">{result.time}</h4>
           </div>
           <Clock className="w-8 h-8 text-orange/30" />
         </div>

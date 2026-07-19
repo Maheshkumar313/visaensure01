@@ -1,11 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 import { Compass, Mail, Phone, MapPin, Send, Globe, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [subscribed, setSubscribed] = useState(false);
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
     e.preventDefault();
@@ -26,7 +28,7 @@ export default function Footer() {
           viewBox="0 0 400 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="stroke-[#FF6B00]/40"
+          className="stroke-orange-600/40"
         >
           <path
             d="M10 80 Q 150 10, 300 90 T 390 20"
@@ -64,36 +66,36 @@ export default function Footer() {
             />
           </a>
 
-          <p className="text-[11px] leading-relaxed text-gray-600 max-w-sm">
-            VisaEnsure is a elite global immigration consultancy providing end-to-end visa solutions with Stripe-level security protocols and an unmatched 98.6% approval record.
+          <p className="text-xs leading-relaxed text-gray-600 max-w-sm">
+            VisaEnsure is an elite global immigration consultancy providing end-to-end visa solutions with Stripe-level security protocols and an unmatched 98.6% approval record.
           </p>
 
           <div className="space-y-2 text-[10px] text-gray-600">
             <div className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#FF6B00]" />
+              <MapPin className="w-3.5 h-3.5 text-orange-600" />
               <span>Flat no 402, 4th floor, Avasa's VPR Komitla Residency, Chintalkunta, Hyderabad, Telangana 500074</span>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-[#FF6B00]" />
-              <a href="mailto:apply@visaensure.com" className="hover:text-[#FF6B00] transition-colors">apply@visaensure.com</a>
+              <Mail className="w-3.5 h-3.5 text-orange-600" />
+              <a href="mailto:apply@visaensure.com" className="hover:text-orange-600 transition-colors">apply@visaensure.com</a>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-3.5 h-3.5 text-[#FF6B00]" />
+              <Clock className="w-3.5 h-3.5 text-orange-600" />
               <span>Mon to Sat — 9:00 AM to 8:00 PM</span>
             </div>
           </div>
           
           <div className="flex items-center gap-4 pt-4">
-            <a href="https://facebook.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#FF6B00] transition-colors" aria-label="Facebook">
+            <a href="https://facebook.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-600 transition-colors" aria-label="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
-            <a href="https://instagram.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#FF6B00] transition-colors" aria-label="Instagram">
+            <a href="https://instagram.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-600 transition-colors" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </a>
-            <a href="https://linkedin.com/company/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#FF6B00] transition-colors" aria-label="LinkedIn">
+            <a href="https://linkedin.com/company/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-600 transition-colors" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="https://x.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#FF6B00] transition-colors" aria-label="Twitter">
+            <a href="https://x.com/visaensure" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-600 transition-colors" aria-label="Twitter">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
             </a>
           </div>
@@ -102,31 +104,31 @@ export default function Footer() {
         {/* Services: Column span 3 */}
         <div className="lg:col-span-3 space-y-4 pl-0 lg:pl-6">
           <h4 className="text-gray-900 text-xs font-bold uppercase tracking-wider">Services</h4>
-          <ul className="space-y-2 text-[11px]">
+          <ul className="space-y-2 text-xs">
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
+              <Link href="/services/student-visa" className="hover:text-orange-600 transition-colors">
                 Student Visa (F-1/Study Permits)
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
+              <Link href="/services/work-visa" className="hover:text-orange-600 transition-colors">
                 Work Visas & Opportunity Cards
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
+              <Link href="/services/migration-visa" className="hover:text-orange-600 transition-colors">
                 PR & Skilled Migration (EE/PNP)
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
+              <Link href="/services/tourist-visa" className="hover:text-orange-600 transition-colors">
                 Tourist & Short-Term Visitor Visas
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "#services")} className="hover:text-[#FF6B00] transition-colors">
+              <Link href="/services/ielts-coaching" className="hover:text-orange-600 transition-colors">
                 English Exam Coaching (IELTS/PTE)
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -134,21 +136,21 @@ export default function Footer() {
         {/* Destinations: Column span 2 */}
         <div className="lg:col-span-2 space-y-4">
           <h4 className="text-gray-900 text-xs font-bold uppercase tracking-wider">Destinations</h4>
-          <ul className="space-y-2 text-[11px]">
+          <ul className="space-y-2 text-xs">
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">United States</a>
+              <Link href="/destinations/usa" className="hover:text-orange-600 transition-colors">United States</Link>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">Canada</a>
+              <Link href="/destinations/canada" className="hover:text-orange-600 transition-colors">Canada</Link>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">United Kingdom</a>
+              <Link href="/destinations/uk" className="hover:text-orange-600 transition-colors">United Kingdom</Link>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">Australia</a>
+              <Link href="/destinations/australia" className="hover:text-orange-600 transition-colors">Australia</Link>
             </li>
             <li>
-              <a href="#destinations" onClick={(e) => handleScrollTo(e, "#destinations")} className="hover:text-[#FF6B00] transition-colors">Germany</a>
+              <Link href="/destinations/germany" className="hover:text-orange-600 transition-colors">Germany</Link>
             </li>
           </ul>
         </div>
@@ -156,15 +158,16 @@ export default function Footer() {
         {/* Company: Column span 2 */}
         <div className="lg:col-span-2 space-y-4">
           <h4 className="text-gray-900 text-xs font-bold uppercase tracking-wider">Company</h4>
-          <ul className="space-y-2 text-[11px]">
+          <ul className="space-y-2 text-xs">
             <li>
-              <a href="#about" onClick={(e) => handleScrollTo(e, "#about")} className="hover:text-[#FF6B00] transition-colors">About Us</a>
+              <a href="#about" onClick={(e) => handleScrollTo(e, "#about")} className="hover:text-orange-600 transition-colors">About Us</a>
             </li>
             <li>
-              <a href="#success-stories" onClick={(e) => handleScrollTo(e, "#success-stories")} className="hover:text-[#FF6B00] transition-colors">Success Stories</a>
+              <a href="#success-stories" onClick={(e) => handleScrollTo(e, "#success-stories")} className="hover:text-orange-600 transition-colors">Success Stories</a>
             </li>
+            {/* TODO: no blog exists yet — create /blog or retire this link */}
             <li>
-              <a href="#blog" onClick={(e) => handleScrollTo(e, "#blog")} className="hover:text-[#FF6B00] transition-colors">Blog</a>
+              <a href="#blog" onClick={(e) => handleScrollTo(e, "#blog")} className="hover:text-orange-600 transition-colors">Blog</a>
             </li>
           </ul>
         </div>
@@ -175,21 +178,28 @@ export default function Footer() {
           <p className="text-[10px] leading-relaxed text-gray-600">
             Join our weekly VIP circular. Receive current PR draw scores, visa rules, and processing wait lists.
           </p>
-          <form onSubmit={(e) => { e.preventDefault(); alert("Subscribed!"); }} className="flex gap-2">
-            <input
-              type="email"
-              required
-              placeholder="E.g. rajesh@gmail.com"
-              className="flex-1 bg-gray-50 border border-gray-200 rounded px-2.5 py-1.5 text-[10px] text-gray-900 focus:outline-none focus:border-[#FF6B00] placeholder-gray-400"
-            />
-            <button
-              type="submit"
-              className="bg-[#FF6B00] hover:bg-[#FF7A1A] text-black px-2.5 rounded flex items-center justify-center transition-colors cursor-pointer"
-              aria-label="Subscribe"
-            >
-              <Send className="w-3.5 h-3.5" />
-            </button>
-          </form>
+          {subscribed ? (
+            <p className="text-xs text-orange-600 font-semibold min-h-[30px] flex items-center">
+              Thanks — you&apos;re on the list.
+            </p>
+          ) : (
+            /* TODO: wire this form to a real newsletter backend */
+            <form onSubmit={(e) => { e.preventDefault(); setSubscribed(true); }} className="flex gap-2 min-h-[30px]">
+              <input
+                type="email"
+                required
+                placeholder="E.g. rajesh@gmail.com"
+                className="flex-1 bg-gray-50 border border-gray-200 rounded px-2.5 py-1.5 text-[10px] text-gray-900 focus:outline-none focus:border-orange-600 placeholder-gray-400"
+              />
+              <button
+                type="submit"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-2.5 rounded flex items-center justify-center transition-colors cursor-pointer"
+                aria-label="Subscribe"
+              >
+                <Send className="w-3.5 h-3.5" />
+              </button>
+            </form>
+          )}
         </div>
 
       </div>
@@ -201,7 +211,7 @@ export default function Footer() {
             initial={{ left: "-100%" }}
             animate={{ left: "100%" }}
             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 w-1/3 h-full bg-gradient-to-r from-transparent via-[#FF6B00]/40 to-transparent"
+            className="absolute top-0 w-1/3 h-full bg-gradient-to-r from-transparent via-orange-600/40 to-transparent"
           />
         </div>
       </div>
@@ -211,8 +221,9 @@ export default function Footer() {
         <div>
           &copy; {currentYear} VisaEnsure Platform. All rights reserved. Registered Office Hyderabad, India.
         </div>
+        {/* TODO: create /privacy-policy, /terms, /disclaimers pages and point these links at them */}
         <div className="flex gap-4">
-          <a href="#" className="hover:text-gray-900 transition-colors">Privacy Circular</a>
+          <a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a>
           <span>|</span>
           <a href="#" className="hover:text-gray-900 transition-colors">Terms of Service</a>
           <span>|</span>
@@ -221,7 +232,7 @@ export default function Footer() {
       </div>
 
       {/* Soft orange base glow at the bottom center of the footer */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#FF6B00]/[0.03] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-orange-600/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
       {/* World Map Outline Overlay */}
       <div 

@@ -52,19 +52,19 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-20 bg-transparent border-t border-gray-200 relative">
-      <div className="absolute top-[40%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#FF6B00]/4 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[40%] left-[5%] w-[300px] h-[300px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Title */}
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-[#FF6B00] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase">
             Get in Touch
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
             Schedule a Private Consultation
           </h2>
-          <p className="text-gray-800 text-sm max-w-xl mx-auto">
+          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
             Contact our flagship Hyderabad office or submit the form to connect directly with a senior immigration counselor.
           </p>
         </div>
@@ -89,7 +89,7 @@ export default function Contact() {
                         if (errors.name) setErrors({ ...errors, name: "" });
                       }}
                       placeholder="Rajesh Kumar"
-                      className={`w-full bg-white border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange`}
+                      className={`w-full bg-white border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange`}
                     />
                     {errors.name && <p className="text-[10px] text-red-500 mt-1 font-semibold">{errors.name}</p>}
                   </div>
@@ -105,7 +105,7 @@ export default function Contact() {
                         if (errors.email) setErrors({ ...errors, email: "" });
                       }}
                       placeholder="rajesh@gmail.com"
-                      className={`w-full bg-white border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange`}
+                      className={`w-full bg-white border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange`}
                     />
                     {errors.email && <p className="text-[10px] text-red-500 mt-1 font-semibold">{errors.email}</p>}
                   </div>
@@ -124,7 +124,7 @@ export default function Contact() {
                         if (errors.phone) setErrors({ ...errors, phone: "" });
                       }}
                       placeholder="+91 96424 42227"
-                      className={`w-full bg-white border ${errors.phone ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange`}
+                      className={`w-full bg-white border ${errors.phone ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange`}
                     />
                     {errors.phone && <p className="text-[10px] text-red-500 mt-1 font-semibold">{errors.phone}</p>}
                   </div>
@@ -135,7 +135,7 @@ export default function Contact() {
                     <select
                       value={formData.visaType}
                       onChange={(e) => setFormData({ ...formData, visaType: e.target.value })}
-                      className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange"
+                      className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange"
                     >
                       <option value="Student Visa">Student Visa</option>
                       <option value="Work Visa">Work Visa</option>
@@ -155,14 +155,14 @@ export default function Contact() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Briefly describe your requirements..."
                     rows={4}
-                    className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-xs text-black focus:outline-none focus:border-orange"
+                    className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full py-3 bg-[#FF6B00] hover:bg-[#FF7A1A] text-black font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {isLoading ? (
                     <>
@@ -182,13 +182,13 @@ export default function Contact() {
                 <div className="w-16 h-16 bg-green-500/10 border border-green-500/30 rounded-full flex items-center justify-center mx-auto text-green-500">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h4 className="text-xl font-heading text-black font-bold">Inquiry Logged!</h4>
+                <h4 className="text-xl font-heading text-gray-900 font-bold">Inquiry Logged!</h4>
                 <p className="text-xs text-gray-900 max-w-sm mx-auto leading-relaxed">
-                  Thank you, <strong className="text-black">{formData.name}</strong>. A VisaEnsure case specialist has received your inquiry for <strong>{formData.visaType}</strong>. We will call you within 15 minutes.
+                  Thank you, <strong className="text-gray-900">{formData.name}</strong>. A VisaEnsure case specialist has received your inquiry for <strong>{formData.visaType}</strong>. We will call you within 15 minutes.
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="py-2 px-6 bg-white hover:bg-white border border-gray-200 rounded-lg text-xs text-black transition-all mt-4"
+                  className="py-2 px-6 bg-white hover:bg-white border border-gray-200 rounded-lg text-xs text-gray-900 transition-all mt-4"
                 >
                   Submit Another Inquiry
                 </button>
@@ -199,7 +199,7 @@ export default function Contact() {
           {/* Details: Column span 5 */}
           <div className="lg:col-span-5 bg-white/50 border border-gray-200 p-6 md:p-8 rounded-2xl flex flex-col justify-between space-y-8">
             <div className="space-y-6">
-              <h3 className="text-xl font-heading text-black font-semibold">
+              <h3 className="text-xl font-heading text-gray-900 font-semibold">
                 Contact Coordinates
               </h3>
 
@@ -238,12 +238,12 @@ export default function Contact() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234, 88, 12,0.15)_0%,transparent_75%)]" />
               <div className="relative z-10 space-y-1">
                 <span className="text-[10px] tracking-wider text-orange uppercase font-bold">MAP DIRECTIONS</span>
-                <p className="text-[11px] text-gray-800">Sri Sai Nagar, Jahangir Nagar Colony, Chintalkunta</p>
+                <p className="text-[11px] text-gray-500">Sri Sai Nagar, Jahangir Nagar Colony, Chintalkunta</p>
                 <a
                   href="https://maps.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] text-black underline hover:text-orange block mt-1"
+                  className="text-[10px] text-gray-900 underline hover:text-orange block mt-1"
                 >
                   Open in Google Maps
                 </a>

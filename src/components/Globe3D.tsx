@@ -365,8 +365,8 @@ export default function Globe3D() {
       <div className="absolute w-[80%] h-[80%] bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.18)_0%,transparent_70%)] pointer-events-none z-0 filter blur-xl" />
 
       {/* Cybernetic ambient orbit ring behind the globe */}
-      <div className="absolute w-[360px] h-[360px] md:w-[500px] md:h-[500px] rounded-full border border-[#FF6B00]/10 pointer-events-none z-0 animate-[spin_40s_linear_infinite]" />
-      <div className="absolute w-[380px] h-[380px] md:w-[530px] md:h-[530px] rounded-full border border-dashed border-[#FF6B00]/5 pointer-events-none z-0 animate-[spin_60s_linear_infinite_reverse]" />
+      <div className="absolute w-[360px] h-[360px] md:w-[500px] md:h-[500px] rounded-full border border-orange-600/10 pointer-events-none z-0 animate-[spin_40s_linear_infinite]" />
+      <div className="absolute w-[380px] h-[380px] md:w-[530px] md:h-[530px] rounded-full border border-dashed border-orange-600/5 pointer-events-none z-0 animate-[spin_60s_linear_infinite_reverse]" />
 
       {/* Globe Container */}
       <div ref={containerRef} className="w-full h-full relative z-10 cursor-grab active:cursor-grabbing" />
@@ -381,7 +381,7 @@ export default function Globe3D() {
               onClick={() => handleFlyTo(dest)}
               className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 ${
                 selectedDest === dest.name
-                  ? "bg-[#FF6B00] text-black shadow-lg shadow-[#FF6B00]/40 font-bold"
+                  ? "bg-orange-600 text-white shadow-lg shadow-orange-600/40 font-bold"
                   : "text-white/80 hover:text-white hover:bg-white/10"
               }`}
             >
@@ -395,16 +395,16 @@ export default function Globe3D() {
         <div className="flex items-center gap-4 bg-black/90 backdrop-blur-lg px-4.5 py-2 rounded-full border border-white/10 shadow-2xl text-[11px] text-white font-sans">
           <button
             onClick={() => setAutoRotate(!autoRotate)}
-            className="flex items-center gap-1.5 hover:text-[#FF6B00] transition-colors cursor-pointer font-medium"
+            className="flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer font-medium"
           >
             {autoRotate ? (
               <>
-                <Pause className="w-3.5 h-3.5 text-[#FF6B00]" />
+                <Pause className="w-3.5 h-3.5 text-orange-600" />
                 <span>Pause Rotation</span>
               </>
             ) : (
               <>
-                <Play className="w-3.5 h-3.5 text-[#FF6B00]" />
+                <Play className="w-3.5 h-3.5 text-orange-600" />
                 <span>Auto Rotate</span>
               </>
             )}
@@ -414,11 +414,11 @@ export default function Globe3D() {
 
           <button
             onClick={() => setIsNightMode(!isNightMode)}
-            className="flex items-center gap-1.5 hover:text-[#FF6B00] transition-colors cursor-pointer font-medium"
+            className="flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer font-medium"
           >
             {isNightMode ? (
               <>
-                <Sun className="w-3.5 h-3.5 text-[#FFA54F]" />
+                <Sun className="w-3.5 h-3.5 text-orange-400" />
                 <span>Day Mode</span>
               </>
             ) : (

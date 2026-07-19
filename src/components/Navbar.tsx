@@ -5,6 +5,7 @@ import { Menu, X, ArrowRight, ChevronDown, MessageCircle, Globe2, Briefcase, Gra
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import { WHATSAPP_URL } from "@/data/contact";
 
 interface NavbarProps {
   onOpenAssessment: () => void;
@@ -153,7 +154,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
 
   return (
     <>
-      <header className="sticky top-0 z-[100] w-full bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm py-0">
+      <header className="sticky top-0 z-[100] w-full bg-white/80 backdrop-blur-md border-b border-gray-200/60 shadow-[0_1px_2px_rgba(10,22,40,0.04)] py-0">
         <nav
           onMouseLeave={closeMenu}
           className="mx-auto relative w-full max-w-7xl bg-transparent px-4 md:px-8 py-3.5"
@@ -211,7 +212,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
             {/* Right CTAs */}
             <div className="hidden lg:flex items-center gap-4 relative z-10">
               <a 
-                href="https://wa.me/1234567890" 
+                href={WHATSAPP_URL} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center gap-1.5 text-gray-700 hover:text-green-600 transition-colors font-semibold text-sm group"
@@ -222,7 +223,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
               
               <button
                 onClick={onOpenBooking}
-                className="relative group bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white font-body font-bold rounded-full transition-all duration-500 shadow-md hover:shadow-lg hover:shadow-orange-500/20 overflow-hidden flex items-center gap-2 px-6 py-2.5 text-sm"
+                className="relative group bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white font-body font-bold rounded-full transition-all duration-500 shadow-md hover:shadow-lg hover:shadow-orange-500/20 overflow-hidden flex items-center gap-2 px-6 py-2.5 text-sm"
               >
                 {/* Gloss sweep shine hover animation */}
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
@@ -254,7 +255,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="absolute left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-xl border border-gray-150 shadow-2xl rounded-3xl origin-top z-50 top-full mt-2 w-[98vw] max-w-7xl"
+                className="absolute left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-xl border border-gray-200/70 shadow-xl shadow-navy/5 rounded-3xl origin-top z-50 top-full mt-2 w-[98vw] max-w-7xl"
               >
                 <div className="max-w-7xl mx-auto px-6 py-8">
                   <div className="grid grid-cols-5 gap-6">
@@ -299,7 +300,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="absolute left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-xl border border-gray-150 shadow-2xl rounded-3xl origin-top z-50 top-full mt-2 w-[98vw] max-w-7xl"
+                className="absolute left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-xl border border-gray-200/70 shadow-xl shadow-navy/5 rounded-3xl origin-top z-50 top-full mt-2 w-[98vw] max-w-7xl"
               >
                 <div className="max-w-7xl mx-auto px-6 py-8">
                   <div className="grid grid-cols-4 gap-6">
@@ -442,7 +443,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                             key={idx}
                             href={country.href} 
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="p-3 border border-gray-150 rounded-2xl bg-gray-50/50 hover:bg-orange-50/50 hover:border-orange-500/20 flex flex-col gap-2 transition-all duration-300"
+                            className="p-3 border border-gray-200 rounded-2xl bg-gray-50/50 hover:bg-orange-50/50 hover:border-orange-500/20 flex flex-col gap-2 transition-all duration-300"
                           >
                             <span className="text-3xl">{country.flag}</span>
                             <span className="font-bold text-sm text-gray-900">{country.name}</span>
@@ -466,7 +467,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
             {/* Mobile Footer CTAs */}
             <div className="p-6 bg-gray-50/80 backdrop-blur-md border-t border-gray-100 space-y-3">
               <a 
-                href="https://wa.me/1234567890" 
+                href={WHATSAPP_URL} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3 bg-white border border-gray-200/80 hover:border-green-500/20 text-gray-800 font-bold rounded-full transition-all duration-300 shadow-sm"
@@ -479,7 +480,7 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
                   setIsMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white font-bold rounded-full transition-all duration-300 shadow-md hover:shadow-lg shadow-orange-500/20"
+                className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-md hover:shadow-lg shadow-orange-500/20"
               >
                 <span className="text-sm">Free Consultation</span>
                 <ArrowRight className="w-4 h-4" />

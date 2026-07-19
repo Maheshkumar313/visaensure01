@@ -33,7 +33,7 @@ function Counter({ end, suffix = "", duration = 2, decimals = 0 }: { end: number
   }, [isInView, end, duration, hasStarted]);
 
   return (
-    <span ref={ref} className="font-heading font-bold text-[#FF6B00]">
+    <span ref={ref} className="font-heading font-bold text-orange-600">
       {!hasStarted && !isInView ? (
         <span>{end.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}</span>
       ) : (
@@ -47,7 +47,7 @@ export default function Stats() {
   return (
     <section className="py-20 bg-premium-dark border-t border-white/5 relative overflow-hidden">
       {/* Subtle orange glow particle */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
 
       {/* Global connection map backdrop */}
       <div 

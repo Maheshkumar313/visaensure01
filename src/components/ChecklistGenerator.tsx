@@ -99,7 +99,7 @@ export default function ChecklistGenerator() {
             }}
             className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all border cursor-pointer ${
               category === cat
-                ? "bg-orange-light border-orange text-[#EA580C]"
+                ? "bg-orange-light border-orange text-orange-600"
                 : "bg-white border-transparent text-gray-900 hover:bg-white"
             }`}
           >
@@ -118,7 +118,7 @@ export default function ChecklistGenerator() {
         </div>
         <div className="w-full h-1.5 bg-white rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#EA580C] to-[#dfbf65] transition-all duration-300"
+            className="h-full bg-gradient-to-r from-orange-600 to-[#dfbf65] transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -140,7 +140,7 @@ export default function ChecklistGenerator() {
             >
               <div
                 className={`w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-all ${
-                  isChecked ? "bg-[#EA580C] border-[#EA580C] text-black" : "border-gray-300"
+                  isChecked ? "bg-orange-600 border-orange-600 text-white" : "border-gray-300"
                 }`}
               >
                 {isChecked && <Check className="w-3.5 h-3.5 font-bold" />}
@@ -174,7 +174,7 @@ export default function ChecklistGenerator() {
               />
               <button
                 type="submit"
-                className="bg-[#EA580C] hover:bg-[#F97316] text-black font-bold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
+                className="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Get PDF</span>

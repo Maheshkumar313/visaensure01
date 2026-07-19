@@ -10,7 +10,7 @@ const Globe3D = dynamic(() => import("./Globe3D"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-[450px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-visible">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF6B00]"></div>
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-600"></div>
     </div>
   ),
 });
@@ -58,7 +58,7 @@ export default function Hero({ onOpenAssessment, onOpenBooking }: HeroProps) {
 
         {/* Global Aviation / Travel Routes Curves (under 5% opacity) */}
         <svg
-          className="absolute inset-0 w-full h-full opacity-[0.04] stroke-[#FF6B00]"
+          className="absolute inset-0 w-full h-full opacity-[0.04] stroke-orange-600"
           viewBox="0 0 1440 900"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ export default function Hero({ onOpenAssessment, onOpenBooking }: HeroProps) {
           {[...Array(4)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1.5 h-1.5 rounded-full bg-[#FF6B00]/15"
+              className="absolute w-1.5 h-1.5 rounded-full bg-orange-600/15"
               style={{
                 left: `${15 + i * 20}%`,
                 top: `${20 + (i % 2) * 35}%`,
@@ -124,24 +124,24 @@ export default function Hero({ onOpenAssessment, onOpenBooking }: HeroProps) {
           className="space-y-8 text-center lg:text-left"
         >
           {/* Tagline Badge */}
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 text-xs font-semibold tracking-wider text-[#FF6B00] uppercase">
-            <Compass className="w-4 h-4 animate-spin-slow text-[#FF6B00]" />
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 text-xs font-semibold tracking-wider text-orange-600 uppercase">
+            <Compass className="w-4 h-4 animate-spin-slow text-orange-600" />
             <span>Your Trusted Visa Companion</span>
           </motion.div>
 
           {/* Main Headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-black leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-gray-900 leading-tight"
           >
             Move Beyond Borders <br className="hidden sm:inline" />
-            With <span className="text-[#FF6B00] bg-gradient-to-r from-[#FF6B00] to-[#FFA54F] bg-clip-text text-transparent">Absolute Confidence</span>
+            With <span className="text-orange-600 bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">Absolute Confidence</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-gray-900 text-sm md:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-body"
+            className="text-gray-600 text-sm md:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-body"
           >
             VisaEnsure matches Apple-level smoothness, Stripe-level trust, and Emirates-style luxury travel to deliver a success-driven visa and immigration experience for students, families, and global professionals.
           </motion.p>
@@ -153,14 +153,14 @@ export default function Hero({ onOpenAssessment, onOpenBooking }: HeroProps) {
           >
             <button
               onClick={onOpenAssessment}
-              className="w-full sm:w-auto px-8 py-4 bg-[#FF6B00] hover:bg-[#FF7A1A] text-black font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-[#FF6B00]/20 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white font-bold rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-xl hover:shadow-orange-600/20 flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Get Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
             <button
               onClick={onOpenBooking}
-              className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-white border border-black/10 rounded-full text-black font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-1 hover:border-[#FF6B00]/30 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-white border border-gray-300 rounded-full text-gray-900 font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-1 hover:border-orange-600/30 hover:shadow-md cursor-pointer"
             >
               <span>Explore Services</span>
             </button>
@@ -172,32 +172,32 @@ export default function Hero({ onOpenAssessment, onOpenBooking }: HeroProps) {
             className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-gray-200 max-w-xl mx-auto lg:mx-0"
           >
             <div className="text-center lg:text-left space-y-0.5">
-              <div className="text-xl md:text-2xl font-bold font-heading text-black flex items-center justify-center lg:justify-start gap-1">
-                <Users className="w-4 h-4 text-[#FF6B00] shrink-0" />
+              <div className="text-xl md:text-2xl font-bold font-heading text-gray-900 flex items-center justify-center lg:justify-start gap-1">
+                <Users className="w-4 h-4 text-orange-600 shrink-0" />
                 <span>10K+</span>
               </div>
-              <span className="text-[10px] tracking-wider text-gray-800 uppercase font-semibold">Clients Served</span>
+              <span className="text-[10px] tracking-wider text-gray-500 uppercase font-semibold">Clients Served</span>
             </div>
             <div className="text-center lg:text-left space-y-0.5">
-              <div className="text-xl md:text-2xl font-bold font-heading text-[#FF6B00] flex items-center justify-center lg:justify-start gap-1">
-                <Award className="w-4 h-4 text-[#FF6B00] shrink-0" />
+              <div className="text-xl md:text-2xl font-bold font-heading text-orange-600 flex items-center justify-center lg:justify-start gap-1">
+                <Award className="w-4 h-4 text-orange-600 shrink-0" />
                 <span>98.6%</span>
               </div>
-              <span className="text-[10px] tracking-wider text-gray-800 uppercase font-semibold">Success Rate</span>
+              <span className="text-[10px] tracking-wider text-gray-500 uppercase font-semibold">Success Rate</span>
             </div>
             <div className="text-center lg:text-left space-y-0.5">
-              <div className="text-xl md:text-2xl font-bold font-heading text-black flex items-center justify-center lg:justify-start gap-1">
-                <Globe className="w-4 h-4 text-[#FF6B00] shrink-0" />
+              <div className="text-xl md:text-2xl font-bold font-heading text-gray-900 flex items-center justify-center lg:justify-start gap-1">
+                <Globe className="w-4 h-4 text-orange-600 shrink-0" />
                 <span>50+</span>
               </div>
-              <span className="text-[10px] tracking-wider text-gray-800 uppercase font-semibold">Countries</span>
+              <span className="text-[10px] tracking-wider text-gray-500 uppercase font-semibold">Countries</span>
             </div>
             <div className="text-center lg:text-left space-y-0.5">
-              <div className="text-xl md:text-2xl font-bold font-heading text-black flex items-center justify-center lg:justify-start gap-1">
-                <ShieldAlert className="w-4 h-4 text-[#FF6B00] shrink-0" />
+              <div className="text-xl md:text-2xl font-bold font-heading text-gray-900 flex items-center justify-center lg:justify-start gap-1">
+                <ShieldAlert className="w-4 h-4 text-orange-600 shrink-0" />
                 <span>5+ Yrs</span>
               </div>
-              <span className="text-[10px] tracking-wider text-gray-800 uppercase font-semibold">Experience</span>
+              <span className="text-[10px] tracking-wider text-gray-500 uppercase font-semibold">Experience</span>
             </div>
           </motion.div>
         </motion.div>

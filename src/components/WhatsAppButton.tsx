@@ -2,13 +2,13 @@
 
 import React from "react";
 import { MessageSquareCode } from "lucide-react";
+import { WHATSAPP_URL } from "@/data/contact";
 
 export default function WhatsAppButton() {
-  const whatsappNumber = "+919642442227";
   const defaultMessage = encodeURIComponent(
     "Hi VisaEnsure, I am interested in a free elite visa profile assessment."
   );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
+  const whatsappUrl = `${WHATSAPP_URL}?text=${defaultMessage}`;
 
   return (
     <a

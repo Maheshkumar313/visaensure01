@@ -69,25 +69,25 @@ export default function SuccessStories() {
   const current = testimonials[activeIndex];
 
   return (
-    <section className="py-20 bg-white border-t border-gray-200 relative overflow-hidden">
+    <section id="success-stories" className="py-20 bg-white border-t border-gray-200 relative overflow-hidden">
       {/* Subtle orange ambient glow */}
-      <div className="absolute top-[30%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[30%] left-[10%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 md:px-8 text-center space-y-10">
         
         {/* Title */}
         <div className="space-y-3">
-          <span className="text-xs font-semibold tracking-widest text-[#FF6B00] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase">
             Testimonials
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
             Client Success Stories
           </h2>
         </div>
 
         {/* Carousel Window */}
         <div className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden min-h-[300px] flex flex-col justify-between items-center">
-          <div className="absolute top-6 left-6 text-[#FF6B00]/10 pointer-events-none">
+          <div className="absolute top-6 left-6 text-orange-600/10 pointer-events-none">
             <Quote className="w-20 h-20 rotate-180" />
           </div>
 
@@ -103,7 +103,7 @@ export default function SuccessStories() {
               >
                 <div className="w-full space-y-6 text-center">
                   {/* Stars */}
-                  <div className="flex gap-1 text-[#FF6B00] justify-center">
+                  <div className="flex gap-1 text-orange-600 justify-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
@@ -116,12 +116,12 @@ export default function SuccessStories() {
 
                   {/* Profile */}
                   <div className="flex items-center gap-3 justify-center">
-                    <div className="w-10 h-10 rounded-full bg-[#FF6B00] flex items-center justify-center font-bold text-black text-sm">
+                    <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center font-bold text-white text-sm">
                       {current.avatar}
                     </div>
                     <div className="text-left">
-                      <h4 className="text-sm font-bold text-black">{current.name}</h4>
-                      <span className="text-[10px] text-[#FF6B00] font-semibold tracking-wide uppercase">
+                      <h4 className="text-sm font-bold text-gray-900">{current.name}</h4>
+                      <span className="text-[10px] text-orange-600 font-semibold tracking-wide uppercase">
                         {current.visaType}
                       </span>
                     </div>
@@ -135,14 +135,14 @@ export default function SuccessStories() {
           <div className="flex gap-4 mt-8 relative z-20">
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-white border border-gray-200 hover:border-[#FF6B00]/30 text-gray-700 hover:text-black hover:bg-gray-50 flex items-center justify-center transition-all cursor-pointer shadow-sm"
+              className="w-10 h-10 rounded-full bg-white border border-gray-200 hover:border-orange-600/30 text-gray-700 hover:text-gray-900 hover:bg-gray-50 flex items-center justify-center transition-all cursor-pointer shadow-sm"
               aria-label="Previous Testimonial"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-white border border-gray-200 hover:border-[#FF6B00]/30 text-gray-700 hover:text-black hover:bg-gray-50 flex items-center justify-center transition-all cursor-pointer shadow-sm"
+              className="w-10 h-10 rounded-full bg-white border border-gray-200 hover:border-orange-600/30 text-gray-700 hover:text-gray-900 hover:bg-gray-50 flex items-center justify-center transition-all cursor-pointer shadow-sm"
               aria-label="Next Testimonial"
             >
               <ArrowRight className="w-4 h-4" />

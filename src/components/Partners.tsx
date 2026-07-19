@@ -53,13 +53,13 @@ export default function Partners() {
         
         {/* Title */}
         <div className="text-center space-y-3 mb-12">
-          <span className="text-xs font-semibold tracking-widest text-[#FF6B00] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase">
             Global Network
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold font-heading text-black">
+          <h2 className="text-2xl md:text-3xl font-bold font-heading text-gray-900">
             Partner Universities & Institutions
           </h2>
-          <p className="text-gray-800 text-xs md:text-sm max-w-lg mx-auto">
+          <p className="text-gray-600 text-xs md:text-sm max-w-lg mx-auto">
             Direct application pathways and priority credit transfers with 350+ accredited schools worldwide.
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function Partners() {
               onClick={() => setActiveRegion(region)}
               className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all border cursor-pointer ${
                 activeRegion === region
-                  ? "bg-orange-light border-orange text-[#FF6B00]"
+                  ? "bg-orange-light border-orange text-orange-600"
                   : "bg-white border-transparent text-gray-900 hover:bg-white"
               }`}
             >
@@ -91,23 +91,23 @@ export default function Partners() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="glass p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:border-[#FF6B00]/35 hover:-translate-y-1 group transition-all duration-300 grayscale hover:grayscale-0 hover:glow-orange"
+                className="glass p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:border-orange-600/35 hover:-translate-y-1 group transition-all duration-300 grayscale hover:grayscale-0 hover:glow-orange"
               >
                 <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-white group-hover:bg-[#FF6B00]/10 flex items-center justify-center text-gray-800 group-hover:text-[#FF6B00] transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-white group-hover:bg-orange-600/10 flex items-center justify-center text-gray-600 group-hover:text-orange-600 transition-colors">
                     <Landmark className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold text-black group-hover:text-[#FF6B00] transition-colors truncate">
+                    <h3 className="text-xs font-bold text-gray-900 group-hover:text-orange-600 transition-colors truncate">
                       {uni.name}
                     </h3>
-                    <p className="text-[10px] text-gray-800 mt-1">{uni.location}</p>
+                    <p className="text-[10px] text-gray-500 mt-1">{uni.location}</p>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-gray-200 flex items-center justify-between text-[9px] uppercase tracking-wider text-gray-800 font-semibold font-mono">
+                <div className="mt-4 pt-3 border-t border-gray-200 flex items-center justify-between text-[9px] uppercase tracking-wider text-gray-500 font-semibold font-mono">
                   <span>RANKINGS</span>
-                  <span className="text-black">{uni.rank}</span>
+                  <span className="text-gray-900">{uni.rank}</span>
                 </div>
               </motion.div>
             ))}

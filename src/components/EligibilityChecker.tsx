@@ -108,7 +108,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white">
           <div className="flex items-center gap-2">
-            <Calculator className="w-5 h-5 text-[#EA580C]" />
+            <Calculator className="w-5 h-5 text-orange-600" />
             <h3 className="text-xl font-heading text-black font-semibold">
               Visa Eligibility Checker
             </h3>
@@ -122,7 +122,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
         {!isCalculated && (
           <div className="w-full h-1 bg-white">
             <div
-              className="h-full bg-[#EA580C] transition-all duration-300"
+              className="h-full bg-orange-600 transition-all duration-300"
               style={{ width: `${(step / 7) * 100}%` }}
             />
           </div>
@@ -144,7 +144,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("visaCategory", cat)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.visaCategory === cat
-                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
+                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
                             : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
@@ -167,7 +167,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("country", c)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.country === c
-                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
+                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
                             : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
@@ -190,7 +190,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("age", ageGrp)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.age === ageGrp
-                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
+                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
                             : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
@@ -213,7 +213,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("education", edu)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.education === edu
-                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
+                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
                             : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
@@ -236,7 +236,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("experience", exp)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.experience === exp
-                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
+                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
                             : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
@@ -264,7 +264,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("english", eng)}
                         className={`p-3 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.english === eng
-                            ? "bg-orange-light border-orange text-[#EA580C] glow-orange"
+                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
                             : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
                         }`}
                       >
@@ -323,7 +323,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
 
                   <button
                     type="submit"
-                    className="w-full py-3 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 mt-4"
+                    className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 mt-4"
                   >
                     <Award className="w-5 h-5" />
                     <span>Calculate Eligibility Report</span>
@@ -350,7 +350,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="flex items-center gap-1.5 text-xs bg-white hover:bg-white border border-gray-200 px-4 py-2 rounded-lg text-black hover:text-[#EA580C] transition-all"
+                    className="flex items-center gap-1.5 text-xs bg-white hover:bg-white border border-gray-200 px-4 py-2 rounded-lg text-black hover:text-orange-600 transition-all"
                   >
                     <span>Next</span>
                     <ArrowRight className="w-4 h-4" />
@@ -376,7 +376,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                     cx="48"
                     cy="48"
                     r="40"
-                    stroke="#EA580C"
+                    stroke="#FF6B00"
                     strokeWidth="8"
                     fill="transparent"
                     strokeDasharray={251.2}
@@ -392,7 +392,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
 
               <div className="space-y-2">
                 <h4 className="text-xl font-heading text-black font-bold">Eligibility Calculated</h4>
-                <p className="text-xs text-[#EA580C] tracking-wide uppercase font-semibold">
+                <p className="text-xs text-orange-600 tracking-wide uppercase font-semibold">
                   {answers.visaCategory} — {answers.country}
                 </p>
                 <p className="text-sm text-gray-900 max-w-md mx-auto pt-2 px-4 italic leading-relaxed">
@@ -438,7 +438,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                 </button>
                 <button
                   onClick={onClose}
-                  className="flex-1 py-2 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg text-xs transition-all"
+                  className="flex-1 py-2 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg text-xs transition-all"
                 >
                   Done
                 </button>

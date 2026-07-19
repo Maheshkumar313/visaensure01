@@ -370,7 +370,7 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
       {/* Region Presets and Title Row */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gray-50 border border-gray-200/80 p-4 rounded-2xl">
         <div className="flex items-center gap-2">
-          <Compass className="w-5 h-5 text-[#FF6B00] animate-spin-slow" />
+          <Compass className="w-5 h-5 text-orange-600 animate-spin-slow" />
           <span className="text-xs font-bold uppercase tracking-wider text-gray-800">
             Interactive Navigation Control
           </span>
@@ -402,7 +402,7 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
       {/* SVG Map Section */}
       <div className="relative bg-[#E0F2FE] border border-sky-200 rounded-3xl overflow-hidden shadow-2xl p-4 md:p-8 min-h-[300px] md:min-h-[480px]">
         {/* Floating live indicator */}
-        <div className="absolute top-4 left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 border border-sky-200 text-[10px] font-semibold text-[#FF6B00] uppercase tracking-wider backdrop-blur-md shadow-sm">
+        <div className="absolute top-4 left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 border border-sky-200 text-[10px] font-semibold text-orange-600 uppercase tracking-wider backdrop-blur-md shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping"></span>
           <span>{visaType} destination mapping</span>
         </div>
@@ -504,7 +504,7 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
                 left: "20px",
               }}
             >
-              <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B00] animate-pulse"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-600 animate-pulse"></span>
               <strong className="font-heading font-bold">{hoveredCountry}</strong>
               <span className="text-slate-500 font-medium">| Top Destination</span>
             </motion.div>
@@ -564,7 +564,7 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
                     className="bg-gray-50 border border-gray-100 p-4 rounded-xl text-center md:text-left hover:border-orange/20 transition-colors"
                   >
                     <span className="text-[9px] text-gray-500 uppercase tracking-wider font-semibold block">{stat.label}</span>
-                    <strong className="text-base md:text-lg font-heading text-[#FF6B00] font-bold block mt-1">{stat.value}</strong>
+                    <strong className="text-base md:text-lg font-heading text-orange-600 font-bold block mt-1">{stat.value}</strong>
                   </div>
                 ))}
               </div>
@@ -579,7 +579,7 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
                     onClick={() => setActiveTab("overview")}
                     className={`pb-1.5 border-b-2 cursor-pointer transition-all ${
                       activeTab === "overview"
-                        ? "border-[#FF6B00] text-[#FF6B00]"
+                        ? "border-orange-600 text-orange-600"
                         : "border-transparent text-slate-400 hover:text-white"
                     }`}
                   >
@@ -591,7 +591,7 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
                     onClick={() => setActiveTab("benefits")}
                     className={`pb-1.5 border-b-2 cursor-pointer transition-all ${
                       activeTab === "benefits"
-                        ? "border-[#FF6B00] text-[#FF6B00]"
+                        ? "border-orange-600 text-orange-600"
                         : "border-transparent text-slate-400 hover:text-white"
                     }`}
                   >
@@ -607,13 +607,13 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
                         <div className="grid grid-cols-1 gap-3.5">
                           {activeCountryDetails.universities.map((uni, idx) => (
                             <div key={idx} className="flex items-start gap-3 bg-slate-950 border border-slate-800/80 p-3 rounded-xl">
-                              <div className="w-7 h-7 rounded-lg bg-orange-600/10 border border-orange-500/20 text-[#FF6B00] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                              <div className="w-7 h-7 rounded-lg bg-orange-600/10 border border-orange-500/20 text-orange-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                                 <GraduationCap className="w-4 h-4" />
                               </div>
                               <div className="space-y-0.5">
                                 <h5 className="text-xs font-bold text-white leading-snug">{uni.name}</h5>
                                 <div className="flex gap-2 text-[10px] text-slate-400">
-                                  <span>QS Rank: <span className="text-[#FF6B00] font-semibold">{uni.ranking}</span></span>
+                                  <span>QS Rank: <span className="text-orange-600 font-semibold">{uni.ranking}</span></span>
                                   <span>•</span>
                                   <span>{uni.location}</span>
                                 </div>
@@ -684,7 +684,7 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
                         .filter(Boolean)
                         .map((benefit, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed">
-                            <CheckCircle2 className="w-4 h-4 text-[#FF6B00] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                             <span>{benefit}</span>
                           </li>
                         ))}
@@ -702,7 +702,7 @@ export default function InteractivePlaneWorldMap({ visaType }: InteractivePlaneW
                 
                 <Link
                   href={activeCountryDetails.link}
-                  className="bg-[#FF6B00] hover:bg-[#F97316] text-black text-xs font-bold px-5 py-2.5 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-md shadow-orange-500/10 cursor-pointer"
+                  className="bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold px-5 py-2.5 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-md shadow-orange-500/10 cursor-pointer"
                 >
                   <span>Go to Country Details</span>
                   <ArrowRight className="w-4 h-4" />

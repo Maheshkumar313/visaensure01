@@ -85,10 +85,10 @@ export default function AIChat() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-[#EA580C] hover:bg-[#F97316] text-black p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center relative group"
+          className="bg-orange-600 hover:bg-orange-700 text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center relative group"
         >
           {/* Outer Pulse ring */}
-          <span className="absolute inset-0 rounded-full bg-[#EA580C]/40 animate-ping group-hover:animate-none"></span>
+          <span className="absolute inset-0 rounded-full bg-orange-600/40 animate-ping group-hover:animate-none"></span>
 
           <MessageSquare className="w-6 h-6" />
 
@@ -103,7 +103,7 @@ export default function AIChat() {
           {/* Chat Header */}
           <div className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-[#EA580C] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-orange-600 flex items-center justify-center">
                 <Sparkles className="w-4 h-4 text-black" />
               </div>
               <div>
@@ -133,7 +133,7 @@ export default function AIChat() {
               >
                 <div
                   className={`w-7 h-7 rounded-full flex items-center justify-center text-xs shrink-0 ${
-                    m.sender === "user" ? "bg-[#EA580C]/10 text-orange" : "bg-white text-gray-900"
+                    m.sender === "user" ? "bg-orange-600/10 text-orange" : "bg-white text-gray-900"
                   }`}
                 >
                   {m.sender === "user" ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
@@ -142,7 +142,7 @@ export default function AIChat() {
                   <div
                     className={`text-xs p-3 rounded-2xl leading-relaxed ${
                       m.sender === "user"
-                        ? "bg-[#EA580C] text-black rounded-tr-none font-medium"
+                        ? "bg-orange-600 text-white rounded-tr-none font-medium"
                         : "bg-white text-black border border-gray-200 rounded-tl-none"
                     }`}
                   >
@@ -185,7 +185,7 @@ export default function AIChat() {
               />
               <button
                 onClick={() => handleSend()}
-                className="bg-[#EA580C] hover:bg-[#F97316] text-black px-3.5 rounded-lg flex items-center justify-center transition-colors"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-3.5 rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Send Message"
               >
                 <Send className="w-4 h-4" />

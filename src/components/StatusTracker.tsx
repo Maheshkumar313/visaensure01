@@ -96,7 +96,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white">
           <div className="flex items-center gap-2">
-            <Compass className="w-5 h-5 text-[#EA580C] animate-spin-slow" />
+            <Compass className="w-5 h-5 text-orange-600 animate-spin-slow" />
             <h3 className="text-xl font-heading text-black font-semibold">
               Visa Status Tracker
             </h3>
@@ -122,7 +122,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
             </div>
             <button
               type="submit"
-              className="px-5 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-lg text-sm transition-all"
+              className="px-5 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg text-sm transition-all"
             >
               Track
             </button>
@@ -154,7 +154,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                 </div>
                 <div className="flex justify-between items-start text-xs text-gray-800 mt-2">
                   <div>
-                    VISA TYPE: <strong className="text-[#EA580C] block mt-0.5">{result.visaType} ({result.country})</strong>
+                    VISA TYPE: <strong className="text-orange-600 block mt-0.5">{result.visaType} ({result.country})</strong>
                   </div>
                   <div className="text-right">
                     SUBMITTED: <strong className="text-black block mt-0.5">{result.submittedOn}</strong>
@@ -173,7 +173,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                           stage.status === "completed"
                             ? "bg-green-500/10 border-green-500 text-green-500"
                             : stage.status === "current"
-                            ? "bg-[#EA580C]/10 border-[#EA580C] text-[#EA580C] animate-pulse"
+                            ? "bg-orange-600/10 border-orange-600 text-orange-600 animate-pulse"
                             : "bg-white border-gray-200 text-gray-800"
                         }`}
                       >
@@ -201,7 +201,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                           stage.status === "completed"
                             ? "text-black"
                             : stage.status === "current"
-                            ? "text-[#EA580C]"
+                            ? "text-orange-600"
                             : "text-gray-800"
                         }`}
                       >
@@ -215,7 +215,7 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
 
               {/* Action Prompt */}
               <div className="p-3 bg-orange-light border border-orange/20 rounded-xl flex items-start gap-2.5">
-                <AlertCircle className="w-5 h-5 text-[#EA580C] shrink-0 mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                 <div className="text-[11px] text-gray-900 leading-relaxed">
                   Need to update files, change bio details, or upload sponsor bank statements? Please ping your counselor directly on WhatsApp or call our Chintalkunta desk quoting the CASE ID.
                 </div>

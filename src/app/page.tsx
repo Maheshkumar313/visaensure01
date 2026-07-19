@@ -50,9 +50,9 @@ export default function Home() {
       <div className="flex flex-col min-h-screen relative overflow-hidden bg-white">
         {/* Premium Dynamic Orange & White Background */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-          <div className="absolute -top-[10%] -right-[5%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FF6B00]/20 to-[#FF6B00]/0 blur-[100px] mix-blend-multiply" />
-          <div className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#FF6B00]/15 to-transparent blur-[120px] mix-blend-multiply" />
-          <div className="absolute bottom-[10%] right-[10%] w-[800px] h-[800px] rounded-full bg-gradient-to-tl from-[#FF6B00]/10 to-transparent blur-[150px] mix-blend-multiply" />
+          <div className="absolute -top-[10%] -right-[5%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-orange-600/20 to-orange-600/0 blur-[100px] mix-blend-multiply" />
+          <div className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-orange-600/15 to-transparent blur-[120px] mix-blend-multiply" />
+          <div className="absolute bottom-[10%] right-[10%] w-[800px] h-[800px] rounded-full bg-gradient-to-tl from-orange-600/10 to-transparent blur-[150px] mix-blend-multiply" />
           <div className="absolute inset-0 bg-white/40 backdrop-blur-[100px]" />
         </div>
         {/* World Map Background overlay across light sections (subtle 1.5% opacity) */}
@@ -87,7 +87,7 @@ export default function Home() {
         </SectionReveal>
 
         {/* Services Section */}
-        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-[#FF6B00]/4 relative z-10">
+        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-orange-600/4 relative z-10">
           <Services
             onOpenAssessment={() => setIsAssessmentOpen(true)}
             onOpenChecklist={() => {
@@ -104,18 +104,18 @@ export default function Home() {
 
         {/* Digital Visa Lounge: SaaS Interactive Tools Section */}
         <SectionReveal id="visa-lounge" className="py-20 bg-transparent relative overflow-hidden z-10">
-          <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#FF6B00]/4 blur-[120px] pointer-events-none" />
+          <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
           <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
             {/* Title */}
             <div className="text-center space-y-3 mb-16">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200 text-[10px] font-semibold tracking-wider text-[#FF6B00] uppercase font-body">
-                <Sparkles className="w-3.5 h-3.5 text-[#FF6B00]" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200 text-[10px] font-semibold tracking-wider text-orange-600 uppercase font-body">
+                <Sparkles className="w-3.5 h-3.5 text-orange-600" />
                 <span>Visa Lounge</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
+              <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
                 SaaS-Powered Interactive Tools
               </h2>
-              <p className="text-gray-800 text-sm max-w-xl mx-auto font-body">
+              <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto font-body">
                 Verify costs, deadlines, and documentation specifications instantly using our client-facing calculators.
               </p>
             </div>
@@ -135,7 +135,7 @@ export default function Home() {
         </SectionReveal>
 
         {/* Timeline Process */}
-        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-[#FF6B00]/4 relative z-10">
+        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-orange-600/4 relative z-10">
           <Process />
         </SectionReveal>
 
@@ -160,7 +160,7 @@ export default function Home() {
         </SectionReveal>
 
         {/* Contact form and business info */}
-        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-[#FF6B00]/4 relative z-10">
+        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-orange-600/4 relative z-10">
           <Contact />
         </SectionReveal>
 

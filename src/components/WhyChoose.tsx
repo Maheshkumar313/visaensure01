@@ -40,18 +40,18 @@ export default function WhyChoose() {
 
   return (
     <section id="why-choose" className="py-20 bg-white border-t border-gray-200 relative">
-      <div className="absolute top-[20%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[20%] left-[5%] w-[300px] h-[300px] rounded-full bg-orange-600/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Title */}
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase">
             The VisaEnsure Distinction
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-black">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
             Why Discerning Applicants Choose Us
           </h2>
-          <p className="text-gray-800 text-sm max-w-xl mx-auto">
+          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
             Combining luxury-grade client service with cutting-edge technology platforms to ensure your transition abroad is flawless.
           </p>
         </div>
@@ -68,17 +68,17 @@ export default function WhyChoose() {
               className="glass p-6 rounded-2xl space-y-4 hover:border-orange/30 hover:scale-[1.02] transition-all relative overflow-hidden group"
             >
               {/* Background gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#EA580C]/0 via-[#EA580C]/0 to-[#EA580C]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/0 via-orange-600/0 to-orange-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Icon wrapper */}
               <div className="w-12 h-12 bg-white border border-gray-200 rounded-xl flex items-center justify-center group-hover:bg-orange-light group-hover:border-orange/30 transition-all duration-300">
                 {pt.icon}
               </div>
 
-              <h3 className="text-lg font-heading text-black font-bold group-hover:text-orange transition-colors">
+              <h3 className="text-lg font-heading text-gray-900 font-bold group-hover:text-orange transition-colors">
                 {pt.title}
               </h3>
-              <p className="text-gray-800 text-xs leading-relaxed font-body">
+              <p className="text-gray-600 text-xs leading-relaxed font-body">
                 {pt.desc}
               </p>
             </motion.div>

@@ -54,8 +54,8 @@ export default function ServicePageClient({ service }: ServicePageClientProps) {
       {/* Main Content */}
       <main className="flex-1 py-12 md:py-20 relative">
         {/* Decorative Background Elements */}
-        <div className="absolute top-[10%] left-[20%] w-[300px] h-[300px] bg-[#EA580C]/5 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] bg-white border border-[#EA580C]/5 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-[10%] left-[20%] w-[300px] h-[300px] bg-orange-600/5 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] bg-white border border-orange-600/5 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4">
           {/* Header Hero Section */}
@@ -65,7 +65,7 @@ export default function ServicePageClient({ service }: ServicePageClientProps) {
             transition={{ duration: 0.8 }}
             className="space-y-6 text-center md:text-left border-b border-white/15 pb-8 mb-8"
           >
-            <span className="text-xs font-semibold tracking-widest text-[#EA580C] uppercase bg-white border border-gray-200 px-3 py-1 rounded-full inline-block">
+            <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase bg-white border border-gray-200 px-3 py-1 rounded-full inline-block">
               {service.category.toUpperCase()} SOLUTIONS
             </span>
             <h1 className="text-3xl md:text-5xl font-bold font-heading text-black leading-tight">
@@ -83,7 +83,7 @@ export default function ServicePageClient({ service }: ServicePageClientProps) {
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: i * 0.15, duration: 0.5 }}
-                  className="bg-white border border-gray-200 p-4 rounded-xl text-center md:text-left hover:border-[#EA580C]/25 transition-colors duration-300"
+                  className="bg-white border border-gray-200 p-4 rounded-xl text-center md:text-left hover:border-orange-600/25 transition-colors duration-300"
                 >
                   <span className="text-[10px] text-gray-800 uppercase tracking-wider font-semibold block">{stat.label}</span>
                   <strong className="text-lg md:text-xl font-heading text-orange font-bold block mt-1">{stat.value}</strong>
@@ -141,7 +141,7 @@ export default function ServicePageClient({ service }: ServicePageClientProps) {
                   whileHover={{ scale: 1.01, borderColor: "rgba(234, 88, 12, 0.3)" }}
                   className="flex items-start gap-3 bg-white/[0.02] border border-gray-200 p-3 rounded-lg text-xs text-gray-900 font-body transition-colors duration-200"
                 >
-                  <span className="w-5 h-5 rounded-full bg-[#EA580C]/10 border border-[#EA580C]/25 text-orange flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5 animate-pulse">
+                  <span className="w-5 h-5 rounded-full bg-orange-600/10 border border-orange-600/25 text-orange flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5 animate-pulse">
                     {i + 1}
                   </span>
                   <span>{req}</span>
@@ -160,7 +160,7 @@ export default function ServicePageClient({ service }: ServicePageClientProps) {
                 whileInView={{ height: "100%" }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                className="absolute left-0 top-0 w-[1px] bg-gradient-to-b from-[#EA580C] to-[#0A1628] origin-top"
+                className="absolute left-0 top-0 w-[1px] bg-gradient-to-b from-orange-600 to-[#0A1628] origin-top"
               />
 
               {service.pathway.map((p, i) => (
@@ -173,11 +173,11 @@ export default function ServicePageClient({ service }: ServicePageClientProps) {
                   className="relative group"
                 >
                   {/* Bullet */}
-                  <span className="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-white border border-[#EA580C] flex items-center justify-center text-[8px] font-bold text-orange group-hover:bg-[#EA580C] group-hover:text-black transition-colors duration-300">
+                  <span className="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-white border border-orange-600 flex items-center justify-center text-[8px] font-bold text-orange group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300">
                     {p.step}
                   </span>
                   <div className="space-y-1">
-                    <h3 className="text-sm font-bold text-black font-heading group-hover:text-[#EA580C] transition-colors">{p.title}</h3>
+                    <h3 className="text-sm font-bold text-black font-heading group-hover:text-orange-600 transition-colors">{p.title}</h3>
                     <p className="text-xs text-gray-800 leading-relaxed font-body">{p.desc}</p>
                   </div>
                 </motion.div>
@@ -219,7 +219,7 @@ export default function ServicePageClient({ service }: ServicePageClientProps) {
             transition={{ duration: 0.6 }}
             className="bg-gradient-to-r from-[#122540] to-[#0A1628] border border-orange/25 p-8 rounded-3xl text-center space-y-6 shadow-2xl relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-[#EA580C]/5 opacity-30 blur-2xl pointer-events-none" />
+            <div className="absolute inset-0 bg-orange-600/5 opacity-30 blur-2xl pointer-events-none" />
             <div className="space-y-2 relative z-10">
               <h3 className="text-2xl font-heading text-black font-bold">Lock in your slots today</h3>
               <p className="text-xs text-gray-800 max-w-md mx-auto">
@@ -231,7 +231,7 @@ export default function ServicePageClient({ service }: ServicePageClientProps) {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   href="/#contact"
-                  className="px-8 py-3 bg-[#EA580C] hover:bg-[#F97316] text-black font-bold rounded-full transition-all duration-300 inline-flex items-center gap-1.5 shadow-lg shadow-[#EA580C]/20"
+                  className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full transition-all duration-300 inline-flex items-center gap-1.5 shadow-lg shadow-orange-600/20"
                 >
                   <span>Request Case Assessment</span>
                   <ChevronRight className="w-4 h-4" />
