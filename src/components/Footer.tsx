@@ -56,13 +56,13 @@ export default function Footer() {
             <img
               src="/images/visaensureLogoForWebsite/12.png"
               alt="VisaEnsure Globe"
-              className="h-14 md:h-[4.5rem] w-auto shrink-0 object-contain drop-shadow-md group-hover:drop-shadow-lg transition-all duration-300"
+              className="h-[2.975rem] md:h-[3.825rem] w-auto shrink-0 object-contain drop-shadow-md group-hover:drop-shadow-lg transition-all duration-300"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/visaensureLogoForWebsite/visaensure001.png"
               alt="VisaEnsure Logo"
-              className="h-12 md:h-14 w-auto shrink-0 object-contain"
+              className="h-[2.55rem] md:h-[2.975rem] w-auto shrink-0 object-contain"
             />
           </a>
 

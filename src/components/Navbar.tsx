@@ -170,13 +170,13 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
               <img
                 src="/images/visaensureLogoForWebsite/12.png"
                 alt="VisaEnsure Globe"
-                className="h-14 md:h-[4.5rem] w-auto shrink-0 object-contain drop-shadow-md group-hover:drop-shadow-lg transition-all duration-300"
+                className="h-[2.975rem] md:h-[3.825rem] w-auto shrink-0 object-contain drop-shadow-md group-hover:drop-shadow-lg transition-all duration-300"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/visaensureLogoForWebsite/visaensure001.png"
                 alt="VisaEnsure Logo"
-                className="h-12 md:h-14 w-auto shrink-0 object-contain"
+                className="h-[2.55rem] md:h-[2.975rem] w-auto shrink-0 object-contain"
               />
             </Link>
 
@@ -351,9 +351,9 @@ export default function Navbar({ onOpenAssessment, onOpenBooking, onOpenTracker 
              <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 bg-white/50">
                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/visaensureLogoForWebsite/12.png" alt="VisaEnsure Globe" className="h-12 w-auto shrink-0 object-contain drop-shadow-md" />
+                <img src="/images/visaensureLogoForWebsite/12.png" alt="VisaEnsure Globe" className="h-[2.55rem] w-auto shrink-0 object-contain drop-shadow-md" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/visaensureLogoForWebsite/visaensure001.png" alt="VisaEnsure Logo" className="h-10 w-auto shrink-0 object-contain" />
+                <img src="/images/visaensureLogoForWebsite/visaensure001.png" alt="VisaEnsure Logo" className="h-[2.125rem] w-auto shrink-0 object-contain" />
               </Link>
               <button 
                 onClick={() => setIsMobileMenuOpen(false)}
