@@ -115,90 +115,84 @@ export default function Hero({ onOpenAssessment, onOpenBooking }: HeroProps) {
       </div>
       {/* ========================================================================= */}
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="shell w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center pt-10 md:pt-14">
         {/* Left Side: Messaging */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="space-y-8 text-center lg:text-left"
+          className="text-center lg:text-left"
         >
           {/* Tagline Badge */}
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 text-xs font-semibold tracking-wider text-orange-600 uppercase">
-            <Compass className="w-4 h-4 animate-spin-slow text-orange-600" />
+          <motion.div variants={itemVariants} className="eyebrow">
+            <Compass className="w-3.5 h-3.5 animate-spin-slow" />
             <span>Your Trusted Visa Companion</span>
           </motion.div>
 
           {/* Main Headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-gray-900 leading-tight"
+            className="mt-6 text-[2.5rem] leading-[1.06] sm:text-5xl lg:text-[3.75rem] font-bold font-heading text-ink-900"
           >
-            Move Beyond Borders <br className="hidden sm:inline" />
-            With <span className="text-orange-600 bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">Absolute Confidence</span>
+            Move beyond borders
+            <br className="hidden sm:inline" />{" "}
+            with <span className="text-gradient-orange">absolute confidence</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-gray-600 text-sm md:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-body"
+            className="mt-6 text-ink-600 text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-body"
           >
-            VisaEnsure matches Apple-level smoothness, Stripe-level trust, and Emirates-style luxury travel to deliver a success-driven visa and immigration experience for students, families, and global professionals.
+            Expert guidance for study, work, migration, and tourist visas — backed
+            by a 98.6% approval rate and a dedicated case manager on every file.
           </motion.p>
 
           {/* CTAs */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            className="mt-9 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3"
           >
             <button
               onClick={onOpenAssessment}
-              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white font-bold rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-xl hover:shadow-orange-600/20 flex items-center justify-center gap-2 cursor-pointer"
+              className="btn btn-primary w-full sm:w-auto group"
             >
-              <span>Get Free Assessment</span>
-              <ArrowRight className="w-5 h-5" />
+              <span>Get free assessment</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
             <button
               onClick={onOpenBooking}
-              className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-white border border-gray-300 rounded-full text-gray-900 font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-1 hover:border-orange-600/30 hover:shadow-md cursor-pointer"
+              className="btn btn-secondary w-full sm:w-auto"
             >
-              <span>Explore Services</span>
+              <span>Explore services</span>
             </button>
           </motion.div>
 
           {/* Trust Indicators */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-gray-200 max-w-xl mx-auto lg:mx-0"
+            className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-7 pt-8 border-t border-ink-200 max-w-xl mx-auto lg:mx-0"
           >
-            <div className="text-center lg:text-left space-y-0.5">
-              <div className="text-xl md:text-2xl font-bold font-heading text-gray-900 flex items-center justify-center lg:justify-start gap-1">
-                <Users className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>10K+</span>
+            {[
+              { icon: Users, value: "10K+", label: "Clients served" },
+              { icon: Award, value: "98.6%", label: "Success rate", accent: true },
+              { icon: Globe, value: "50+", label: "Countries" },
+              { icon: ShieldAlert, value: "5+ yrs", label: "Experience" },
+            ].map(({ icon: Icon, value, label, accent }) => (
+              <div key={label} className="text-center lg:text-left">
+                <Icon className="w-4 h-4 text-orange-600 mx-auto lg:mx-0 mb-2" />
+                <div
+                  className={`text-2xl font-bold font-heading tracking-tight ${
+                    accent ? "text-orange-700" : "text-ink-900"
+                  }`}
+                >
+                  {value}
+                </div>
+                <span className="mt-0.5 block text-xs text-ink-500 font-medium">
+                  {label}
+                </span>
               </div>
-              <span className="text-[10px] tracking-wider text-gray-500 uppercase font-semibold">Clients Served</span>
-            </div>
-            <div className="text-center lg:text-left space-y-0.5">
-              <div className="text-xl md:text-2xl font-bold font-heading text-orange-600 flex items-center justify-center lg:justify-start gap-1">
-                <Award className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>98.6%</span>
-              </div>
-              <span className="text-[10px] tracking-wider text-gray-500 uppercase font-semibold">Success Rate</span>
-            </div>
-            <div className="text-center lg:text-left space-y-0.5">
-              <div className="text-xl md:text-2xl font-bold font-heading text-gray-900 flex items-center justify-center lg:justify-start gap-1">
-                <Globe className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>50+</span>
-              </div>
-              <span className="text-[10px] tracking-wider text-gray-500 uppercase font-semibold">Countries</span>
-            </div>
-            <div className="text-center lg:text-left space-y-0.5">
-              <div className="text-xl md:text-2xl font-bold font-heading text-gray-900 flex items-center justify-center lg:justify-start gap-1">
-                <ShieldAlert className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>5+ Yrs</span>
-              </div>
-              <span className="text-[10px] tracking-wider text-gray-500 uppercase font-semibold">Experience</span>
-            </div>
+            ))}
           </motion.div>
         </motion.div>
 

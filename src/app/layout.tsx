@@ -35,6 +35,11 @@ export const metadata: Metadata = {
   },
 };
 
+// Brand orange in the browser/OS chrome, matching the site accent
+export const viewport = {
+  themeColor: "#FF6B00",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,8 +54,13 @@ export default function RootLayout({
       <head>
         <link rel="preload" href="/images/visaensureLogoForWebsite/12.png" as="image" />
         <link rel="preload" href="/images/visaensureLogoForWebsite/visaensure001.png" as="image" />
+        <link rel="preload" href="/images/globe/earth-blue-marble.webp" as="image" />
+        <link rel="preload" href="/images/globe/earth-topology.webp" as="image" />
+        <link rel="preload" href="/images/globe/earth-water.webp" as="image" />
+        <link rel="preload" href="/images/globe/earth-night.webp" as="image" />
+        <link rel="preload" href="/images/globe/earth-clouds.webp" as="image" />
       </head>
-      <body className="min-h-full flex flex-col font-body bg-white text-black" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col font-body bg-white text-ink-900" suppressHydrationWarning>
         {children}
       </body>
     </html>

@@ -104,16 +104,16 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative w-full max-w-xl bg-white border border-orange/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
+      <div className="relative w-full max-w-xl bg-white border border-orange-500/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-ink-200 bg-white">
           <div className="flex items-center gap-2">
             <Calculator className="w-5 h-5 text-orange-600" />
             <h3 className="text-xl font-heading text-black font-semibold">
               Visa Eligibility Checker
             </h3>
           </div>
-          <button onClick={onClose} className="text-gray-800 hover:text-black transition-colors">
+          <button onClick={onClose} className="text-ink-800 hover:text-black transition-colors">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -144,8 +144,8 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("visaCategory", cat)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.visaCategory === cat
-                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
-                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
+                            ? "bg-orange-50 border-orange-500 text-orange-700 glow-orange"
+                            : "bg-white border-ink-200 text-ink-900 hover:border-ink-300"
                         }`}
                       >
                         {cat}
@@ -167,8 +167,8 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("country", c)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.country === c
-                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
-                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
+                            ? "bg-orange-50 border-orange-500 text-orange-700 glow-orange"
+                            : "bg-white border-ink-200 text-ink-900 hover:border-ink-300"
                         }`}
                       >
                         {c}
@@ -190,8 +190,8 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("age", ageGrp)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.age === ageGrp
-                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
-                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
+                            ? "bg-orange-50 border-orange-500 text-orange-700 glow-orange"
+                            : "bg-white border-ink-200 text-ink-900 hover:border-ink-300"
                         }`}
                       >
                         {ageGrp} Years
@@ -213,8 +213,8 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("education", edu)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.education === edu
-                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
-                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
+                            ? "bg-orange-50 border-orange-500 text-orange-700 glow-orange"
+                            : "bg-white border-ink-200 text-ink-900 hover:border-ink-300"
                         }`}
                       >
                         {edu}
@@ -236,8 +236,8 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("experience", exp)}
                         className={`p-4 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.experience === exp
-                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
-                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
+                            ? "bg-orange-50 border-orange-500 text-orange-700 glow-orange"
+                            : "bg-white border-ink-200 text-ink-900 hover:border-ink-300"
                         }`}
                       >
                         {exp}
@@ -264,8 +264,8 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                         onClick={() => handleSelect("english", eng)}
                         className={`p-3 rounded-xl border text-left text-sm font-semibold transition-all cursor-pointer ${
                           answers.english === eng
-                            ? "bg-orange-light border-orange text-orange-600 glow-orange"
-                            : "bg-white border-gray-200 text-gray-900 hover:border-gray-300"
+                            ? "bg-orange-50 border-orange-500 text-orange-700 glow-orange"
+                            : "bg-white border-ink-200 text-ink-900 hover:border-ink-300"
                         }`}
                       >
                         {eng}
@@ -283,47 +283,47 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                   </h4>
                   <div className="space-y-3">
                     <div>
-                      <label className="block text-xs text-gray-900 mb-1">Your Full Name *</label>
+                      <label className="block text-xs text-ink-900 mb-1">Your Full Name *</label>
                       <input
                         type="text"
                         required
                         value={answers.name}
                         onChange={(e) => setAnswers({ ...answers, name: e.target.value })}
                         placeholder="Rajesh Kumar"
-                        className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-black focus:outline-none focus:border-orange"
+                        className="w-full bg-white border border-ink-200 rounded-xl px-4 py-2 text-sm text-ink-900 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/15 transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-900 mb-1">Email Address *</label>
+                      <label className="block text-xs text-ink-900 mb-1">Email Address *</label>
                       <input
                         type="email"
                         required
                         value={answers.email}
                         onChange={(e) => setAnswers({ ...answers, email: e.target.value })}
                         placeholder="rajesh@gmail.com"
-                        className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-black focus:outline-none focus:border-orange"
+                        className="w-full bg-white border border-ink-200 rounded-xl px-4 py-2 text-sm text-ink-900 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/15 transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-900 mb-1">WhatsApp / Phone Number *</label>
+                      <label className="block text-xs text-ink-900 mb-1">WhatsApp / Phone Number *</label>
                       <input
                         type="tel"
                         required
                         value={answers.phone}
                         onChange={(e) => setAnswers({ ...answers, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-black focus:outline-none focus:border-orange"
+                        className="w-full bg-white border border-ink-200 rounded-xl px-4 py-2 text-sm text-ink-900 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/15 transition-all"
                       />
                     </div>
                   </div>
 
-                  <div className="bg-white p-3 rounded-lg text-[11px] text-gray-800">
+                  <div className="bg-white p-3 rounded-lg text-[11px] text-ink-800">
                     By submitting, you agree to receive a detailed immigration report and a follow-up consultation call from VisaEnsure.
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 mt-4"
+                    className="btn btn-primary w-full mt-4"
                   >
                     <Award className="w-5 h-5" />
                     <span>Calculate Eligibility Report</span>
@@ -332,12 +332,12 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
               )}
 
               {/* Navigation Controls */}
-              <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-200">
+              <div className="flex items-center justify-between mt-6 pt-4 border-t border-ink-200">
                 {step > 1 ? (
                   <button
                     type="button"
                     onClick={prevStep}
-                    className="flex items-center gap-1.5 text-xs text-gray-800 hover:text-black transition-colors"
+                    className="flex items-center gap-1.5 text-xs text-ink-800 hover:text-black transition-colors"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     <span>Back</span>
@@ -350,7 +350,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="flex items-center gap-1.5 text-xs bg-white hover:bg-white border border-gray-200 px-4 py-2 rounded-lg text-black hover:text-orange-600 transition-all"
+                    className="flex items-center gap-1.5 text-xs bg-white hover:bg-white border border-ink-200 px-4 py-2 rounded-lg text-black hover:text-orange-700 transition-all"
                   >
                     <span>Next</span>
                     <ArrowRight className="w-4 h-4" />
@@ -386,23 +386,23 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                   <span className="text-2xl font-bold font-heading text-black">{score}</span>
-                  <span className="text-[10px] text-gray-800">Score</span>
+                  <span className="text-[10px] text-ink-800">Score</span>
                 </div>
               </div>
 
               <div className="space-y-2">
                 <h4 className="text-xl font-heading text-black font-bold">Eligibility Calculated</h4>
-                <p className="text-xs text-orange-600 tracking-wide uppercase font-semibold">
+                <p className="text-xs text-orange-700 tracking-wide uppercase font-semibold">
                   {answers.visaCategory} — {answers.country}
                 </p>
-                <p className="text-sm text-gray-900 max-w-md mx-auto pt-2 px-4 italic leading-relaxed">
+                <p className="text-sm text-ink-900 max-w-md mx-auto pt-2 px-4 italic leading-relaxed">
                   "{feedback}"
                 </p>
               </div>
 
-              <div className="border border-gray-200 bg-white p-4 rounded-xl max-w-sm mx-auto text-left space-y-2.5">
+              <div className="border border-ink-200 bg-white p-4 rounded-xl max-w-sm mx-auto text-left space-y-2.5">
                 <h5 className="text-xs font-bold text-black uppercase tracking-wider">Report Details</h5>
-                <div className="grid grid-cols-2 gap-2 text-xs text-gray-800">
+                <div className="grid grid-cols-2 gap-2 text-xs text-ink-800">
                   <div>Education Factor: <strong className="text-black">{answers.education}</strong></div>
                   <div>Experience Factor: <strong className="text-black">{answers.experience}</strong></div>
                   <div>Language Score: <strong className="text-black">{answers.english.split(" ")[0]}</strong></div>
@@ -410,7 +410,7 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                 </div>
               </div>
 
-              <p className="text-xs text-gray-800">
+              <p className="text-xs text-ink-800">
                 A VisaEnsure Senior Case Officer has been assigned to your file. We will call you shortly on{" "}
                 <strong className="text-black">{answers.phone}</strong> to guide you on the document submission checklist.
               </p>
@@ -432,13 +432,13 @@ export default function EligibilityChecker({ isOpen, onClose }: EligibilityCheck
                       phone: "",
                     });
                   }}
-                  className="flex-1 py-2 bg-white hover:bg-white text-black border border-gray-200 rounded-lg text-xs transition-all"
+                  className="flex-1 py-2 bg-white hover:bg-white text-black border border-ink-200 rounded-xl text-xs transition-all"
                 >
                   Check Again
                 </button>
                 <button
                   onClick={onClose}
-                  className="flex-1 py-2 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg text-xs transition-all"
+                  className="btn btn-primary flex-1 text-xs py-2"
                 >
                   Done
                 </button>

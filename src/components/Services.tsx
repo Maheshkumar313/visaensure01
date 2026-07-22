@@ -4,6 +4,7 @@ import React from "react";
 import { GraduationCap, Briefcase, Globe2, Plane, Landmark, Users, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import SectionHeading from "./SectionHeading";
 
 interface ServicesProps {
   onOpenAssessment: () => void;
@@ -57,78 +58,76 @@ export default function Services({ onOpenAssessment, onOpenChecklist }: Services
   ];
 
   return (
-    <section id="services" className="py-20 bg-transparent relative">
-      {/* Background decoration */}
-      <div className="absolute top-[30%] right-[5%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        {/* Section Title */}
-        <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase">
-            Platform Capabilities
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
-            Global Visa & Migration Services
-          </h2>
-          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
-            Expertly curated services structured to deliver high success rates, using advanced profiling and digital checklist technology.
-          </p>
-        </div>
+    <section id="services" className="section-y bg-transparent relative">
+      <div className="shell">
+        <SectionHeading
+          eyebrow="What we do"
+          title="Global visa & migration services"
+          description="Six specialised practices, each run by consultants who handle that route every day — with pre-submission audits that catch problems before a case officer does."
+        />
 
         {/* Grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           {services.map((srv, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="glass p-5 rounded-2xl flex flex-col justify-between group hover:border-orange-600/35 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden glow-orange-hover"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: (idx % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="card card-hover flex flex-col group overflow-hidden"
             >
-              <div className="space-y-3">
-                {/* Image Banner wrapped in Link */}
-                {srv.image ? (
-                  <Link href={`/services/${srv.linkId}`} className="block w-full h-36 md:h-44 rounded-xl overflow-hidden mb-4 border border-gray-200 relative shadow-inner cursor-pointer">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={srv.image} alt={srv.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 w-10 h-10 bg-navy/50 backdrop-blur-md border border-white/30 rounded-lg flex items-center justify-center group-hover:bg-orange-600/30 group-hover:border-orange-600/50 transition-all duration-300">
-                      {React.cloneElement(srv.icon as React.ReactElement<any>, { className: "w-5 h-5 text-orange-600" })}
-                    </div>
-                  </Link>
-                ) : (
-                  <div className="w-14 h-14 bg-white border border-gray-200 rounded-xl flex items-center justify-center group-hover:bg-orange-600/10 group-hover:border-orange-600/30 transition-all duration-300">
-                    {srv.icon}
+              {/* Image Banner wrapped in Link */}
+              {srv.image ? (
+                <Link
+                  href={`/services/${srv.linkId}`}
+                  className="block w-full aspect-[4/3] overflow-hidden relative border-b border-ink-200"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={srv.image}
+                    alt={srv.title}
+                    className="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink-900/45 via-ink-900/5 to-transparent" />
+                  <div className="absolute bottom-3.5 left-4 w-10 h-10 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-e2">
+                    {React.cloneElement(srv.icon as React.ReactElement<any>, {
+                      className: "w-5 h-5 text-orange-600",
+                    })}
                   </div>
-                )}
-                
-                {/* Title wrapped in Link */}
+                </Link>
+              ) : (
+                <div className="w-12 h-12 m-6 mb-0 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center">
+                  {srv.icon}
+                </div>
+              )}
+
+              <div className="flex flex-col flex-1 p-6">
                 <Link href={`/services/${srv.linkId}`}>
-                  <h3 className="text-xl font-heading text-gray-900 font-bold group-hover:text-orange-600 transition-colors mt-2 cursor-pointer inline-block">
+                  <h3 className="text-lg font-heading text-ink-900 font-bold group-hover:text-orange-700 transition-colors">
                     {srv.title}
                   </h3>
                 </Link>
-                <p className="text-gray-600 text-xs leading-relaxed font-body">
+                <p className="mt-2.5 text-ink-600 text-sm leading-relaxed font-body">
                   {srv.desc}
                 </p>
-              </div>
 
-              {/* Action Links */}
-              <div className="mt-8 pt-4 border-t border-gray-200 flex items-center justify-between text-xs font-semibold">
-                <button
-                  onClick={onOpenAssessment}
-                  className="text-gray-700 hover:text-orange-600 transition-colors cursor-pointer"
-                >
-                  Verify Eligibility
-                </button>
-                <Link
-                  href={`/services/${srv.linkId}`}
-                  className="text-orange-600 flex items-center gap-1 hover:text-orange-700 transition-all cursor-pointer"
-                >
-                  <span>Learn More</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                {/* Action Links */}
+                <div className="mt-6 pt-4 border-t border-ink-200 flex items-center justify-between text-sm font-semibold">
+                  <button
+                    onClick={onOpenAssessment}
+                    className="text-ink-600 hover:text-orange-700 transition-colors cursor-pointer"
+                  >
+                    Check eligibility
+                  </button>
+                  <Link
+                    href={`/services/${srv.linkId}`}
+                    className="text-orange-700 flex items-center gap-1 hover:gap-1.5 hover:text-orange-700 transition-all cursor-pointer"
+                  >
+                    <span>Learn more</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}

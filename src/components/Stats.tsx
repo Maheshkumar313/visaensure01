@@ -33,6 +33,8 @@ function Counter({ end, suffix = "", duration = 2, decimals = 0 }: { end: number
   }, [isInView, end, duration, hasStarted]);
 
   return (
+    // Vivid brand orange, not the dark text tier — these are huge
+    // numerals on black, where #FF6B00 reads at ~6:1.
     <span ref={ref} className="font-heading font-bold text-orange-600">
       {!hasStarted && !isInView ? (
         <span>{end.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}</span>
@@ -45,7 +47,8 @@ function Counter({ end, suffix = "", duration = 2, decimals = 0 }: { end: number
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-premium-dark border-t border-white/5 relative overflow-hidden">
+    // Transparent — the parent section-dark wrapper supplies the black.
+    <section className="section-y pb-14 relative overflow-hidden">
       {/* Subtle orange glow particle */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
 
@@ -60,45 +63,30 @@ export default function Stats() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          
-          <div className="text-center space-y-2">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl">
-              <Counter end={10000} suffix="+" duration={1.5} />
-            </h3>
-            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
-              Visa Consultations Completed
-            </p>
-          </div>
-
-          <div className="text-center space-y-2">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl">
-              <Counter end={98.6} suffix="%" duration={1.5} decimals={1} />
-            </h3>
-            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
-              Historical Approval Success
-            </p>
-          </div>
-
-          <div className="text-center space-y-2">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl">
-              <Counter end={50} suffix="+" duration={1.5} />
-            </h3>
-            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
-              Global Destinations Covered
-            </p>
-          </div>
-
-          <div className="text-center space-y-2">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl">
-              <Counter end={5} suffix="+ Yrs" duration={1.5} />
-            </h3>
-            <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-semibold">
-              Flagship Agency Status
-            </p>
-          </div>
-
+      <div className="shell relative z-10">
+        {/* Hairline dividers between figures read more considered than
+            four free-floating columns. */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 divide-white/10 lg:divide-x">
+          {[
+            { end: 10000, suffix: "+", label: "Visa consultations completed" },
+            { end: 98.6, suffix: "%", decimals: 1, label: "Historical approval success" },
+            { end: 50, suffix: "+", label: "Global destinations covered" },
+            { end: 5, suffix: "+ yrs", label: "Flagship agency status" },
+          ].map((s) => (
+            <div key={s.label} className="text-center px-4">
+              <h3 className="text-[2.75rem] md:text-[3.5rem] leading-none tracking-tight">
+                <Counter
+                  end={s.end}
+                  suffix={s.suffix}
+                  duration={1.5}
+                  decimals={s.decimals ?? 0}
+                />
+              </h3>
+              <p className="mt-3 text-xs md:text-[13px] text-white/65 font-medium max-w-[16ch] mx-auto leading-snug">
+                {s.label}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

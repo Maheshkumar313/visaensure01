@@ -92,16 +92,16 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative w-full max-w-lg bg-white border border-orange/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
+      <div className="relative w-full max-w-lg bg-white border border-orange-500/30 rounded-2xl overflow-hidden shadow-2xl z-10 transition-all duration-300">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-ink-200 bg-white">
           <div className="flex items-center gap-2">
             <Compass className="w-5 h-5 text-orange-600 animate-spin-slow" />
             <h3 className="text-xl font-heading text-black font-semibold">
               Visa Status Tracker
             </h3>
           </div>
-          <button onClick={onClose} className="text-gray-800 hover:text-black transition-colors">
+          <button onClick={onClose} className="text-ink-800 hover:text-black transition-colors">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -116,13 +116,13 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                 value={trackingId}
                 onChange={(e) => setTrackingId(e.target.value)}
                 placeholder="E.g., VE-2026-9876"
-                className="w-full bg-white border border-gray-200 rounded-lg pl-10 pr-4 py-2.5 text-sm text-black focus:outline-none focus:border-orange uppercase tracking-wider"
+                className="w-full bg-white border border-ink-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-ink-900 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/15 transition-all uppercase tracking-wider"
               />
-              <Search className="absolute left-3.5 top-3 w-4.5 h-4.5 text-gray-800" />
+              <Search className="absolute left-3.5 top-3 w-4.5 h-4.5 text-ink-800" />
             </div>
             <button
               type="submit"
-              className="px-5 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg text-sm transition-all"
+              className="btn btn-primary px-5"
             >
               Track
             </button>
@@ -130,9 +130,9 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
 
           {/* Quick reference advice */}
           {!searched && (
-            <div className="mt-4 p-3 bg-white border border-gray-200 rounded-lg text-xs text-gray-800 space-y-1">
+            <div className="mt-4 p-3 bg-white border border-ink-200 rounded-xl text-xs text-ink-800 space-y-1">
               <span>Try mock IDs to preview:</span>
-              <div className="flex gap-3 text-orange font-mono font-semibold">
+              <div className="flex gap-3 text-orange-700 font-mono font-semibold">
                 <button type="button" onClick={() => setTrackingId("VE-2026-9876")} className="underline">VE-2026-9876</button>
                 <button type="button" onClick={() => setTrackingId("VE-2026-5542")} className="underline">VE-2026-5542</button>
               </div>
@@ -143,8 +143,8 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
           {searched && result && (
             <div className="mt-6 space-y-5">
               {/* Header Info */}
-              <div className="border-b border-gray-200 pb-3">
-                <div className="flex justify-between items-start text-xs text-gray-800">
+              <div className="border-b border-ink-200 pb-3">
+                <div className="flex justify-between items-start text-xs text-ink-800">
                   <div>
                     APPLICANT NAME: <strong className="text-black block text-sm mt-0.5">{result.name}</strong>
                   </div>
@@ -152,9 +152,9 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                     CASE ID: <strong className="text-black block text-sm mt-0.5 font-mono">{result.id}</strong>
                   </div>
                 </div>
-                <div className="flex justify-between items-start text-xs text-gray-800 mt-2">
+                <div className="flex justify-between items-start text-xs text-ink-800 mt-2">
                   <div>
-                    VISA TYPE: <strong className="text-orange-600 block mt-0.5">{result.visaType} ({result.country})</strong>
+                    VISA TYPE: <strong className="text-orange-700 block mt-0.5">{result.visaType} ({result.country})</strong>
                   </div>
                   <div className="text-right">
                     SUBMITTED: <strong className="text-black block mt-0.5">{result.submittedOn}</strong>
@@ -171,10 +171,10 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                       <div
                         className={`w-6 h-6 rounded-full flex items-center justify-center border text-xs ${
                           stage.status === "completed"
-                            ? "bg-green-500/10 border-green-500 text-green-500"
+                            ? "status-success"
                             : stage.status === "current"
-                            ? "bg-orange-600/10 border-orange-600 text-orange-600 animate-pulse"
-                            : "bg-white border-gray-200 text-gray-800"
+                            ? "bg-orange-600/10 border-orange-500 text-orange-700 animate-pulse"
+                            : "bg-white border-ink-200 text-ink-800"
                         }`}
                       >
                         {stage.status === "completed" ? (
@@ -182,13 +182,13 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                         ) : stage.status === "current" ? (
                           <Clock className="w-4 h-4" />
                         ) : (
-                          <span className="w-1.5 h-1.5 rounded-full bg-gray-600"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-ink-600"></span>
                         )}
                       </div>
                       {index < result.stages.length - 1 && (
                         <div
                           className={`w-0.5 h-10 ${
-                            stage.status === "completed" ? "bg-green-500" : "bg-white"
+                            stage.status === "completed" ? "bg-success" : "bg-ink-200"
                           }`}
                         />
                       )}
@@ -201,22 +201,22 @@ export default function StatusTracker({ isOpen, onClose }: StatusTrackerProps) {
                           stage.status === "completed"
                             ? "text-black"
                             : stage.status === "current"
-                            ? "text-orange-600"
-                            : "text-gray-800"
+                            ? "text-orange-700"
+                            : "text-ink-800"
                         }`}
                       >
                         {stage.name}
                       </h4>
-                      <p className="text-[11px] text-gray-800 mt-0.5">{stage.date}</p>
+                      <p className="text-[11px] text-ink-800 mt-0.5">{stage.date}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Action Prompt */}
-              <div className="p-3 bg-orange-light border border-orange/20 rounded-xl flex items-start gap-2.5">
+              <div className="p-3 bg-orange-50 border border-orange-500/20 rounded-xl flex items-start gap-2.5">
                 <AlertCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
-                <div className="text-[11px] text-gray-900 leading-relaxed">
+                <div className="text-[11px] text-ink-900 leading-relaxed">
                   Need to update files, change bio details, or upload sponsor bank statements? Please ping your counselor directly on WhatsApp or call our Chintalkunta desk quoting the CASE ID.
                 </div>
               </div>

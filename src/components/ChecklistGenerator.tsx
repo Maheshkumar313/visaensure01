@@ -70,17 +70,17 @@ export default function ChecklistGenerator() {
   };
 
   return (
-    <div className="w-full glass-elite rounded-2xl p-6 border border-orange/10">
+    <div className="w-full card p-7">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <FileCheck2 className="w-5 h-5 text-orange" />
-          <h3 className="text-xl font-heading text-black font-semibold">
+          <FileCheck2 className="w-5 h-5 text-orange-600" />
+          <h3 className="text-lg font-heading text-ink-900 font-bold">
             Custom Document Checklist
           </h3>
         </div>
         <button
           onClick={resetChecklist}
-          className="text-gray-800 hover:text-black flex items-center gap-1 text-[10px] uppercase font-bold tracking-wider transition-colors cursor-pointer"
+          className="text-ink-500 hover:text-orange-700 flex items-center gap-1 text-[11px] uppercase font-bold tracking-[0.1em] transition-colors cursor-pointer"
         >
           <RefreshCw className="w-3 h-3" />
           <span>Reset</span>
@@ -88,7 +88,7 @@ export default function ChecklistGenerator() {
       </div>
 
       {/* Selectors */}
-      <div className="flex gap-2 border-b border-gray-200 pb-4 mb-4 overflow-x-auto no-scrollbar">
+      <div className="flex gap-2 border-b border-ink-200 pb-4 mb-4 overflow-x-auto no-scrollbar">
         {Object.keys(checklistData).map((cat) => (
           <button
             key={cat}
@@ -99,8 +99,8 @@ export default function ChecklistGenerator() {
             }}
             className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all border cursor-pointer ${
               category === cat
-                ? "bg-orange-light border-orange text-orange-600"
-                : "bg-white border-transparent text-gray-900 hover:bg-white"
+                ? "bg-orange-50 border-orange-500 text-orange-700"
+                : "bg-white border-transparent text-ink-900 hover:bg-white"
             }`}
           >
             {cat} Documents
@@ -110,7 +110,7 @@ export default function ChecklistGenerator() {
 
       {/* Progress */}
       <div className="mb-4">
-        <div className="flex justify-between items-center text-xs text-gray-800 mb-1">
+        <div className="flex justify-between items-center text-xs text-ink-800 mb-1">
           <span>COMPLETION STATUS:</span>
           <span className="font-semibold text-black">
             {activeCheckedCount} / {items.length} ({progressPercent}%)
@@ -134,22 +134,22 @@ export default function ChecklistGenerator() {
               onClick={() => handleToggle(item.id)}
               className={`p-3 rounded-xl border transition-all cursor-pointer flex gap-3 text-left ${
                 isChecked
-                  ? "bg-orange-light/10 border-orange/45 text-black"
-                  : "bg-white border-gray-200 text-gray-900 hover:border-white/15"
+                  ? "bg-orange-50/10 border-orange-500/45 text-black"
+                  : "bg-white border-ink-200 text-ink-900 hover:border-white/15"
               }`}
             >
               <div
                 className={`w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-all ${
-                  isChecked ? "bg-orange-600 border-orange-600 text-white" : "border-gray-300"
+                  isChecked ? "bg-orange-600 border-orange-600 text-white" : "border-ink-300"
                 }`}
               >
                 {isChecked && <Check className="w-3.5 h-3.5 font-bold" />}
               </div>
               <div className="space-y-0.5">
-                <h4 className={`text-xs font-bold ${isChecked ? "text-orange" : "text-black"}`}>
+                <h4 className={`text-xs font-bold ${isChecked ? "text-orange-700" : "text-black"}`}>
                   {item.label}
                 </h4>
-                <p className="text-[10px] text-gray-800 leading-normal">{item.desc}</p>
+                <p className="text-[13px] text-ink-600 leading-relaxed">{item.desc}</p>
               </div>
             </div>
           );
@@ -157,10 +157,10 @@ export default function ChecklistGenerator() {
       </div>
 
       {/* Lead Capture */}
-      <div className="border-t border-gray-200 pt-4">
+      <div className="border-t border-ink-200 pt-4">
         {!sent ? (
           <form onSubmit={handleSend} className="space-y-2.5">
-            <label className="block text-[10px] uppercase tracking-wider text-gray-800 font-medium">
+            <label className="block text-[11px] font-semibold uppercase tracking-[0.1em] text-ink-500">
               E-mail checklist as a elite PDF Guide
             </label>
             <div className="flex gap-2">
@@ -170,11 +170,11 @@ export default function ChecklistGenerator() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="E.g. rajesh@gmail.com"
-                className="flex-1 bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs text-black focus:outline-none focus:border-orange"
+                className="flex-1 bg-white border border-ink-200 rounded-xl px-3 py-2 text-xs text-ink-900 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/15 transition-all"
               />
               <button
                 type="submit"
-                className="bg-orange-600 hover:bg-orange-700 text-white font-bold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
+                className="btn btn-primary text-xs px-4 py-2"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Get PDF</span>
@@ -182,7 +182,7 @@ export default function ChecklistGenerator() {
             </div>
           </form>
         ) : (
-          <div className="p-3 bg-green-500/10 border border-green-500/20 text-green-400 text-xs rounded-xl flex items-center justify-center gap-2">
+          <div className="p-3 status-success text-xs rounded-xl flex items-center justify-center gap-2">
             <Check className="w-4 h-4 shrink-0" />
             <span>Success! The {category} checklist PDF has been sent to {email}.</span>
           </div>

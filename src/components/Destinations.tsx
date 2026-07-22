@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { GraduationCap, Briefcase, Landmark, Compass, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 interface DestinationInfo {
   name: string;
@@ -24,12 +25,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <GraduationCap className="w-5 h-5 text-orange" />,
+        icon: <GraduationCap className="w-5 h-5 text-orange-500" />,
         title: "F-1 Academic Route",
         desc: "Highest acceptance rates at major universities. Full interview coaching included.",
       },
       {
-        icon: <Briefcase className="w-5 h-5 text-orange" />,
+        icon: <Briefcase className="w-5 h-5 text-orange-500" />,
         title: "H-1B Cap Registration",
         desc: "Specialty occupation work visa petitions backed by labor verification auditing.",
       },
@@ -46,12 +47,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <Landmark className="w-5 h-5 text-orange" />,
+        icon: <Landmark className="w-5 h-5 text-orange-500" />,
         title: "Express Entry PR Draw",
         desc: "Federal Points System optimization for quick ITAs.",
       },
       {
-        icon: <Briefcase className="w-5 h-5 text-orange" />,
+        icon: <Briefcase className="w-5 h-5 text-orange-500" />,
         title: "Provincial Nominations",
         desc: "Targeted PNP streams for candidates with scores below 500.",
       },
@@ -68,12 +69,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <Briefcase className="w-5 h-5 text-orange" />,
+        icon: <Briefcase className="w-5 h-5 text-orange-500" />,
         title: "Skilled Worker sponsorship",
         desc: "Requires license audits and SOC code/salary matching.",
       },
       {
-        icon: <GraduationCap className="w-5 h-5 text-orange" />,
+        icon: <GraduationCap className="w-5 h-5 text-orange-500" />,
         title: "UK Graduate Route",
         desc: "Switch from Tier 4 student visa to 2-year work permit seamlessly.",
       },
@@ -90,12 +91,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <Landmark className="w-5 h-5 text-orange" />,
+        icon: <Landmark className="w-5 h-5 text-orange-500" />,
         title: "Subclass 189 / 190 PR",
         desc: "Skilled migration channels backed by Skills Assessments.",
       },
       {
-        icon: <Briefcase className="w-5 h-5 text-orange" />,
+        icon: <Briefcase className="w-5 h-5 text-orange-500" />,
         title: "Regional Subclass 491",
         desc: "5-year visa allowing living/working in regional Australia with PR pathways.",
       },
@@ -112,12 +113,12 @@ const destinations: Record<string, DestinationInfo> = {
     ],
     pathways: [
       {
-        icon: <Briefcase className="w-5 h-5 text-orange" />,
+        icon: <Briefcase className="w-5 h-5 text-orange-500" />,
         title: "Opportunity Card (Chancenkarte)",
         desc: "Enter Germany on a points checklist to find employment.",
       },
       {
-        icon: <Landmark className="w-5 h-5 text-orange" />,
+        icon: <Landmark className="w-5 h-5 text-orange-500" />,
         title: "EU Blue Card",
         desc: "Fast-track permanent residency for high-earning professionals.",
       },
@@ -130,7 +131,8 @@ export default function Destinations() {
   const data = destinations[activeTab];
 
   return (
-    <section id="destinations" className="py-20 bg-premium-dark text-white relative overflow-hidden">
+    // Transparent — the parent section-dark wrapper supplies the black.
+    <section id="destinations" className="section-y relative overflow-hidden">
       {/* Subtle orange glow particles */}
       <div className="absolute top-[10%] right-[10%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[130px] pointer-events-none" />
@@ -169,40 +171,40 @@ export default function Destinations() {
         />
       </svg>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        
-        {/* Title */}
-        <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-orange-400 uppercase">
-            Global Horizons
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
-            Explore Top International Destinations
-          </h2>
-          <p className="text-gray-400 text-sm max-w-xl mx-auto">
-            Compare pathways and access structured consultation services for the world's leading economies.
-          </p>
-        </div>
+      <div className="shell relative z-10">
+        <SectionHeading
+          tone="dark"
+          eyebrow="Global horizons"
+          title="Explore top international destinations"
+          description="Compare pathways, processing times, and costs for the world's leading economies."
+        />
 
-        {/* Tabs selector */}
-        <div className="flex gap-2 justify-start lg:justify-center border-b border-white/10 pb-4 mb-8 overflow-x-auto no-scrollbar">
+        {/* Tabs selector — underline tabs read as navigation, which is what
+            these actually are. */}
+        <div className="flex gap-1 justify-start lg:justify-center border-b border-white/10 mb-10 overflow-x-auto no-scrollbar">
           {Object.keys(destinations).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 rounded-full text-xs md:text-sm font-semibold whitespace-nowrap transition-all border cursor-pointer ${
+              className={`relative px-5 py-3.5 text-sm font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                 activeTab === tab
-                  ? "bg-orange-600/15 border-orange-600 text-orange-600 glow-orange"
-                  : "bg-white/5 border-transparent text-gray-300 hover:bg-white/10"
+                  ? "text-orange-400"
+                  : "text-white/50 hover:text-white/80"
               }`}
             >
               {tab === "USA" ? "United States" : tab}
+              {activeTab === tab && (
+                <motion.span
+                  layoutId="destination-tab"
+                  className="absolute left-3 right-3 -bottom-px h-0.5 bg-orange-500 rounded-full"
+                />
+              )}
             </button>
           ))}
         </div>
 
         {/* Content Box */}
-        <div className="glass-dark rounded-2xl p-6 md:p-10 border border-white/10 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
+        <div className="card-dark rounded-2xl p-6 md:p-10 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -218,27 +220,27 @@ export default function Destinations() {
                   <h3 className="text-2xl md:text-3xl font-bold font-heading text-white flex items-center gap-3">
                     {data.name}
                   </h3>
-                  <p className="text-gray-300 text-xs md:text-sm leading-relaxed mt-3 max-w-2xl font-body">
+                  <p className="text-white/60 text-base leading-relaxed mt-3 max-w-2xl font-body">
                     {data.desc}
                   </p>
                 </div>
 
                 {/* Pathways */}
                 <div className="space-y-4">
-                  <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                  <h4 className="text-[11px] font-bold text-white/40 uppercase tracking-[0.12em]">
                     Primary Immigration Channels
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {data.pathways.map((path, index) => (
                       <div
                         key={index}
-                        className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-4 rounded-xl space-y-2 hover:border-orange-600/20 transition-colors"
+                        className="bg-white/[0.04] border border-white/10 p-5 rounded-xl space-y-2.5 hover:border-orange-500/35 hover:bg-white/[0.07] transition-all duration-300"
                       >
                         <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                           {path.icon}
                         </div>
-                        <h5 className="text-xs font-bold text-white">{path.title}</h5>
-                        <p className="text-[10px] text-gray-400 leading-relaxed font-body">
+                        <h5 className="text-sm font-bold text-white">{path.title}</h5>
+                        <p className="text-[13px] text-white/55 leading-relaxed font-body">
                           {path.desc}
                         </p>
                       </div>
@@ -248,25 +250,25 @@ export default function Destinations() {
               </div>
 
               {/* Right Metrics: Column span 5 */}
-              <div className="lg:col-span-5 bg-white/[0.03] border border-white/10 p-6 rounded-2xl space-y-6">
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+              <div className="lg:col-span-5 bg-white/[0.04] border border-white/10 p-6 rounded-2xl space-y-6">
+                <h4 className="text-[11px] font-bold text-white/40 uppercase tracking-[0.12em]">
                   Key Metrics (2026)
                 </h4>
 
                 <div className="space-y-4">
                   {data.metrics.map((met, index) => (
                     <div key={index} className="flex items-center justify-between border-b border-white/10 pb-2.5">
-                      <span className="text-xs text-gray-300">{met.label}</span>
-                      <strong className="text-sm font-semibold text-white">{met.value}</strong>
+                      <span className="text-sm text-white/60">{met.label}</span>
+                      <strong className="text-sm font-bold text-white">{met.value}</strong>
                     </div>
                   ))}
                 </div>
 
                 <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center justify-between">
-                  <span className="text-[10px] text-gray-300 uppercase font-semibold">Ready to choose?</span>
+                  <span className="text-xs text-white/60 font-semibold">Ready to choose?</span>
                   <a
                     href={`/services/${data.slug}`}
-                    className="bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 hover:scale-105"
+                    className="btn btn-primary text-sm px-5 py-2.5"
                   >
                     <span>View Portal</span>
                     <ArrowRight className="w-3.5 h-3.5" />

@@ -3,91 +3,88 @@
 import React from "react";
 import { MessageSquare, FileText, FileSignature, HelpCircle, CheckCircle, Compass } from "lucide-react";
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 export default function Process() {
   const steps = [
     {
       icon: <MessageSquare className="w-5 h-5" />,
-      title: "1. Elite Profile Assessment",
+      title: "Elite Profile Assessment",
       desc: "Our senior counselors review your background, verify eligibility points, and recommend the best countries and streams to lock in.",
     },
     {
       icon: <FileText className="w-5 h-5" />,
-      title: "2. Strategic Document Compilation",
+      title: "Strategic Document Compilation",
       desc: "We review bank balances, sponsorship paperwork, write SOP drafts, and evaluate credential evaluations (WES/ZAB) to ensure completeness.",
     },
     {
       icon: <FileSignature className="w-5 h-5" />,
-      title: "3. Direct Application Lodgment",
+      title: "Direct Application Lodgment",
       desc: "We file your profile in online portals (Express Entry, DS-160, CAS/UK portals) with high precision, keeping data secure.",
     },
     {
       icon: <HelpCircle className="w-5 h-5" />,
-      title: "4. Consular Interview Preparation",
+      title: "Consular Interview Preparation",
       desc: "We host intensive mock sessions matching visa embassy standards so you can answer confidently and quickly.",
     },
     {
       icon: <CheckCircle className="w-5 h-5" />,
-      title: "5. Visa Stamp & Travel Briefing",
+      title: "Visa Stamp & Travel Briefing",
       desc: "Collect your stamped passport. We host pre-departure guidance events covering flight bookings, currency, and local accommodation.",
     },
   ];
 
   return (
-    <section id="process" className="py-20 bg-[#F8F9FB] relative">
-      <div className="absolute top-[30%] right-[10%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        {/* Title */}
-        <div className="text-center space-y-3 mb-20">
-          <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase">
-            The Pathway
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
-            Our Structured Success Journey
-          </h2>
-          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
-            From Hyderabad to the world — a systematic 5-step process designed to achieve approvals with absolute peace of mind.
-          </p>
-        </div>
+    <section id="process" className="section-y relative">
+      <div className="shell">
+        <SectionHeading
+          eyebrow="The pathway"
+          title="A structured five-step journey"
+          description="From first assessment to pre-departure briefing — you always know which stage you're in and what happens next."
+        />
 
         {/* Timeline Container */}
         <div className="relative max-w-3xl mx-auto">
           {/* Vertical progress line */}
-          <div className="absolute left-4 sm:left-1/2 top-2 bottom-2 w-[1px] bg-orange-600/20 -translate-x-1/2 hidden sm:block" />
-          <div className="absolute left-6 top-2 bottom-2 w-[1px] bg-orange-600/20 sm:hidden" />
+          <div className="absolute left-6 sm:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-orange-200 to-transparent sm:-translate-x-1/2" />
 
           {/* Steps */}
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10">
             {steps.map((st, idx) => {
               const isEven = idx % 2 === 0;
 
               return (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 26 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true, margin: "-90px" }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className={`relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-12 w-full ${
                     isEven ? "sm:flex-row-reverse" : ""
                   }`}
                 >
-                  {/* Icon Node */}
-                  <div className="absolute left-6 sm:left-1/2 top-1.5 sm:top-1/2 w-8 h-8 rounded-full bg-white border border-orange-600 flex items-center justify-center -translate-x-1/2 -translate-y-1/2 z-20 text-orange-600 shadow-lg shadow-orange-600/10 animate-float" style={{ animationDelay: `${idx * 0.5}s` }}>
+                  {/* Numbered node — the step number carries the sequence,
+                      so the titles no longer need to repeat it. */}
+                  <div
+                    className="absolute left-6 sm:left-1/2 top-5 sm:top-1/2 w-9 h-9 rounded-full bg-orange-600 text-white flex items-center justify-center -translate-x-1/2 -translate-y-1/2 z-20 shadow-[0_0_0_4px_#fff,0_4px_12px_rgba(255,107,0,0.30)]"
+                  >
                     {st.icon}
                   </div>
 
-                  {/* Left/Right Blank spacing for desktop alignment */}
+                  {/* Left/Right blank spacing for desktop alignment */}
                   <div className="w-full sm:w-[45%] hidden sm:block" />
 
                   {/* Content Box */}
-                  <div className="w-full sm:w-[45%] pl-12 sm:pl-0">
-                    <div className="glass p-5 rounded-2xl border border-gray-200 hover:border-orange/30 transition-all space-y-2.5">
-                      <h3 className="text-base font-bold font-heading text-gray-900 hover:text-orange transition-colors">
+                  <div className="w-full sm:w-[45%] pl-14 sm:pl-0">
+                    <div className="card card-hover p-6 group">
+                      <span className="text-xs font-bold tracking-[0.1em] uppercase text-orange-700">
+                        Step {idx + 1}
+                      </span>
+                      <h3 className="mt-2 text-base font-bold font-heading text-ink-900 group-hover:text-orange-700 transition-colors">
                         {st.title}
                       </h3>
-                      <p className="text-gray-600 text-xs leading-relaxed font-body">
+                      <p className="mt-2 text-ink-600 text-sm leading-relaxed font-body">
                         {st.desc}
                       </p>
                     </div>

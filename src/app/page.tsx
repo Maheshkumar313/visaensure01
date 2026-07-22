@@ -8,36 +8,39 @@ import { Sparkles } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Trust from "@/components/Trust";
-import Services from "@/components/Services";
-import Destinations from "@/components/Destinations";
-import WhyChoose from "@/components/WhyChoose";
-import Process from "@/components/Process";
-import Partners from "@/components/Partners";
-import SuccessStories from "@/components/SuccessStories";
-import Stats from "@/components/Stats";
-import AssessmentCTA from "@/components/AssessmentCTA";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+
+// Dynamic Imports for below-the-fold sections to drastically improve load time
+const Trust = dynamic(() => import("@/components/Trust"));
+const Services = dynamic(() => import("@/components/Services"));
+const Destinations = dynamic(() => import("@/components/Destinations"));
+const WhyChoose = dynamic(() => import("@/components/WhyChoose"));
+const Process = dynamic(() => import("@/components/Process"));
+const Partners = dynamic(() => import("@/components/Partners"));
+const SuccessStories = dynamic(() => import("@/components/SuccessStories"));
+const Stats = dynamic(() => import("@/components/Stats"));
+const AssessmentCTA = dynamic(() => import("@/components/AssessmentCTA"));
+const Contact = dynamic(() => import("@/components/Contact"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 // Interactive Tools (placed in Digital Visa Lounge)
-import ComparisonTool from "@/components/ComparisonTool";
-import Calculator from "@/components/Calculator";
-import ChecklistGenerator from "@/components/ChecklistGenerator";
+const ComparisonTool = dynamic(() => import("@/components/ComparisonTool"));
+const Calculator = dynamic(() => import("@/components/Calculator"));
+const ChecklistGenerator = dynamic(() => import("@/components/ChecklistGenerator"));
 
 // Floating / Modal utilities
 import SmoothScroll from "@/components/SmoothScroll";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import AIChat from "@/components/AIChat";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
+const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"), { ssr: false });
+const AIChat = dynamic(() => import("@/components/AIChat"), { ssr: false });
+const ExitIntentPopup = dynamic(() => import("@/components/ExitIntentPopup"), { ssr: false });
 
-// Modals
-import BookingModal from "@/components/BookingModal";
-import EligibilityChecker from "@/components/EligibilityChecker";
-import StatusTracker from "@/components/StatusTracker";
+// Modals (Load only when needed, but they are controlled by state, so we just lazy load the component code)
+const BookingModal = dynamic(() => import("@/components/BookingModal"), { ssr: false });
+const EligibilityChecker = dynamic(() => import("@/components/EligibilityChecker"), { ssr: false });
+const StatusTracker = dynamic(() => import("@/components/StatusTracker"), { ssr: false });
 
 // Scroll Transition Wrapper
 import SectionReveal from "@/components/SectionReveal";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function Home() {
   // Modal states
@@ -48,23 +51,13 @@ export default function Home() {
   return (
     <SmoothScroll>
       <div className="flex flex-col min-h-screen relative overflow-hidden bg-white">
-        {/* Premium Dynamic Orange & White Background */}
+        {/* Background is intentionally near-white. Colour is carried by the
+            sections themselves, not by a full-page wash — the previous
+            blur stack desaturated every card sitting on top of it. */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-          <div className="absolute -top-[10%] -right-[5%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-orange-600/20 to-orange-600/0 blur-[100px] mix-blend-multiply" />
-          <div className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-orange-600/15 to-transparent blur-[120px] mix-blend-multiply" />
-          <div className="absolute bottom-[10%] right-[10%] w-[800px] h-[800px] rounded-full bg-gradient-to-tl from-orange-600/10 to-transparent blur-[150px] mix-blend-multiply" />
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-[100px]" />
+          <div className="absolute -top-[15%] -right-[10%] w-[720px] h-[720px] rounded-full bg-orange-100/25 blur-[140px]" />
+          <div className="absolute top-[45%] -left-[15%] w-[620px] h-[620px] rounded-full bg-orange-50/40 blur-[150px]" />
         </div>
-        {/* World Map Background overlay across light sections (subtle 1.5% opacity) */}
-        <div 
-          className="fixed inset-0 opacity-[0.015] select-none pointer-events-none z-0"
-          style={{
-            backgroundImage: "url('/images/world-map.svg')",
-            backgroundSize: "contain",
-            backgroundPosition: "center",
-            backgroundRepeat: "repeat-y"
-          }}
-        />
 
 
         {/* Header Block */}
@@ -87,7 +80,7 @@ export default function Home() {
         </SectionReveal>
 
         {/* Services Section */}
-        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-orange-600/4 relative z-10">
+        <SectionReveal className="surface-muted border-y border-ink-200 relative z-10">
           <Services
             onOpenAssessment={() => setIsAssessmentOpen(true)}
             onOpenChecklist={() => {
@@ -97,31 +90,23 @@ export default function Home() {
           />
         </SectionReveal>
 
-        {/* Destinations Section (Featured Countries) */}
-        <SectionReveal className="bg-premium-dark text-white relative z-10">
+        {/* Destinations Section (Featured Countries) — first black beat */}
+        <SectionReveal className="section-dark relative z-10">
           <Destinations />
         </SectionReveal>
 
         {/* Digital Visa Lounge: SaaS Interactive Tools Section */}
-        <SectionReveal id="visa-lounge" className="py-20 bg-transparent relative overflow-hidden z-10">
-          <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
-          <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-            {/* Title */}
-            <div className="text-center space-y-3 mb-16">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200 text-[10px] font-semibold tracking-wider text-orange-600 uppercase font-body">
-                <Sparkles className="w-3.5 h-3.5 text-orange-600" />
-                <span>Visa Lounge</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
-                SaaS-Powered Interactive Tools
-              </h2>
-              <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto font-body">
-                Verify costs, deadlines, and documentation specifications instantly using our client-facing calculators.
-              </p>
-            </div>
+        <SectionReveal id="visa-lounge" className="section-y bg-transparent relative overflow-hidden z-10">
+          <div className="shell relative z-10">
+            <SectionHeading
+              eyebrow="Visa Lounge"
+              eyebrowIcon={<Sparkles className="w-3.5 h-3.5" />}
+              title="Plan your move with real numbers"
+              description="Compare destinations, estimate total cost, and generate a document checklist tailored to your case — instantly, with no sign-up."
+            />
 
             {/* Grid display for the three advanced utilities */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
               <ComparisonTool />
               <Calculator />
               <ChecklistGenerator />
@@ -135,7 +120,7 @@ export default function Home() {
         </SectionReveal>
 
         {/* Timeline Process */}
-        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-orange-600/4 relative z-10">
+        <SectionReveal className="surface-muted border-y border-ink-200 relative z-10">
           <Process />
         </SectionReveal>
 
@@ -149,18 +134,19 @@ export default function Home() {
           <SuccessStories />
         </SectionReveal>
 
-        {/* Stats counters */}
-        <SectionReveal className="bg-premium-dark text-white relative z-10">
+        {/* Stats + final CTA — one continuous black block. Rendering them
+            as two adjacent dark sections put a visible seam between two
+            identical gradients. */}
+        <SectionReveal className="section-dark relative z-10">
           <Stats />
-        </SectionReveal>
-
-        {/* Final CTA Assessment Banner */}
-        <SectionReveal className="bg-premium-dark text-white relative z-10">
+          <div className="shell">
+            <div className="h-px bg-gradient-to-r from-transparent via-orange-600/25 to-transparent" />
+          </div>
           <AssessmentCTA onOpenAssessment={() => setIsAssessmentOpen(true)} />
         </SectionReveal>
 
         {/* Contact form and business info */}
-        <SectionReveal className="bg-[#F8F9FA]/65 backdrop-blur-2xl border-y border-orange-600/4 relative z-10">
+        <SectionReveal className="surface-muted border-y border-ink-200 relative z-10">
           <Contact />
         </SectionReveal>
 

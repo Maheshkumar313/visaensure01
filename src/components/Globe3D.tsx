@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Play, Pause, Sun, Moon } from "lucide-react";
 import Globe from "globe.gl";
-
 // Custom country-specific info mapping
 const COUNTRY_DETAILS: Record<string, { capital: string; timezone: string; offset: number; visas: string[] }> = {
   "United States of America": { capital: "Washington, D.C.", timezone: "EST", offset: -5, visas: ["F-1 Student", "H-1B Work", "B1/B2 Visitor", "EB-5 Investor"] },
@@ -21,19 +20,6 @@ const COUNTRY_DETAILS: Record<string, { capital: string; timezone: string; offse
   "United Arab Emirates": { capital: "Abu Dhabi", timezone: "GST", offset: 4, visas: ["Golden Visa", "Green Visa", "Tourist Visa"] },
   "Schengen Area": { capital: "Brussels", timezone: "CET", offset: 1, visas: ["Schengen Business", "Schengen Tourist", "Long-term Study"] }
 };
-
-// Labels for major continents and oceans
-const LABELS_DATA = [
-  { lat: 37.0902, lng: -95.7129, text: "North America", size: 1.8, color: "#FFFFFF" },
-  { lat: -14.2350, lng: -51.9253, text: "South America", size: 1.8, color: "#FFFFFF" },
-  { lat: 48.3794, lng: 31.1656, text: "Europe", size: 1.8, color: "#FFFFFF" },
-  { lat: 34.0479, lng: 100.6197, text: "Asia", size: 1.8, color: "#FFFFFF" },
-  { lat: -8.7832, lng: 34.5085, text: "Africa", size: 1.8, color: "#FFFFFF" },
-  { lat: -25.2744, lng: 133.7751, text: "Australia", size: 1.8, color: "#FFFFFF" },
-  { lat: -10.0, lng: -140.0, text: "Pacific Ocean", size: 1.4, color: "#FFA54F" },
-  { lat: 15.0, lng: -30.0, text: "Atlantic Ocean", size: 1.4, color: "#FFA54F" },
-  { lat: -20.0, lng: 80.0, text: "Indian Ocean", size: 1.4, color: "#FFA54F" }
-];
 
 // Pulse rings destinations mapping
 const RINGS_DATA = [
@@ -52,14 +38,7 @@ const DESTINATIONS = [
   { name: "Germany", lat: 51.1657, lng: 10.4515, flag: "🇩🇪" }
 ];
 
-const LIVE_UPDATES = [
-  { country: "United States", visa: "F-1 Approved", flag: "🇺🇸", details: "Harvard University" },
-  { country: "Canada", visa: "Express Entry PR", flag: "🇨🇦", details: "CRS Score: 508" },
-  { country: "United Kingdom", visa: "Skilled Worker", flag: "🇬🇧", details: "NHS London Trust" },
-  { country: "Australia", visa: "Subclass 189", flag: "🇦🇺", details: "Software Engineer" },
-  { country: "Germany", visa: "EU Blue Card", flag: "🇩🇪", details: "Tech Lead Munich" },
-  { country: "Ireland", visa: "Stamp 1G Granted", flag: "🇮🇪", details: "Trinity College Dublin" }
-];
+
 
 export default function Globe3D() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -69,7 +48,6 @@ export default function Globe3D() {
   const [autoRotate, setAutoRotate] = useState(true);
   const [selectedDest, setSelectedDest] = useState<string | null>(null);
   const [isNightMode, setIsNightMode] = useState(true);
-  const [activeUpdateIdx, setActiveUpdateIdx] = useState(0);
   const geoJsonData = useRef<any>(null);
   const cloudAnimId = useRef<number | null>(null);
 
@@ -132,40 +110,40 @@ export default function Globe3D() {
   };
 
   useEffect(() => {
-    // Fetch world countries GeoJSON with force-cache for instant loads after first visit
-    fetch('/ne_110m_admin_0_countries.geojson', { cache: "force-cache" })
+    // Load map data asynchronously to prevent blocking the main thread
+    fetch('/ne_110m_admin_0_countries.json')
       .then(res => res.json())
       .then(data => {
         geoJsonData.current = data;
         setDataLoaded(true);
+        if (globeInstance.current) {
+          globeInstance.current
+            .polygonsData(data.features)
+            .polygonAltitude(0.005)
+            .polygonCapColor((d: any) => 'rgba(0, 0, 0, 0)') // fully transparent by default
+            .polygonSideColor(() => 'rgba(0, 0, 0, 0)')
+            .polygonStrokeColor(() => 'rgba(255, 255, 255, 0.08)'); // ultra subtle borders
+        }
       })
-      .catch(err => console.error("Error fetching GeoJSON", err));
+      .catch(err => console.error("Error loading map data:", err));
   }, []);
 
   useEffect(() => {
-    if (dataLoaded && containerRef.current && !globeInstance.current) {
-      // Initialize globe.gl
+    if (containerRef.current && !globeInstance.current) {
+      // Initialize globe.gl immediately
       const globe = new Globe(containerRef.current)
         .backgroundColor('rgba(0,0,0,0)')
         .showGlobe(true)
         .showAtmosphere(true)
-        .atmosphereColor('#3a86ff') // Soft atmospheric blue glow
+        .atmosphereColor('#FF6B00') // Brand orange halo, not a blue glow
         .atmosphereAltitude(0.22)
         
         // Photorealistic Earth textures
         .globeImageUrl('/images/globe/earth-blue-marble.webp')
         .bumpImageUrl('/images/globe/earth-topology.webp')
 
-        // Continent and ocean text labels
-        .labelsData(LABELS_DATA)
-        .labelLat((d: any) => d.lat)
-        .labelLng((d: any) => d.lng)
-        .labelText((d: any) => d.text)
-        .labelSize((d: any) => d.size)
-        .labelColor((d: any) => d.color)
-        .labelDotRadius(0)
-        .labelAltitude(0.015)
-        .labelResolution(2)
+        // Continent and ocean text labels - Removed to eliminate DOM sub-pixel rounding vibration jitter
+        .labelsData([])
 
         // Pulsing rings for top destinations
         .ringsData(RINGS_DATA)
@@ -175,7 +153,7 @@ export default function Globe3D() {
         .ringAltitude(0.015)
 
         // Interactive polygons (for country highlighting)
-        .polygonsData(geoJsonData.current.features)
+        .polygonsData(geoJsonData.current ? geoJsonData.current.features : [])
         .polygonAltitude(0.005)
         .polygonCapColor((d: any) => 'rgba(0, 0, 0, 0)') // fully transparent by default
         .polygonSideColor(() => 'rgba(0, 0, 0, 0)')
@@ -254,9 +232,16 @@ export default function Globe3D() {
       const clouds = new THREE.Mesh(cloudGeometry, cloudMaterial);
       scene.add(clouds);
 
-      // Animate clouds rotation
+      // Animate clouds rotation smoothly with high-precision delta-time
+      let lastTime = performance.now();
       const animateScene = () => {
-        if (clouds) clouds.rotation.y += 0.0005;
+        const now = performance.now();
+        const delta = (now - lastTime) / 1000;
+        lastTime = now;
+
+        if (clouds) {
+          clouds.rotation.y += 0.012 * delta; // smooth rotation independent of framerate
+        }
         cloudAnimId.current = requestAnimationFrame(animateScene);
       };
       animateScene();
@@ -276,10 +261,9 @@ export default function Globe3D() {
       
       // Setup controls
       globe.controls().autoRotate = autoRotate;
-      globe.controls().autoRotateSpeed = -1.5; // Negative to rotate West to East properly, smooth speed
+      globe.controls().autoRotateSpeed = -2.5; // Fast and smooth rotation
       globe.controls().enableZoom = false;
-      globe.controls().enableDamping = true;
-      globe.controls().dampingFactor = 0.01;
+      globe.controls().enableDamping = false; // Disabled damping as requested
       globe.pointOfView({ altitude: 2.5 }, 0); // Zoom out to view it completely
 
       // Responsive sizing
@@ -306,7 +290,7 @@ export default function Globe3D() {
         globeInstance.current = null;
       };
     }
-  }, [dataLoaded]);
+  }, []);
 
   // Dynamic controls sync
   useEffect(() => {
@@ -324,13 +308,7 @@ export default function Globe3D() {
     }
   }, [isNightMode]);
 
-  // Live success updates rotation
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveUpdateIdx((prev) => (prev + 1) % LIVE_UPDATES.length);
-    }, 4500);
-    return () => clearInterval(timer);
-  }, []);
+
 
   // Cleanup timeout
   useEffect(() => {
@@ -365,8 +343,8 @@ export default function Globe3D() {
       <div className="absolute w-[80%] h-[80%] bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.18)_0%,transparent_70%)] pointer-events-none z-0 filter blur-xl" />
 
       {/* Cybernetic ambient orbit ring behind the globe */}
-      <div className="absolute w-[360px] h-[360px] md:w-[500px] md:h-[500px] rounded-full border border-orange-600/10 pointer-events-none z-0 animate-[spin_40s_linear_infinite]" />
-      <div className="absolute w-[380px] h-[380px] md:w-[530px] md:h-[530px] rounded-full border border-dashed border-orange-600/5 pointer-events-none z-0 animate-[spin_60s_linear_infinite_reverse]" />
+      <div className="absolute w-[360px] h-[360px] md:w-[500px] md:h-[500px] rounded-full border border-orange-600/10 pointer-events-none z-0" />
+      <div className="absolute w-[380px] h-[380px] md:w-[530px] md:h-[530px] rounded-full border border-dashed border-orange-600/5 pointer-events-none z-0" />
 
       {/* Globe Container */}
       <div ref={containerRef} className="w-full h-full relative z-10 cursor-grab active:cursor-grabbing" />
@@ -395,7 +373,7 @@ export default function Globe3D() {
         <div className="flex items-center gap-4 bg-black/90 backdrop-blur-lg px-4.5 py-2 rounded-full border border-white/10 shadow-2xl text-[11px] text-white font-sans">
           <button
             onClick={() => setAutoRotate(!autoRotate)}
-            className="flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer font-medium"
+            className="flex items-center gap-1.5 hover:text-orange-700 transition-colors cursor-pointer font-medium"
           >
             {autoRotate ? (
               <>
@@ -414,7 +392,7 @@ export default function Globe3D() {
 
           <button
             onClick={() => setIsNightMode(!isNightMode)}
-            className="flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer font-medium"
+            className="flex items-center gap-1.5 hover:text-orange-700 transition-colors cursor-pointer font-medium"
           >
             {isNightMode ? (
               <>
@@ -423,7 +401,7 @@ export default function Globe3D() {
               </>
             ) : (
               <>
-                <Moon className="w-3.5 h-3.5 text-blue-400" />
+                <Moon className="w-3.5 h-3.5 text-ink-400" />
                 <span>Night Lights</span>
               </>
             )}

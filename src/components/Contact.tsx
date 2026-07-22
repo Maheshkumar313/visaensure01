@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -51,34 +52,24 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-transparent border-t border-gray-200 relative">
-      <div className="absolute top-[40%] left-[5%] w-[300px] h-[300px] rounded-full bg-orange-600/4 blur-[120px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        
-        {/* Title */}
-        <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase">
-            Get in Touch
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
-            Schedule a Private Consultation
-          </h2>
-          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
-            Contact our flagship Hyderabad office or submit the form to connect directly with a senior immigration counselor.
-          </p>
-        </div>
+    <section id="contact" className="section-y bg-transparent border-t border-ink-200 relative">
+      <div className="shell">
+        <SectionHeading
+          eyebrow="Get in touch"
+          title="Schedule a private consultation"
+          description="Contact our Hyderabad office or send the form — a senior counsellor responds within 15 minutes during business hours."
+        />
 
         {/* Contact Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+
           {/* Form: Column span 7 */}
-          <div className="lg:col-span-7 glass p-6 md:p-8 rounded-2xl border border-gray-200">
+          <div className="lg:col-span-7 card p-6 md:p-9">
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-gray-900 mb-1.5">
+                    <label className="block text-[13px] font-semibold text-ink-800 mb-2">
                       Your Name *
                     </label>
                     <input
@@ -89,12 +80,12 @@ export default function Contact() {
                         if (errors.name) setErrors({ ...errors, name: "" });
                       }}
                       placeholder="Rajesh Kumar"
-                      className={`w-full bg-white border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange`}
+                      className={`field ${errors.name ? '!border-red-500' : ''}`}
                     />
-                    {errors.name && <p className="text-[10px] text-red-500 mt-1 font-semibold">{errors.name}</p>}
+                    {errors.name && <p className="text-xs text-red-600 mt-1.5 font-medium">{errors.name}</p>}
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-gray-900 mb-1.5">
+                    <label className="block text-[13px] font-semibold text-ink-800 mb-2">
                       Email Address *
                     </label>
                     <input
@@ -105,15 +96,15 @@ export default function Contact() {
                         if (errors.email) setErrors({ ...errors, email: "" });
                       }}
                       placeholder="rajesh@gmail.com"
-                      className={`w-full bg-white border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange`}
+                      className={`field ${errors.email ? '!border-red-500' : ''}`}
                     />
-                    {errors.email && <p className="text-[10px] text-red-500 mt-1 font-semibold">{errors.email}</p>}
+                    {errors.email && <p className="text-xs text-red-600 mt-1.5 font-medium">{errors.email}</p>}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-gray-900 mb-1.5">
+                    <label className="block text-[13px] font-semibold text-ink-800 mb-2">
                       WhatsApp / Phone *
                     </label>
                     <input
@@ -124,18 +115,18 @@ export default function Contact() {
                         if (errors.phone) setErrors({ ...errors, phone: "" });
                       }}
                       placeholder="+91 96424 42227"
-                      className={`w-full bg-white border ${errors.phone ? 'border-red-500' : 'border-gray-200'} rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange`}
+                      className={`field ${errors.phone ? '!border-red-500' : ''}`}
                     />
-                    {errors.phone && <p className="text-[10px] text-red-500 mt-1 font-semibold">{errors.phone}</p>}
+                    {errors.phone && <p className="text-xs text-red-600 mt-1.5 font-medium">{errors.phone}</p>}
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-gray-900 mb-1.5">
+                    <label className="block text-[13px] font-semibold text-ink-800 mb-2">
                       Visa Type
                     </label>
                     <select
                       value={formData.visaType}
                       onChange={(e) => setFormData({ ...formData, visaType: e.target.value })}
-                      className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange"
+                      className="field"
                     >
                       <option value="Student Visa">Student Visa</option>
                       <option value="Work Visa">Work Visa</option>
@@ -147,7 +138,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-900 mb-1.5">
+                  <label className="block text-[13px] font-semibold text-ink-800 mb-2">
                     Your Message
                   </label>
                   <textarea
@@ -155,78 +146,83 @@ export default function Contact() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Briefly describe your requirements..."
                     rows={4}
-                    className="w-full bg-white border border-gray-200 rounded-lg px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-orange"
+                    className="field"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`btn btn-primary w-full ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
                 >
                   {isLoading ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
-                      <span>Processing...</span>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span>Processing…</span>
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      <span>Submit Inquiry</span>
+                      <span>Submit inquiry</span>
                     </>
                   )}
                 </button>
               </form>
             ) : (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 bg-green-500/10 border border-green-500/30 rounded-full flex items-center justify-center mx-auto text-green-500">
+              <div className="py-14 text-center">
+                <div className="w-16 h-16 status-success rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h4 className="text-xl font-heading text-gray-900 font-bold">Inquiry Logged!</h4>
-                <p className="text-xs text-gray-900 max-w-sm mx-auto leading-relaxed">
-                  Thank you, <strong className="text-gray-900">{formData.name}</strong>. A VisaEnsure case specialist has received your inquiry for <strong>{formData.visaType}</strong>. We will call you within 15 minutes.
+                <h4 className="mt-5 text-xl font-heading text-ink-900 font-bold">
+                  Inquiry received
+                </h4>
+                <p className="mt-3 text-sm text-ink-600 max-w-sm mx-auto leading-relaxed">
+                  Thank you, <strong className="text-ink-900">{formData.name}</strong>. A
+                  case specialist has your enquiry for{" "}
+                  <strong className="text-ink-900">{formData.visaType}</strong> and will
+                  call within 15 minutes.
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="py-2 px-6 bg-white hover:bg-white border border-gray-200 rounded-lg text-xs text-gray-900 transition-all mt-4"
+                  className="btn btn-secondary mt-7"
                 >
-                  Submit Another Inquiry
+                  Submit another inquiry
                 </button>
               </div>
             )}
           </div>
 
           {/* Details: Column span 5 */}
-          <div className="lg:col-span-5 bg-white/50 border border-gray-200 p-6 md:p-8 rounded-2xl flex flex-col justify-between space-y-8">
+          <div className="lg:col-span-5 card p-6 md:p-9 flex flex-col justify-between gap-8">
             <div className="space-y-6">
-              <h3 className="text-xl font-heading text-gray-900 font-semibold">
-                Contact Coordinates
+              <h3 className="text-xl font-heading text-ink-900 font-bold">
+                Contact coordinates
               </h3>
 
-              <div className="space-y-4 text-xs md:text-sm">
+              <div className="space-y-5 text-sm">
                 <div className="flex gap-3">
-                  <MapPin className="w-5 h-5 text-orange shrink-0 mt-0.5" />
-                  <span className="leading-relaxed text-gray-900">
+                  <MapPin className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+                  <span className="leading-relaxed text-ink-900">
                     Flat no 402, 4th floor, Avasa's VPR Komitla Residency, Sri Sai Nagar, Jahangir Nagar Colony, Chintalkunta, Hyderabad, Telangana 500074
                   </span>
                 </div>
                 <div className="flex gap-3">
-                  <Mail className="w-5 h-5 text-orange shrink-0 mt-0.5" />
-                  <a href="mailto:apply@visaensure.com" className="text-gray-900 hover:text-orange transition-colors">
+                  <Mail className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+                  <a href="mailto:apply@visaensure.com" className="text-ink-900 hover:text-orange-700 transition-colors">
                     apply@visaensure.com
                   </a>
                 </div>
                 <div className="flex gap-3">
-                  <Phone className="w-5 h-5 text-orange shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                   <div className="space-y-1">
-                    <a href="tel:+919642442227" className="block text-gray-900 hover:text-orange transition-colors">
+                    <a href="tel:+919642442227" className="block text-ink-900 hover:text-orange-700 transition-colors">
                       +91 9642442227
                     </a>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <Clock className="w-5 h-5 text-orange shrink-0 mt-0.5" />
-                  <span className="text-gray-900">
+                  <Clock className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+                  <span className="text-ink-900">
                     Monday to Saturday — 9:00 AM to 8:00 PM
                   </span>
                 </div>
@@ -234,16 +230,16 @@ export default function Contact() {
             </div>
 
             {/* Simple Visual Map Placeholder */}
-            <div className="relative h-32 rounded-xl overflow-hidden border border-gray-200 bg-white flex items-center justify-center text-center p-4">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234, 88, 12,0.15)_0%,transparent_75%)]" />
+            <div className="relative h-32 rounded-xl overflow-hidden border border-ink-200 bg-white flex items-center justify-center text-center p-4">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.16)_0%,transparent_75%)]" />
               <div className="relative z-10 space-y-1">
-                <span className="text-[10px] tracking-wider text-orange uppercase font-bold">MAP DIRECTIONS</span>
-                <p className="text-[11px] text-gray-500">Sri Sai Nagar, Jahangir Nagar Colony, Chintalkunta</p>
+                <span className="text-[10px] tracking-wider text-orange-700 uppercase font-bold">MAP DIRECTIONS</span>
+                <p className="text-[11px] text-ink-500">Sri Sai Nagar, Jahangir Nagar Colony, Chintalkunta</p>
                 <a
                   href="https://maps.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] text-gray-900 underline hover:text-orange block mt-1"
+                  className="text-[10px] text-ink-900 underline hover:text-orange-700 block mt-1"
                 >
                   Open in Google Maps
                 </a>

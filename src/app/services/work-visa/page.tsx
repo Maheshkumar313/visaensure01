@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function WorkVisaPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-black overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-white text-ink-900 overflow-hidden">
       <TopBar />
 
       {/* Header / Intro section */}
@@ -26,19 +26,20 @@ export default function WorkVisaPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12">
           {/* Hero Header */}
           <div className="space-y-4 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-semibold tracking-widest text-orange-600 uppercase bg-orange-50 border border-orange-200/50 px-3 py-1 rounded-full inline-block">
+            <span className="eyebrow">
               Work & Relocation Programs
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold font-heading text-black leading-tight">
+            <h1 className="t-display text-ink-900">
               International Skilled Employment Permits
             </h1>
-            <p className="text-base md:text-lg text-gray-700 font-light leading-relaxed">
+            <span className="accent-bar mx-auto" />
+            <p className="t-lead">
               Analyze in-demand job markets and switchable visa pathways. Click on highlighted countries on the flat map below to view average salaries and eligibility requirements.
             </p>
           </div>
 
           {/* Interactive Map Component */}
-          <section className="bg-white border border-gray-200/80 rounded-3xl p-4 md:p-8 shadow-sm">
+          <section className="card p-4 md:p-8">
             <InteractivePlaneWorldMap visaType="work" />
           </section>
 
@@ -46,34 +47,34 @@ export default function WorkVisaPage() {
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
             {[
               {
-                icon: <Briefcase className="w-6 h-6 text-orange" />,
+                icon: <Briefcase className="w-6 h-6 text-orange-600" />,
                 title: "Employer Sponsorship Auditing",
                 desc: "We verify whether your sponsoring employer is licensed, check salary thresholds against national standards, and double-check occupational codes."
               },
               {
-                icon: <Key className="w-6 h-6 text-orange" />,
+                icon: <Key className="w-6 h-6 text-orange-600" />,
                 title: "Opportunity Card Points Verification",
                 desc: "Comprehensive pre-evaluation for points-based job search pathways like Germany's Chancenkarte, ensuring positive assessment outcomes."
               },
               {
-                icon: <CheckSquare className="w-6 h-6 text-orange" />,
+                icon: <CheckSquare className="w-6 h-6 text-orange-600" />,
                 title: "Dependent Concurrence Filing",
                 desc: "Simultaneous processing of spousal open work permits and child study permits so your family relocates with you together."
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-150 p-6 rounded-2xl space-y-3 hover:border-orange/20 transition-all">
-                <div className="w-11 h-11 bg-white border border-gray-200 rounded-xl flex items-center justify-center">
+              <div key={idx} className="card card-hover p-6 space-y-3 group">
+                <div className="w-11 h-11 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   {item.icon}
                 </div>
-                <h3 className="text-base font-bold text-black font-heading">{item.title}</h3>
-                <p className="text-xs text-gray-600 leading-relaxed font-body">{item.desc}</p>
+                <h3 className="t-h4 text-ink-900">{item.title}</h3>
+                <p className="t-body text-[0.8125rem]">{item.desc}</p>
               </div>
             ))}
           </section>
 
           {/* Quick FAQ Block */}
-          <section className="space-y-6 pt-6 border-t border-gray-100">
-            <h2 className="text-2xl font-bold font-heading text-black text-center">Frequently Asked Questions</h2>
+          <section className="space-y-6 pt-6 border-t border-ink-100">
+            <h2 className="t-h2 text-ink-900 text-center">Frequently Asked Questions</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
@@ -85,12 +86,12 @@ export default function WorkVisaPage() {
                   a: "Yes, under the new Opportunity Card (Chancenkarte) system, skilled professionals scoring at least 6 points can enter Germany for up to 12 months to seek qualified work."
                 }
               ].map((faq, i) => (
-                <div key={i} className="bg-white border border-gray-200 p-5 rounded-2xl space-y-2">
-                  <h4 className="text-sm font-bold text-black flex items-start gap-2">
-                    <HelpCircle className="w-4.5 h-4.5 text-orange shrink-0 mt-0.5" />
+                <div key={i} className="card p-5 space-y-2">
+                  <h4 className="t-h4 text-ink-900 flex items-start gap-2">
+                    <HelpCircle className="w-4.5 h-4.5 text-orange-600 shrink-0 mt-0.5" />
                     <span>{faq.q}</span>
                   </h4>
-                  <p className="text-xs text-gray-600 pl-6 leading-relaxed font-body">{faq.a}</p>
+                  <p className="t-body text-[0.8125rem] pl-6">{faq.a}</p>
                 </div>
               ))}
             </div>
